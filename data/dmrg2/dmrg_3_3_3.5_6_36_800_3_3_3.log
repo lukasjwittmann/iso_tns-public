@@ -1,0 +1,355 @@
+Lx = 3, Ly = 3, g = 3.5, D_max = 6, chi_max_c = 36, chi_max_b = 800. 
+
+E0_exact = -64.88959145572433. 
+
+es = [-14.37963255  -9.65474012  -9.78137876  -9.9345565  -15.2133244 ].
+E = -58.96363234115995.
+E - E0 = 5.925959114564378.
+subtract energy E0_exact evenly from all columns.
+<iso_peps|psi0> = 0.869605074420574.
+
+
+DMRGSquared sweep 1 ...
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 35), (35, 6, 6, 800), (800, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 7.972083450000619 = 7.972083450000619.
+- C_updated leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 4.730188550355382e-15.
+- maximal number of matvec operations: 31.
+-> E_updated = 1.8627715626217556.
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 5, 6), (6, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 5, 5, 25), (25, 6, 6, 80), (80, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + 0.015248327412094843 + 1.8424875710663637 = 1.8577358984784587.
+- C_updated leg dimensions: [(1, 2, 5, 10), (10, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 2.7938161855448883e-15.
+- maximal number of matvec operations: 51.
+-> E_updated = 1.224169276066466.
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 4, 8), (8, 2, 4, 36), (36, 4, 4, 36), (36, 2, 6, 6), (6, 2, 6, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 4, 4, 9), (9, 2, 2, 3), (3, 2, 2, 1)].
+- Rh leg dimensions: [(1, 4, 4, 9), (9, 4, 4, 80), (80, 4, 4, 32), (32, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.18537921060216575 + -0.05358345926415065 + 1.468906776984217 = 1.2299441071179007.
+- C_updated leg dimensions: [(1, 2, 4, 8), (8, 2, 4, 36), (36, 4, 4, 36), (36, 2, 6, 12), (12, 2, 6, 1)].
+- largest Hermiticity error: 1.6736980325349117e-15.
+- maximal number of matvec operations: 61.
+-> E_updated = 0.49174845739735834.
+Orthogonality column 3:
+- C leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 2, 36), (36, 4, 4, 12), (12, 2, 6, 1)].
+- Lh leg dimensions: [(1, 4, 4, 8), (8, 4, 4, 80), (80, 4, 4, 13), (13, 4, 4, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 4, 4, 8), (8, 2, 2, 29), (29, 4, 4, 13), (13, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.4976681810223868 + -0.019025010394540222 + 1.0084422718592303 = 0.49174908044230325.
+- C_updated leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 2, 36), (36, 4, 4, 12), (12, 2, 6, 1)].
+- largest Hermiticity error: 6.479604369685061e-16.
+- maximal number of matvec operations: 71.
+-> E_updated = 0.08652636172496633.
+Orthogonality column 4:
+- C leg dimensions: [(1, 5, 2, 10), (10, 6, 2, 36), (36, 6, 2, 36), (36, 5, 2, 12), (12, 4, 4, 1)].
+- Lh leg dimensions: [(1, 5, 5, 25), (25, 6, 6, 81), (81, 6, 6, 136), (136, 5, 5, 9), (9, 4, 4, 1)].
+- Rh leg dimensions: [(1, 2, 2, 3), (3, 2, 2, 8), (8, 2, 2, 3), (3, 2, 2, 9), (9, 4, 4, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6739085116736375 + 0.07146748130339872 + 0.6889655756804601 = 0.08652454531022136.
+- C_updated leg dimensions: [(1, 5, 2, 10), (10, 6, 2, 36), (36, 6, 2, 36), (36, 5, 2, 16), (16, 4, 4, 1)].
+- largest Hermiticity error: 1.5161761050816639e-15.
+- maximal number of matvec operations: 101.
+-> E_updated = 2.686575786188488e-06.
+Orthogonality column 5:
+- C leg dimensions: [(1, 6, 1, 10), (10, 6, 2, 36), (36, 6, 1, 36), (36, 6, 2, 12), (12, 6, 2, 1)].
+- Lh leg dimensions: [(1, 6, 6, 35), (35, 6, 6, 800), (800, 6, 6, 137), (137, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6347587771780474 + 0.6347805418942379 + None = 2.1764716190530997e-05.
+- C_updated leg dimensions: [(1, 6, 1, 6), (6, 6, 2, 36), (36, 6, 1, 36), (36, 6, 2, 12), (12, 6, 2, 1)].
+- largest Hermiticity error: 2.3065952118587556e-15.
+- maximal number of matvec operations: 81.
+-> E_updated = 2.059055222224189e-05.
+Orthogonality column 6:
+- C leg dimensions: [(1, 6, 1, 6), (6, 6, 1, 36), (36, 6, 1, 36), (36, 6, 1, 12), (12, 6, 1, 1)].
+- Lh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 800), (800, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.940310775131097e-05 + None + None = 3.940310775131097e-05.
+- C_updated leg dimensions: [(1, 6, 1, 6), (6, 6, 1, 36), (36, 6, 1, 36), (36, 6, 1, 6), (6, 6, 1, 1)].
+- largest Hermiticity error: 3.732067169519929e-15.
+- maximal number of matvec operations: 61.
+-> E_updated = 3.8620155809178974e-05.
+Orthogonality column 5:
+- C leg dimensions: [(1, 6, 1, 6), (6, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 6), (6, 6, 2, 1)].
+- Lh leg dimensions: [(1, 6, 6, 35), (35, 6, 6, 800), (800, 6, 6, 137), (137, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6347454225604122 + 0.6347802287973452 + None = 3.480623693297158e-05.
+- C_updated leg dimensions: [(1, 6, 1, 6), (6, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 12), (12, 6, 2, 1)].
+- largest Hermiticity error: 2.0358293740687926e-15.
+- maximal number of matvec operations: 81.
+-> E_updated = 2.0291656019990534e-05.
+Orthogonality column 4:
+- C leg dimensions: [(1, 5, 2, 6), (6, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- Lh leg dimensions: [(1, 5, 5, 25), (25, 6, 6, 81), (81, 6, 6, 136), (136, 5, 5, 9), (9, 4, 4, 1)].
+- Rh leg dimensions: [(1, 2, 2, 3), (3, 2, 2, 9), (9, 4, 4, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6742528607931093 + 0.03949558572122652 + 0.6347767702828641 = 1.9495210981212985e-05.
+- C_updated leg dimensions: [(1, 5, 2, 10), (10, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- largest Hermiticity error: 1.5281328664646683e-15.
+- maximal number of matvec operations: 101.
+-> E_updated = 6.766227689477542e-07.
+Orthogonality column 3:
+- C leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- Lh leg dimensions: [(1, 4, 4, 8), (8, 4, 4, 80), (80, 4, 4, 13), (13, 4, 4, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 4, 4, 13), (13, 4, 4, 80), (80, 4, 4, 8), (8, 4, 4, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.5511463017843022 + -0.12312188088839543 + 0.6742688118072058 = 6.291345080455812e-07.
+- C_updated leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- largest Hermiticity error: 9.104505742017336e-16.
+- maximal number of matvec operations: 121.
+-> E_updated = 7.6550487799066e-08.
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 10), (10, 2, 5, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 4, 4, 9), (9, 2, 2, 3), (3, 2, 2, 1)].
+- Rh leg dimensions: [(1, 4, 4, 9), (9, 5, 5, 136), (136, 6, 6, 80), (80, 6, 6, 25), (25, 5, 5, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.2826996394057818 + -0.268449112775434 + 0.5511488341754729 = 8.199425716171049e-08.
+- C_updated leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 10), (10, 2, 5, 1)].
+- largest Hermiticity error: 1.4970010298222869e-15.
+- maximal number of matvec operations: 121.
+-> E_updated = 3.984746362522717e-08.
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 6, 12), (12, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 137), (137, 6, 6, 800), (800, 6, 6, 35), (35, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + -0.2826994385622864 + 0.2827009762323356 = 1.5376700491787076e-06.
+- C_updated leg dimensions: [(1, 2, 6, 12), (12, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 2.620220423123142e-15.
+- maximal number of matvec operations: 81.
+-> E_updated = 1.4927418878831743e-06.
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 800), (800, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 3.6540098171530788e-06 = 3.6540098171530788e-06.
+- C_updated leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 2.88711357575485e-15.
+- maximal number of matvec operations: 71.
+-> E_updated = 3.592418305335216e-06.
+=> <H> - E0 = 4.29972020299374e-06.
+=> <iso_peps0|psi0> = -0.9999999311289496.
+
+DMRGSquared sweep 2 ...
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 800), (800, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 3.59241830013954e-06 = 3.59241830013954e-06.
+- C_updated leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 2.6852712547870858e-15.
+- maximal number of matvec operations: 31.
+-> E_updated = 3.5924183023937943e-06.
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 6, 6), (6, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 137), (137, 6, 6, 800), (800, 6, 6, 35), (35, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + -0.28269804719235675 + 0.2827027637112745 = 4.716518917757817e-06.
+- C_updated leg dimensions: [(1, 2, 6, 12), (12, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 1.8337594397576017e-15.
+- maximal number of matvec operations: 81.
+-> E_updated = 1.4927418995128066e-06.
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 6), (6, 2, 5, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 4, 4, 9), (9, 2, 2, 3), (3, 2, 2, 1)].
+- Rh leg dimensions: [(1, 4, 4, 9), (9, 5, 5, 136), (136, 6, 6, 80), (80, 6, 6, 25), (25, 5, 5, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.28269941213223154 + -0.26844945628151407 + 0.5511504948274668 = 1.6264137212562702e-06.
+- C_updated leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 10), (10, 2, 5, 1)].
+- largest Hermiticity error: 1.0906210770260937e-15.
+- maximal number of matvec operations: 121.
+-> E_updated = 2.4524419421234014e-08.
+Orthogonality column 3:
+- C leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- Lh leg dimensions: [(1, 4, 4, 8), (8, 4, 4, 80), (80, 4, 4, 13), (13, 4, 4, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 4, 4, 13), (13, 4, 4, 80), (80, 4, 4, 8), (8, 4, 4, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.5511487962335174 + -0.12312027622312624 + 0.6742690941919172 = 2.173527346993609e-08.
+- C_updated leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- largest Hermiticity error: 5.389157964038493e-16.
+- maximal number of matvec operations: 131.
+-> E_updated = 3.5485239274381116e-09.
+Orthogonality column 4:
+- C leg dimensions: [(1, 5, 2, 10), (10, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- Lh leg dimensions: [(1, 5, 5, 25), (25, 6, 6, 80), (80, 6, 6, 136), (136, 5, 5, 10), (10, 4, 4, 1)].
+- Rh leg dimensions: [(1, 2, 2, 3), (3, 2, 2, 9), (9, 4, 4, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6742691442561864 + 0.0394893223182779 + 0.6347798319867457 = 1.0048837095766316e-08.
+- C_updated leg dimensions: [(1, 5, 2, 10), (10, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- largest Hermiticity error: 8.968100940422724e-16.
+- maximal number of matvec operations: 121.
+-> E_updated = 8.973064505055456e-09.
+Orthogonality column 5:
+- C leg dimensions: [(1, 6, 1, 10), (10, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 12), (12, 6, 2, 1)].
+- Lh leg dimensions: [(1, 6, 6, 35), (35, 6, 6, 800), (800, 6, 6, 137), (137, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.634779053778823 + 0.6347798970911579 + None = 8.433123348527971e-07.
+- C_updated leg dimensions: [(1, 6, 1, 6), (6, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 12), (12, 6, 2, 1)].
+- largest Hermiticity error: 1.520488837592186e-15.
+- maximal number of matvec operations: 91.
+-> E_updated = 8.278605378967483e-07.
+Orthogonality column 6:
+- C leg dimensions: [(1, 6, 1, 6), (6, 6, 1, 36), (36, 6, 1, 36), (36, 6, 1, 12), (12, 6, 1, 1)].
+- Lh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 800), (800, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 1.3176211161073751e-05 + None + None = 1.3176211161073751e-05.
+- C_updated leg dimensions: [(1, 6, 1, 6), (6, 6, 1, 36), (36, 6, 1, 36), (36, 6, 1, 6), (6, 6, 1, 1)].
+- largest Hermiticity error: 3.745666090146335e-15.
+- maximal number of matvec operations: 71.
+-> E_updated = 1.3073452251460248e-05.
+Orthogonality column 5:
+- C leg dimensions: [(1, 6, 1, 6), (6, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 6), (6, 6, 2, 1)].
+- Lh leg dimensions: [(1, 6, 6, 35), (35, 6, 6, 800), (800, 6, 6, 137), (137, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6347797558002589 + 0.6347826438193711 + None = 2.8880191121904986e-06.
+- C_updated leg dimensions: [(1, 6, 1, 6), (6, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 12), (12, 6, 2, 1)].
+- largest Hermiticity error: 1.6967262834264222e-15.
+- maximal number of matvec operations: 91.
+-> E_updated = 8.278605321528616e-07.
+Orthogonality column 4:
+- C leg dimensions: [(1, 5, 2, 6), (6, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- Lh leg dimensions: [(1, 5, 5, 25), (25, 6, 6, 80), (80, 6, 6, 136), (136, 5, 5, 10), (10, 4, 4, 1)].
+- Rh leg dimensions: [(1, 2, 2, 3), (3, 2, 2, 9), (9, 4, 4, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6742684951795894 + 0.03948956705775387 + 0.6347797166439203 = 7.885220847381191e-07.
+- C_updated leg dimensions: [(1, 5, 2, 10), (10, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- largest Hermiticity error: 8.331297329690976e-16.
+- maximal number of matvec operations: 121.
+-> E_updated = 8.264510352354591e-09.
+Orthogonality column 3:
+- C leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- Lh leg dimensions: [(1, 4, 4, 8), (8, 4, 4, 80), (80, 4, 4, 13), (13, 4, 4, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 4, 4, 13), (13, 4, 4, 78), (78, 4, 4, 8), (8, 4, 4, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.5511488006291055 + -0.12312034661817378 + 0.6742691545479886 = 7.300709370383629e-09.
+- C_updated leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- largest Hermiticity error: 7.434094663131952e-16.
+- maximal number of matvec operations: 121.
+-> E_updated = 2.403668994841803e-09.
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 10), (10, 2, 5, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 4, 4, 9), (9, 2, 2, 3), (3, 2, 2, 1)].
+- Rh leg dimensions: [(1, 4, 4, 9), (9, 5, 5, 136), (136, 6, 6, 80), (80, 6, 6, 25), (25, 5, 5, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.28269965488180415 + -0.2684491435413726 + 0.5511488092750947 = 1.0851917919829646e-08.
+- C_updated leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 10), (10, 2, 5, 1)].
+- largest Hermiticity error: 1.4602703977091184e-15.
+- maximal number of matvec operations: 121.
+-> E_updated = 9.697196504512226e-09.
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 6, 12), (12, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 137), (137, 6, 6, 800), (800, 6, 6, 35), (35, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + -0.28269956337527685 + 0.28269764717000817 = -1.9162052686816367e-06.
+- C_updated leg dimensions: [(1, 2, 6, 12), (12, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 1.9086877908141225e-15.
+- maximal number of matvec operations: 81.
+-> E_updated = -1.929643633742283e-06.
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 800), (800, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 5.574882102681977e-07 = 5.574882102681977e-07.
+- C_updated leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 5.292224827353514e-15.
+- maximal number of matvec operations: 71.
+-> E_updated = 5.262345880592095e-07.
+=> <H> - E0 = 2.5931840070825274e-06.
+=> <iso_peps0|psi0> = 0.99999995989582.
+
+DMRGSquared sweep 3 ...
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 800), (800, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 5.262345805230415e-07 = 5.262345805230415e-07.
+- C_updated leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 5.676541119866192e-15.
+- maximal number of matvec operations: 41.
+-> E_updated = 5.262345784110441e-07.
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 6, 6), (6, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 137), (137, 6, 6, 800), (800, 6, 6, 35), (35, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + -0.2826993772974192 + 0.2826994124056622 = 3.510824303498694e-08.
+- C_updated leg dimensions: [(1, 2, 6, 12), (12, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 2.3618347721471097e-15.
+- maximal number of matvec operations: 91.
+-> E_updated = -1.9296436028323705e-06.
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 6), (6, 2, 5, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 4, 4, 9), (9, 2, 2, 3), (3, 2, 2, 1)].
+- Rh leg dimensions: [(1, 4, 4, 9), (9, 5, 5, 136), (136, 6, 6, 80), (80, 6, 6, 25), (25, 5, 5, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.2826997441557843 + -0.2684487761686718 + 0.5511493703219691 = 8.499975129305781e-07.
+- C_updated leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 10), (10, 2, 5, 1)].
+- largest Hermiticity error: 1.3334236103572998e-15.
+- maximal number of matvec operations: 121.
+-> E_updated = 9.705155715361636e-09.
+Orthogonality column 3:
+- C leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- Lh leg dimensions: [(1, 4, 4, 8), (8, 4, 4, 80), (80, 4, 4, 13), (13, 4, 4, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 4, 4, 13), (13, 4, 4, 78), (78, 4, 4, 8), (8, 4, 4, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.5511487987828844 + -0.12312034401268457 + 0.6742691523540566 = 9.558487668037685e-09.
+- C_updated leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- largest Hermiticity error: 7.065416064076989e-16.
+- maximal number of matvec operations: 141.
+-> E_updated = 3.927297025649193e-09.
+Orthogonality column 4:
+- C leg dimensions: [(1, 5, 2, 10), (10, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- Lh leg dimensions: [(1, 5, 5, 25), (25, 6, 6, 80), (80, 6, 6, 136), (136, 5, 5, 9), (9, 4, 4, 1)].
+- Rh leg dimensions: [(1, 2, 2, 3), (3, 2, 2, 9), (9, 4, 4, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6742691417414678 + 0.039489321488266026 + 0.634779833995673 = 1.3742471161037884e-08.
+- C_updated leg dimensions: [(1, 5, 2, 10), (10, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- largest Hermiticity error: 9.129854762978412e-16.
+- maximal number of matvec operations: 121.
+-> E_updated = 1.2926119660257541e-08.
+Orthogonality column 5:
+- C leg dimensions: [(1, 6, 1, 10), (10, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 12), (12, 6, 2, 1)].
+- Lh leg dimensions: [(1, 6, 6, 35), (35, 6, 6, 800), (800, 6, 6, 137), (137, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6347778202873032 + 0.634779986673855 + None = 2.166386551816224e-06.
+- C_updated leg dimensions: [(1, 6, 1, 6), (6, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 12), (12, 6, 2, 1)].
+- largest Hermiticity error: 2.4464300307136878e-15.
+- maximal number of matvec operations: 81.
+-> E_updated = 2.1095403617973876e-06.
+Orthogonality column 6:
+- C leg dimensions: [(1, 6, 1, 6), (6, 6, 1, 36), (36, 6, 1, 36), (36, 6, 1, 12), (12, 6, 1, 1)].
+- Lh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 800), (800, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 5.996898721757646e-06 + None + None = 5.996898721757646e-06.
+- C_updated leg dimensions: [(1, 6, 1, 6), (6, 6, 1, 36), (36, 6, 1, 36), (36, 6, 1, 6), (6, 6, 1, 1)].
+- largest Hermiticity error: 5.2009682997406944e-15.
+- maximal number of matvec operations: 71.
+-> E_updated = 5.876067665566546e-06.
+Orthogonality column 5:
+- C leg dimensions: [(1, 6, 1, 6), (6, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 6), (6, 6, 2, 1)].
+- Lh leg dimensions: [(1, 6, 6, 35), (35, 6, 6, 800), (800, 6, 6, 137), (137, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6347753187093405 + 0.634780343815511 + None = 5.025106170508664e-06.
+- C_updated leg dimensions: [(1, 6, 1, 6), (6, 6, 2, 36), (36, 6, 2, 36), (36, 6, 1, 12), (12, 6, 2, 1)].
+- largest Hermiticity error: 2.6496037124974654e-15.
+- maximal number of matvec operations: 81.
+-> E_updated = 2.1095403784599647e-06.
+Orthogonality column 4:
+- C leg dimensions: [(1, 5, 2, 6), (6, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- Lh leg dimensions: [(1, 5, 5, 25), (25, 6, 6, 80), (80, 6, 6, 136), (136, 5, 5, 9), (9, 4, 4, 1)].
+- Rh leg dimensions: [(1, 2, 2, 3), (3, 2, 2, 9), (9, 4, 4, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.6742677803544664 + 0.039490228061983615 + 0.63477951605703 = 1.9637645471970444e-06.
+- C_updated leg dimensions: [(1, 5, 2, 10), (10, 6, 2, 36), (36, 6, 4, 36), (36, 5, 2, 8), (8, 4, 2, 1)].
+- largest Hermiticity error: 1.1339095338133984e-15.
+- maximal number of matvec operations: 121.
+-> E_updated = 1.3080910582356507e-08.
+Orthogonality column 3:
+- C leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- Lh leg dimensions: [(1, 4, 4, 8), (8, 4, 4, 80), (80, 4, 4, 13), (13, 4, 4, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 4, 4, 13), (13, 4, 4, 80), (80, 4, 4, 8), (8, 4, 4, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.5511487988926412 + -0.12312034371833835 + 0.6742691544489343 = 1.1837954727589306e-08.
+- C_updated leg dimensions: [(1, 4, 2, 8), (8, 4, 4, 36), (36, 4, 4, 36), (36, 4, 4, 8), (8, 2, 4, 1)].
+- largest Hermiticity error: 6.025261774537219e-16.
+- maximal number of matvec operations: 141.
+-> E_updated = 4.135414487250924e-09.
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 10), (10, 2, 5, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 4, 4, 9), (9, 2, 2, 3), (3, 2, 2, 1)].
+- Rh leg dimensions: [(1, 4, 4, 9), (9, 5, 5, 136), (136, 6, 6, 80), (80, 6, 6, 25), (25, 5, 5, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = -0.28269965731883495 + -0.26844913871146914 + 0.5511488133865002 = 1.7356196146955938e-08.
+- C_updated leg dimensions: [(1, 2, 4, 8), (8, 2, 5, 36), (36, 4, 6, 36), (36, 2, 6, 10), (10, 2, 5, 1)].
+- largest Hermiticity error: 8.777083671441752e-16.
+- maximal number of matvec operations: 121.
+-> E_updated = 1.495275888258303e-08.
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 6, 12), (12, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 137), (137, 6, 6, 800), (800, 6, 6, 35), (35, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + -0.28269951994143383 + 0.28270080138453707 = 1.2814431032404094e-06.
+- C_updated leg dimensions: [(1, 2, 6, 12), (12, 1, 6, 36), (36, 2, 6, 36), (36, 2, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 3.7258694339903e-15.
+- maximal number of matvec operations: 91.
+-> E_updated = 1.2652817197010344e-06.
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- Rh leg dimensions: [(1, 6, 6, 36), (36, 6, 6, 800), (800, 6, 6, 800), (800, 6, 6, 36), (36, 6, 6, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 2.352211914645872e-06 = 2.352211914645872e-06.
+- C_updated leg dimensions: [(1, 1, 6, 6), (6, 1, 6, 36), (36, 1, 6, 36), (36, 1, 6, 6), (6, 1, 6, 1)].
+- largest Hermiticity error: 5.468130171512079e-15.
+- maximal number of matvec operations: 71.
+-> E_updated = 2.3216384325368296e-06.
+=> <H> - E0 = 2.7878146511284285e-06.
+=> <iso_peps0|psi0> = -0.999999956175102.
+
+<H>s - E0 = [4.29972020e-06 2.59318401e-06 2.78781465e-06]
+<iso_peps0|psi0>s = [-0.99999993  0.99999996 -0.99999996]

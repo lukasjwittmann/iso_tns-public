@@ -1,0 +1,818 @@
+Lx = 6, Ly = 6, g = 3.0, D_max = 6, chi_max_c = 36, zeroE = True. 
+
+E = sum_n <iso_peps|h_n|iso_peps> = sum_n [1.01272145e-15 2.45193053e-13 5.46112965e-14 6.73090199e-13
+ 8.84047762e-13 2.54725269e-13 3.98083282e-13 3.82659182e-13
+ 9.90759558e-13 8.81495319e-13 1.40260026e-12] 
+  = 6.168277900858797e-12. 
+
+chi_max_b = 24, combine_hs = False.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.396161646547156e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.0642089885132e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.4744475325338306e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 8.142110424601614e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.85105805642328e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.221256653857168e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.5354106396427977e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 7.15963505753785e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.5729612382500718e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.0264295755441827e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.160424433015997e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 3.8067635631606697e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 7.777959600449089e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 9.077551009322908e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 5.077856176244029e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.259929094365514e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 9.636867523554088e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 4.513137712848368e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.147423148276734e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.4748732395801428e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.5291828915431453e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.535044072556715e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.8787853665533873e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.1127636512767583e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 7.244849518405808e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 4.7095808054422066e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 4.694422191638424e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.7257307479550727e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 4.795406956456617e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.2783989728033356e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 7.760026460415345e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 3.2153248836468444e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.5007729743817236e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.6726871776836065e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.08690851591739e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 5.364176466232603e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 8.405039695395624e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 3.6777503584881555e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.448890159649971e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 3.6996347145127544e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 3.611570855366787e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.3399116107441062e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 8.914662963963949e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 3.588964290392792e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.3264107286582326e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.0401840985963104e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.760242524014622e-06).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.4068752423777272e-06).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 4.1049534307774854e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 7.057161923880307e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.3300313261921993e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.860072982023021e-07).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 6.949497151668618e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 5.056176963766479e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.9409602019779333e-08).
+Lh leg dimensions:
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+Lh truncation errors:
+- [0.00000000e+00 2.70900581e-07 0.00000000e+00 3.17177537e-07
+ 0.00000000e+00 5.09839064e-07 0.00000000e+00 1.76024252e-06
+ 0.00000000e+00 2.37360857e-13]
+- [0.00000000e+00 6.32362799e-07 0.00000000e+00 1.40687524e-06
+ 0.00000000e+00 5.99352718e-07 0.00000000e+00 7.70352713e-07
+ 0.00000000e+00 1.06843185e-13]
+- [0.00000000e+00 3.75707484e-08 0.00000000e+00 2.70701542e-08
+ 0.00000000e+00 5.61903341e-08 0.00000000e+00 4.10495343e-07
+ 0.00000000e+00 2.54217651e-12]
+- [0.00000000e+00 3.96516978e-08 0.00000000e+00 5.50839954e-08
+ 0.00000000e+00 8.58129377e-08 0.00000000e+00 7.05716192e-07
+ 0.00000000e+00 2.16474357e-13]
+- [0.00000000e+00 4.38689581e-08 0.00000000e+00 6.44596602e-08
+ 0.00000000e+00 6.75695099e-08 0.00000000e+00 2.33003133e-07
+ 0.00000000e+00 4.86025906e-13]
+- [0.00000000e+00 1.84029967e-08 0.00000000e+00 1.44341064e-08
+ 0.00000000e+00 2.60328931e-08 0.00000000e+00 1.86007298e-07
+ 0.00000000e+00 1.27028820e-14]
+- [0.00000000e+00 2.72916966e-08 0.00000000e+00 5.41761000e-08
+ 0.00000000e+00 2.35825911e-08 0.00000000e+00 6.94949715e-08
+ 0.00000000e+00 7.66689068e-15]
+- [0.00000000e+00 3.24786220e-09 0.00000000e+00 8.07456484e-09
+ 0.00000000e+00 2.26533146e-08 0.00000000e+00 5.05617696e-08
+ 0.00000000e+00 8.52534684e-15]
+- [0.00000000e+00 2.93400147e-09 0.00000000e+00 5.39933954e-09
+ 0.00000000e+00 1.94096020e-08 0.00000000e+00 1.40041706e-08
+ 0.00000000e+00 4.91448846e-15]
+- [4.50412060e-14 1.25627902e-09 9.24210425e-11 2.26489090e-09
+ 1.02904941e-09 6.90859660e-09 2.54844705e-09 1.04018410e-08
+ 4.99640811e-10 1.30507969e-14]
+-> EL = sum_n <Lh_n|CC*> = 0.013810888159037877.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.013810888160440477.
+=> deltaE_bc = 0.0138108881542722.
+chi_max_b = 24, combine_hs = True.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.396161646547156e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 7.754456749473025e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 3.622790978182672e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 3.664096318288727e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 2.717479425788975e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 3.4554676803417006e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 4.985915112964588e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 1.754819287972643e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 6.918012879776723e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 24 for Bh (maximal truncation error: 4.4075158033429925e-09).
+Lh leg dimensions:
+- [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 4, 4, 12), (12, 2, 2, 24), (24, 2, 2, 12), (12, 2, 2, 24), (24, 2, 2, 12), (12, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 2, 2, 24), (24, 4, 4, 24), (24, 2, 2, 24), (24, 4, 4, 24), (24, 4, 4, 24), (24, 4, 4, 24), (24, 4, 4, 24), (24, 2, 2, 24), (24, 4, 4, 4), (4, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 4, 4, 24), (24, 4, 4, 24), (24, 4, 4, 24), (24, 5, 5, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 5, 5, 24), (24, 4, 4, 24), (24, 4, 4, 24), (24, 4, 4, 1)]
+- [(1, 6, 6, 24), (24, 5, 5, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 5, 5, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+- [(1, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 24), (24, 6, 6, 1)]
+Lh truncation errors:
+- [0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00 2.39615924e-31 0.00000000e+00
+ 2.39616165e-31 0.00000000e+00]
+- [0.00000000e+00 8.83226520e-21 0.00000000e+00 1.78828639e-30
+ 3.59400701e-31 7.75445675e-16 1.09823147e-31 6.85987228e-29
+ 1.09979206e-31 0.00000000e+00]
+- [0.00000000e+00 2.05390580e-17 3.62279098e-12 4.38586701e-24
+ 5.86641493e-13 8.67350143e-16 2.50901918e-12 5.15384177e-25
+ 1.40324235e-16 2.79549907e-31]
+- [5.27772909e-14 2.10740932e-11 1.08820631e-13 4.17566428e-12
+ 3.56393734e-13 1.18076918e-11 5.12104271e-12 3.66409632e-11
+ 1.23722544e-13 3.94354805e-23]
+- [7.59691246e-20 2.71747943e-10 1.51548679e-10 1.17717421e-11
+ 1.54133753e-11 7.92017348e-12 2.39012429e-11 4.31253401e-13
+ 1.13363907e-13 3.04526903e-18]
+- [7.55461185e-16 3.58509134e-11 5.68332399e-12 1.95674917e-11
+ 3.07376209e-12 9.96492844e-11 7.96252041e-11 3.45546768e-10
+ 9.07426986e-12 3.68733783e-19]
+- [2.62262600e-19 1.42529182e-10 4.98591511e-10 9.15970133e-11
+ 2.24730941e-10 1.43044685e-11 1.74604712e-10 1.41908499e-11
+ 1.38513073e-11 4.67359804e-17]
+- [9.32622745e-16 1.23879836e-10 2.97581898e-11 2.70494032e-10
+ 4.84996363e-11 8.24300222e-10 1.91434505e-10 1.75481929e-09
+ 1.30624700e-10 1.42885538e-17]
+- [1.52128924e-19 6.27107289e-10 6.91801288e-09 2.98399299e-10
+ 1.66374697e-09 3.50365609e-10 4.77715570e-10 8.66065438e-11
+ 4.73444975e-10 5.03632048e-15]
+- [1.59255780e-14 2.27558634e-09 1.91301139e-10 1.48041275e-09
+ 2.86915284e-10 1.96180839e-09 4.72215946e-10 4.40751580e-09
+ 8.87010212e-10 1.31102430e-15]
+-> EL = <Lh|CC*> = 0.01866670851103773.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.01866670851244033.
+=> deltaE_bcc = 0.018666708506272053. 
+
+chi_max_b = 54, combine_hs = False.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.3677613231976292e-30).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 6.937596343734885e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.3950304083512645e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.5370058458070493e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 5.309267707780971e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 7.485618415215826e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 5.973911812351621e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 7.43805451638784e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 7.033281284719008e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.074742831558265e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 2.488439256732141e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 5.012713324802027e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 5.3495195965745136e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 4.320338590425876e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.8833634740065946e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.501853232859503e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 4.397043512444812e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.3818496764338555e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 2.920939998218013e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.9046759558938856e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 6.3297778569458745e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.263016077043922e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.1354801101487202e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.0403816143879502e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.607132133938684e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.6222882761286992e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 8.132691641437716e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 2.7226472721765615e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 9.945693361277673e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.4518326677682947e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.1545565575283917e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.1241543309321227e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.0153385607974577e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 9.12178058767764e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 4.1203339385277044e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.0035137388213537e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 4.1946453670323676e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 4.056256660789532e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 4.904465952465686e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 4.050405815402467e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 5.219906941691645e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.551295719349768e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.077772688557951e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.4373039619597857e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.5575296068741512e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.117385956996737e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 2.986471302379104e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 2.3647281107596197e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.256786843405378e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.0566573561653443e-08).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 8.20026752291882e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 6.121534685966702e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 5.4204000215849795e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 2.988356194774563e-09).
+Lh leg dimensions:
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+Lh truncation errors:
+- [0.00000000e+00 1.38941651e-09 0.00000000e+00 1.30035676e-09
+ 0.00000000e+00 3.04272623e-09 0.00000000e+00 3.11738596e-08
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 4.68175785e-09 0.00000000e+00 5.02094934e-09
+ 0.00000000e+00 4.34601915e-09 0.00000000e+00 2.98647130e-08
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.56129043e-09 0.00000000e+00 2.78654565e-09
+ 0.00000000e+00 4.71513654e-09 0.00000000e+00 2.36472811e-08
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 7.16484347e-10 0.00000000e+00 2.69457439e-09
+ 0.00000000e+00 5.27960263e-09 0.00000000e+00 3.25678684e-08
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 4.23596976e-10 0.00000000e+00 1.41698561e-09
+ 0.00000000e+00 2.85665172e-09 0.00000000e+00 1.05665736e-08
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 3.84021300e-10 0.00000000e+00 1.02138389e-09
+ 0.00000000e+00 2.98331203e-09 0.00000000e+00 8.20026752e-09
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.91624634e-10 0.00000000e+00 1.07582261e-09
+ 0.00000000e+00 1.68935238e-09 0.00000000e+00 6.12153469e-09
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 7.91583924e-11 0.00000000e+00 7.47289142e-10
+ 0.00000000e+00 2.79630311e-09 0.00000000e+00 5.42040002e-09
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 9.04986466e-11 0.00000000e+00 5.92400336e-10
+ 0.00000000e+00 1.94670491e-09 0.00000000e+00 2.98835619e-09
+ 0.00000000e+00 0.00000000e+00]
+- [5.29191090e-31 1.82865652e-11 3.93672905e-14 5.23956915e-11
+ 7.27167243e-13 1.55752961e-10 1.70740194e-12 1.47190957e-10
+ 2.34316004e-13 0.00000000e+00]
+-> EL = sum_n <Lh_n|CC*> = 0.010915920427671729.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.010915920429074329.
+=> deltaE_bc = 0.010915920422906051.
+chi_max_b = 54, combine_hs = True.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.5367251511224505e-28).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 4.764401993083733e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 2.572699600992286e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.4544258954186363e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.995309420792985e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 1.6282166108730624e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 8.575809785676004e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 3.646492736313149e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 54 for Bh (maximal truncation error: 7.089750721096072e-10).
+Lh leg dimensions:
+- [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 4, 4, 12), (12, 2, 2, 48), (48, 2, 2, 12), (12, 2, 2, 48), (48, 2, 2, 12), (12, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 2, 2, 54), (54, 4, 4, 24), (24, 2, 2, 54), (54, 4, 4, 54), (54, 4, 4, 54), (54, 4, 4, 54), (54, 4, 4, 54), (54, 2, 2, 54), (54, 4, 4, 4), (4, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 4, 4, 54), (54, 4, 4, 54), (54, 4, 4, 54), (54, 5, 5, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 5, 5, 54), (54, 4, 4, 54), (54, 4, 4, 52), (52, 4, 4, 1)]
+- [(1, 6, 6, 54), (54, 5, 5, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 25), (25, 5, 5, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 1)]
+- [(1, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 1)]
+- [(1, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 1)]
+- [(1, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 54), (54, 6, 6, 36), (36, 6, 6, 1)]
+Lh truncation errors:
+- [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+- [0.00000000e+00 8.99663839e-32 0.00000000e+00 4.10442957e-31
+ 5.99001303e-32 3.53672515e-28 5.06100101e-32 1.60899331e-30
+ 4.99075302e-32 0.00000000e+00]
+- [0.00000000e+00 1.10011759e-31 1.81254862e-17 1.19795534e-31
+ 3.00668783e-17 2.98672841e-27 4.76440199e-16 4.78970530e-31
+ 7.49617128e-22 0.00000000e+00]
+- [9.02066247e-32 2.57269960e-13 1.89132597e-18 6.00271155e-15
+ 2.25304812e-16 3.37857479e-14 6.16833818e-16 6.39014382e-14
+ 1.08529369e-18 0.00000000e+00]
+- [0.00000000e+00 1.45442590e-12 1.06008836e-12 2.12801974e-14
+ 8.05795588e-14 1.69436314e-14 1.57802201e-13 1.07762222e-15
+ 4.13842132e-16 7.78805106e-31]
+- [8.88587357e-31 3.32552503e-13 1.82229598e-14 1.30058611e-13
+ 9.10338690e-15 7.92357429e-13 3.59836521e-13 3.99530942e-12
+ 3.31858440e-14 0.00000000e+00]
+- [0.00000000e+00 1.83098895e-12 1.62821661e-11 4.53950051e-13
+ 2.20369770e-12 1.24626376e-13 1.37323987e-12 7.86439600e-14
+ 1.43629789e-13 8.93629914e-31]
+- [8.86935131e-31 2.17355410e-12 3.56539246e-13 6.40531993e-12
+ 2.14340797e-13 2.43225334e-11 1.57751936e-12 8.57580979e-11
+ 1.97011645e-12 0.00000000e+00]
+- [0.00000000e+00 1.14200159e-11 3.64649274e-10 4.19906326e-12
+ 1.14163811e-10 3.35203539e-12 3.06146434e-11 1.16052552e-12
+ 6.24426003e-12 6.19603698e-31]
+- [5.26187924e-31 3.01940865e-11 3.69551365e-12 9.77194541e-11
+ 7.95750243e-12 3.65166958e-10 1.44374262e-11 7.08975072e-10
+ 2.40901142e-11 0.00000000e+00]
+-> EL = <Lh|CC*> = 0.012851840666115893.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.012851840667518493.
+=> deltaE_bcc = 0.012851840661350216. 
+
+chi_max_b = 96, combine_hs = False.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 9.484518525894124e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 9.584390126827946e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.1021978926023493e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 2.0286844842783307e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 5.451319992656264e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.1968690934940844e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.7251237482767403e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 2.5237114187837296e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 2.2917546127154538e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.1967923481183698e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 3.4108195591223376e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 7.791642306673197e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 7.931887093377624e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 4.789558946535966e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.1966920546277022e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.3409111370634989e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.2792787008232146e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.0111136234831351e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 7.726480732850957e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 5.030909203249918e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.196596047009496e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 6.559600337792642e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 7.2454325294932055e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 7.0933503371625326e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 9.98141298594511e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 8.038798533982244e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 3.770347052904485e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.1965266632050975e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 8.279939579210394e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.5437738772109373e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.138193596746526e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.0823657108414157e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 7.329399872990268e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 6.754748714513964e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 2.9133297423755546e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.1964594925827715e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 3.9387719601656486e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 4.0572120624523243e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 4.9726855940555e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 4.16925479237721e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 5.921072133822773e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 3.976984737574019e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 2.9966345001337385e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.181709407030009e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.1966266823396738e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.825572817451169e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 2.0170585585096433e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.7265731781420184e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.4841332427994959e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 7.295979039450443e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 8.52221116333391e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 6.655280445047134e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 5.363359758623567e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 2.6025249286504493e-10).
+Lh leg dimensions:
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+Lh truncation errors:
+- [0.00000000e+00 4.39042052e-11 0.00000000e+00 3.57928887e-11
+ 0.00000000e+00 1.50390811e-10 0.00000000e+00 1.82557282e-09
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 5.91354741e-11 0.00000000e+00 6.10757664e-11
+ 0.00000000e+00 2.52778388e-10 0.00000000e+00 2.01705856e-09
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 4.12579244e-11 0.00000000e+00 8.03683354e-11
+ 0.00000000e+00 3.63853112e-10 0.00000000e+00 1.72657318e-09
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.98959869e-11 0.00000000e+00 8.18125932e-11
+ 0.00000000e+00 2.44914770e-10 0.00000000e+00 1.48413324e-09
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.72443590e-11 0.00000000e+00 6.87887766e-11
+ 0.00000000e+00 1.89069317e-10 0.00000000e+00 7.29597904e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 2.01478110e-11 0.00000000e+00 6.52866829e-11
+ 0.00000000e+00 2.82053817e-10 0.00000000e+00 8.52221116e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.40742086e-11 0.00000000e+00 7.75731288e-11
+ 0.00000000e+00 2.26810442e-10 0.00000000e+00 6.65528045e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 7.54819844e-12 0.00000000e+00 6.21998163e-11
+ 0.00000000e+00 3.59410635e-10 0.00000000e+00 5.36335976e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 5.65561276e-12 0.00000000e+00 4.03995247e-11
+ 0.00000000e+00 2.05513043e-10 0.00000000e+00 2.60252493e-10
+ 0.00000000e+00 0.00000000e+00]
+- [1.10156760e-31 1.19598491e-29 1.09796471e-31 1.19569919e-29
+ 1.18318147e-31 1.19662668e-29 1.09735332e-31 1.19587066e-29
+ 1.09609192e-31 0.00000000e+00]
+-> EL = sum_n <Lh_n|CC*> = 0.009595313350693828.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.009595313352096428.
+=> deltaE_bc = 0.00959531334592815.
+chi_max_b = 96, combine_hs = True.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 2.8562065020426187e-30).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 6.31112399697816e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 7.456034976585098e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 2.7944500287963383e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 1.1235056901142534e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 9.71053552871993e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 7.415245425403829e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 3.1000353130930277e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 96 for Bh (maximal truncation error: 8.264123200009881e-11).
+Lh leg dimensions:
+- [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 4, 4, 12), (12, 2, 2, 48), (48, 2, 2, 12), (12, 2, 2, 48), (48, 2, 2, 12), (12, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 2, 2, 64), (64, 4, 4, 24), (24, 2, 2, 96), (96, 4, 4, 60), (60, 4, 4, 96), (96, 4, 4, 60), (60, 4, 4, 96), (96, 2, 2, 60), (60, 4, 4, 4), (4, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 4, 4, 76), (76, 4, 4, 96), (96, 4, 4, 96), (96, 5, 5, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 5, 5, 96), (96, 4, 4, 96), (96, 4, 4, 52), (52, 4, 4, 1)]
+- [(1, 6, 6, 64), (64, 5, 5, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 25), (25, 5, 5, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 1)]
+- [(1, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 1)]
+- [(1, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 1)]
+- [(1, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 96), (96, 6, 6, 36), (36, 6, 6, 1)]
+Lh truncation errors:
+- [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+- [0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 2.85620650e-30 0.00000000e+00 1.42866626e-30
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 0.00000000e+00 3.75331321e-23 1.19795521e-31
+ 5.60558100e-21 4.75051609e-31 6.31112400e-20 4.79222332e-31
+ 7.34823101e-30 0.00000000e+00]
+- [0.00000000e+00 7.45603498e-15 1.35163634e-23 2.86779036e-17
+ 5.04471004e-21 2.94347330e-16 1.95589876e-19 2.39650864e-16
+ 4.66597186e-31 0.00000000e+00]
+- [0.00000000e+00 2.79445003e-14 1.36111839e-14 2.80860554e-17
+ 2.29623206e-15 4.65743500e-17 3.27916706e-15 1.69449391e-18
+ 2.94121174e-18 3.59895340e-31]
+- [4.69250480e-31 1.70755934e-14 1.36107446e-16 2.35482075e-15
+ 3.96889248e-17 1.74640452e-14 1.73548907e-15 1.12350569e-13
+ 1.08098413e-16 0.00000000e+00]
+- [0.00000000e+00 3.07478246e-14 9.71053553e-13 2.73051215e-15
+ 9.79408882e-14 1.17574614e-15 5.70251221e-14 8.22950933e-16
+ 3.39611158e-15 4.76657632e-31]
+- [4.78344240e-31 1.32556394e-13 9.24664190e-15 2.40933276e-13
+ 3.52197221e-15 1.64077742e-12 1.90946232e-14 7.41524543e-12
+ 1.59034401e-14 0.00000000e+00]
+- [0.00000000e+00 2.20467375e-13 3.10003531e-11 8.99699401e-14
+ 7.37167934e-12 7.51542143e-14 2.43705568e-12 3.08729564e-14
+ 2.24515809e-13 3.30087970e-31]
+- [2.83411603e-31 1.59104717e-12 1.52701208e-13 7.97092604e-12
+ 2.47533397e-13 2.89701379e-11 2.91435632e-13 8.26412320e-11
+ 7.78914592e-13 0.00000000e+00]
+-> EL = <Lh|CC*> = 0.009961240424349623.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.009961240425752223.
+=> deltaE_bcc = 0.009961240419583945. 
+
+chi_max_b = 150, combine_hs = False.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 4.093396760931338e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 4.1931706804872265e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.0482860391598433e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.1859377113323385e-24).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.0483001400184955e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.1429650669683631e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 3.7352800644031273e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 5.964424300178716e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 4.2003403252485933e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.1428917710795402e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.0098276720046605e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 2.2189785319862834e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 2.09632941969252e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 8.428211206151848e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.1427960873246587e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 7.958275481193311e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 7.949033108085906e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 6.134670305003628e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 4.854836527562158e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 2.1911921337703023e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.1427043351446968e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 6.622030397015288e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 7.179526035558534e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 7.001507563555615e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 9.213748626526012e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 6.463779217487187e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 2.2109051558963494e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.1426313712641247e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 9.679272285500969e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.658336465889694e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.2428808323178709e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.2111615933669401e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 7.750266187282511e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 6.723090883404855e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 2.4123658639626676e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.1425908998396366e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 6.601177888184495e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 6.744918253400823e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 7.734184798904197e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 6.309555995346268e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 9.713990779851313e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 5.880175748180711e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 4.214163433650689e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.3425820011871486e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.1427334453701019e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 3.3325032725192856e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 3.570695303736318e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 3.033887886000063e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 2.497221409520369e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.232722517388833e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.4392052209233883e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.1004791323053585e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 8.976947600454253e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 3.7612683923852795e-11).
+Lh leg dimensions:
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 108), (108, 6, 6, 150), (150, 6, 6, 108), (108, 6, 6, 150), (150, 6, 6, 108), (108, 6, 6, 150), (150, 6, 6, 108), (108, 6, 6, 150), (150, 6, 6, 108), (108, 6, 6, 36), (36, 6, 6, 1)]
+Lh truncation errors:
+- [0.00000000e+00 1.48637746e-11 0.00000000e+00 7.86928128e-12
+ 0.00000000e+00 3.04407361e-11 0.00000000e+00 3.33250327e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.74370193e-11 0.00000000e+00 1.52933277e-11
+ 0.00000000e+00 6.27205828e-11 0.00000000e+00 3.57069530e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.07086406e-11 0.00000000e+00 1.91468096e-11
+ 0.00000000e+00 7.97697836e-11 0.00000000e+00 3.03388789e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 5.62542094e-12 0.00000000e+00 1.97753418e-11
+ 0.00000000e+00 4.72945952e-11 0.00000000e+00 2.49722141e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 4.32509647e-12 0.00000000e+00 1.57139094e-11
+ 0.00000000e+00 3.73909622e-11 0.00000000e+00 1.23272252e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 4.82646875e-12 0.00000000e+00 1.15318161e-11
+ 0.00000000e+00 5.54431877e-11 0.00000000e+00 1.43920522e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 3.61067987e-12 0.00000000e+00 1.33635100e-11
+ 0.00000000e+00 4.64963568e-11 0.00000000e+00 1.10047913e-10
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.95652256e-12 0.00000000e+00 1.01763495e-11
+ 0.00000000e+00 7.09648298e-11 0.00000000e+00 8.97694760e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.04178094e-12 0.00000000e+00 6.12445489e-12
+ 0.00000000e+00 3.15407563e-11 0.00000000e+00 3.76126839e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.14218841e-29 0.00000000e+00 1.14182423e-29
+ 0.00000000e+00 1.14273345e-29 0.00000000e+00 1.14194188e-29
+ 0.00000000e+00 0.00000000e+00]
+-> EL = sum_n <Lh_n|CC*> = 0.009185549891719543.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.009185549893122143.
+=> deltaE_bc = 0.009185549886953866.
+chi_max_b = 150, combine_hs = True.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 2.3242500481792958e-30).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.3822585410925364e-24).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.4671402147076205e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 6.462241662052452e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 6.89944638345136e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 9.918021563486482e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 7.575465759448692e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 5.2025989543812e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 150 for Bh (maximal truncation error: 1.3264070510721416e-11).
+Lh leg dimensions:
+- [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 4, 4, 12), (12, 2, 2, 48), (48, 2, 2, 12), (12, 2, 2, 48), (48, 2, 2, 12), (12, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 2, 2, 64), (64, 4, 4, 24), (24, 2, 2, 96), (96, 4, 4, 60), (60, 4, 4, 150), (150, 4, 4, 60), (60, 4, 4, 150), (150, 2, 2, 60), (60, 4, 4, 4), (4, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 4, 4, 76), (76, 4, 4, 150), (150, 4, 4, 108), (108, 5, 5, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 5, 5, 150), (150, 4, 4, 150), (150, 4, 4, 52), (52, 4, 4, 1)]
+- [(1, 6, 6, 64), (64, 5, 5, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 25), (25, 5, 5, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 133), (133, 6, 6, 1)]
+- [(1, 6, 6, 144), (144, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 144), (144, 6, 6, 1)]
+- [(1, 6, 6, 144), (144, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 144), (144, 6, 6, 1)]
+- [(1, 6, 6, 144), (144, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 150), (150, 6, 6, 36), (36, 6, 6, 1)]
+Lh truncation errors:
+- [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+- [0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 2.32425005e-30 0.00000000e+00 8.89541494e-31
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 0.00000000e+00 1.18634111e-29 0.00000000e+00
+ 5.99492997e-25 4.72648450e-31 1.38225854e-24 4.79222303e-31
+ 6.80909450e-30 0.00000000e+00]
+- [0.00000000e+00 1.46714021e-16 7.19043373e-29 2.45565684e-19
+ 3.51030924e-25 4.57228708e-18 1.63013612e-24 1.74768762e-18
+ 4.79086715e-31 0.00000000e+00]
+- [0.00000000e+00 6.46224166e-16 3.34604325e-16 1.93200564e-19
+ 7.25600448e-17 4.43044672e-19 7.30586216e-17 1.76971469e-20
+ 5.30905891e-20 0.00000000e+00]
+- [0.00000000e+00 8.42958962e-16 3.51259284e-18 9.73566386e-17
+ 7.42577144e-19 9.04027827e-16 3.71067198e-17 6.89944638e-15
+ 8.26720419e-19 0.00000000e+00]
+- [0.00000000e+00 1.23335110e-15 9.91802156e-14 8.88692036e-17
+ 7.00979321e-15 2.83617960e-17 4.42198929e-15 2.19876134e-17
+ 1.33823558e-16 0.00000000e+00]
+- [0.00000000e+00 1.92230218e-14 4.65693689e-16 2.94144365e-14
+ 1.31456103e-16 1.93147919e-13 8.86870595e-16 7.57546576e-13
+ 6.68552461e-16 0.00000000e+00]
+- [0.00000000e+00 1.28396099e-14 5.20259895e-12 5.06649624e-15
+ 1.03247729e-12 4.54882558e-15 3.28769379e-13 2.04252482e-15
+ 3.46739915e-14 0.00000000e+00]
+- [0.00000000e+00 3.56852124e-13 1.07269800e-14 1.22357426e-12
+ 1.76053937e-14 5.37805639e-12 2.27892761e-14 1.32640705e-11
+ 5.59435361e-14 0.00000000e+00]
+-> EL = <Lh|CC*> = 0.009311272072408545.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.009311272073811145.
+=> deltaE_bcc = 0.009311272067642868. 
+
+chi_max_b = 216, combine_hs = False.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 9.823937738412231e-30).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.5401162354476186e-28).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 9.824069883704936e-30).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.0770823668407403e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 4.168898863788013e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 6.811082578252675e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 4.222867835743311e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.0770133013339134e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 4.469569602239521e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 9.228247282442895e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 8.007312877666301e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.4786812868017487e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.0769230541249446e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 4.6969056288361454e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 5.113080029076685e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 3.84712190659706e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.8716223582341166e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.070093893848983e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.076836662399139e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 8.25778057425009e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 9.034233206028062e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 9.219212340123773e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.052826497545401e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 7.110375172989456e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.941836981095991e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.0767130009288315e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.7181953452050689e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.7013754280812576e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.0752350342195753e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.96148417376908e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.1299928634790554e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 9.918267033516778e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.9567149895473507e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.0767265158536778e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.541447529652426e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.524422971621513e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.7078147234503213e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.4636131168411113e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.1918496357869192e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.1741575294142842e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 7.9688291174471e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.123625219803456e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.0768630826847495e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 7.595602132864892e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 8.046222050999874e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 6.440966627509834e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 5.297766193625233e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.745053073732755e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 3.0704846923682334e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.1538524436167876e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.860026549083736e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 7.585673683244832e-12).
+Lh leg dimensions:
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 108), (108, 6, 6, 216), (216, 6, 6, 108), (108, 6, 6, 216), (216, 6, 6, 108), (108, 6, 6, 216), (216, 6, 6, 108), (108, 6, 6, 216), (216, 6, 6, 108), (108, 6, 6, 36), (36, 6, 6, 1)]
+Lh truncation errors:
+- [0.00000000e+00 5.40717672e-12 0.00000000e+00 3.03792069e-12
+ 0.00000000e+00 9.71833555e-12 0.00000000e+00 7.59560213e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 4.68338235e-12 0.00000000e+00 5.52754499e-12
+ 0.00000000e+00 2.28057569e-11 0.00000000e+00 8.04622205e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 2.79860582e-12 0.00000000e+00 7.48936441e-12
+ 0.00000000e+00 2.50692787e-11 0.00000000e+00 6.44096663e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.44494326e-12 0.00000000e+00 7.00865523e-12
+ 0.00000000e+00 1.42200924e-11 0.00000000e+00 5.29776619e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.01671507e-12 0.00000000e+00 5.42998394e-12
+ 0.00000000e+00 1.12005277e-11 0.00000000e+00 2.74505307e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.05884557e-12 0.00000000e+00 3.92911934e-12
+ 0.00000000e+00 1.46655219e-11 0.00000000e+00 3.07048469e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 8.48960563e-13 0.00000000e+00 4.52855024e-12
+ 0.00000000e+00 1.32063057e-11 0.00000000e+00 2.15385244e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 4.42390260e-13 0.00000000e+00 3.35591570e-12
+ 0.00000000e+00 1.86002655e-11 0.00000000e+00 1.58564920e-11
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 2.06282354e-13 0.00000000e+00 1.64121735e-12
+ 0.00000000e+00 7.58567368e-12 0.00000000e+00 5.44870541e-12
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 1.07631008e-29 0.00000000e+00 1.07596094e-29
+ 0.00000000e+00 1.07686308e-29 0.00000000e+00 1.07608411e-29
+ 0.00000000e+00 0.00000000e+00]
+-> EL = sum_n <Lh_n|CC*> = 0.009020912253127782.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.009020912254530382.
+=> deltaE_bc = 0.009020912248362104.
+chi_max_b = 216, combine_hs = True.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 0.0).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.6696624082755604e-30).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 3.3610215579231247e-29).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.8440720809318825e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.3170996973660406e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 4.174231349058563e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.1461098837213071e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.178385849164476e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 1.1721851342726061e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 216 for Bh (maximal truncation error: 2.5701697370710673e-12).
+Lh leg dimensions:
+- [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 4, 4, 12), (12, 2, 2, 48), (48, 2, 2, 12), (12, 2, 2, 48), (48, 2, 2, 12), (12, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 2, 2, 64), (64, 4, 4, 24), (24, 2, 2, 96), (96, 4, 4, 60), (60, 4, 4, 216), (216, 4, 4, 60), (60, 4, 4, 216), (216, 2, 2, 60), (60, 4, 4, 4), (4, 2, 2, 1)]
+- [(1, 4, 4, 16), (16, 4, 4, 76), (76, 4, 4, 216), (216, 4, 4, 108), (108, 5, 5, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 5, 5, 216), (216, 4, 4, 216), (216, 4, 4, 52), (52, 4, 4, 1)]
+- [(1, 6, 6, 64), (64, 5, 5, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 25), (25, 5, 5, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 133), (133, 6, 6, 1)]
+- [(1, 6, 6, 144), (144, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 144), (144, 6, 6, 1)]
+- [(1, 6, 6, 144), (144, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+- [(1, 6, 6, 36), (36, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 144), (144, 6, 6, 1)]
+- [(1, 6, 6, 144), (144, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 216), (216, 6, 6, 36), (36, 6, 6, 1)]
+Lh truncation errors:
+- [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+- [0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 1.66966241e-30 0.00000000e+00 2.30611228e-31
+ 0.00000000e+00 0.00000000e+00]
+- [0.00000000e+00 0.00000000e+00 9.96262218e-30 0.00000000e+00
+ 3.36102156e-29 4.79210050e-31 1.29790625e-29 4.79222303e-31
+ 6.15014990e-30 0.00000000e+00]
+- [0.00000000e+00 1.84407208e-18 4.64851297e-31 4.92657806e-21
+ 1.97608089e-30 1.25031573e-19 1.20181954e-28 2.70287437e-20
+ 4.79086715e-31 0.00000000e+00]
+- [0.00000000e+00 5.78561519e-18 1.31709970e-17 3.30880239e-21
+ 3.51802031e-18 9.51588759e-21 2.60371836e-18 2.85898406e-22
+ 1.02998192e-21 0.00000000e+00]
+- [0.00000000e+00 2.04409563e-17 1.64763122e-19 5.41137123e-18
+ 3.23315904e-20 5.75091376e-17 1.55890431e-18 4.17423135e-16
+ 5.18242493e-21 0.00000000e+00]
+- [0.00000000e+00 4.20641512e-17 1.14610988e-14 4.11354357e-18
+ 6.20689130e-16 1.77704359e-18 4.55842035e-16 1.23135275e-18
+ 6.47174484e-18 0.00000000e+00]
+- [0.00000000e+00 3.23872425e-15 5.15195869e-17 4.19483297e-15
+ 9.34876938e-18 2.50520671e-14 9.44225499e-17 1.17838585e-13
+ 3.44845779e-17 0.00000000e+00]
+- [0.00000000e+00 1.31264912e-15 1.17218513e-12 5.59723472e-16
+ 2.09948444e-13 4.56064971e-16 8.85163101e-14 3.39805942e-16
+ 6.13400020e-15 0.00000000e+00]
+- [0.00000000e+00 9.06086418e-14 1.95603648e-15 3.87746033e-13
+ 2.67717290e-15 1.37307214e-12 3.55719147e-15 2.57016974e-12
+ 4.50323538e-15 0.00000000e+00]
+-> EL = <Lh|CC*> = 0.009034802816023238.
+Orthogonality column 11:
+-> EC = <ALhAL*|CC*|ARhAR*> = 1.4026002581601915e-12.
+=> E = 0.009034802817425839.
+=> deltaE_bcc = 0.009034802811257561. 
+
+for chi_max_bs = [24, 54, 96, 150, 216]:
+- without combining hs: 
+deltaEs = [0.01381089 0.01091592 0.00959531 0.00918555 0.00902091], 
+maximal truncation errors = [1.76024252e-06 3.25678684e-08 2.01705856e-09 3.57069530e-10
+ 8.04622205e-11]. 
+- with combining hs: 
+deltaEs = [0.01866671 0.01285184 0.00996124 0.00931127 0.0090348 ], 
+maximal truncation errors = [6.91801288e-09 7.08975072e-10 8.26412320e-11 1.32640705e-11
+ 2.57016974e-12].

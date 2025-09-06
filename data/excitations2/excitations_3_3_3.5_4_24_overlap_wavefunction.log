@@ -1,0 +1,117 @@
+Lx = 3, Ly = 3, g = 3.5. 
+
+Exact diagonalization:
+- E0_exact = -64.88959145572441.
+- E1_exact = -61.43424142548412.
+- E2_exact = -59.951002834870955.
+- E3_exact = -59.93641825724221.
+- E4_exact = -59.1465106616948.
+
+Isometric PEPS with D_max = 4, chi_max_c = 24 (from DMRG^2 with chi_max_b = 256):
+=> |<psi0_exact|iso_peps0>| = 0.9999987292158207.
+=> E0_iso = -64.88952629566754.
+
+Excitation 1:
+Optimize excited isoPEPS from full wavefunction psi.
+excitations AL-VL-X-AR:
+> optimized (1, 16, 2, 48) excitation parameters at site (3, 0) with ||X_(3, 0)||^2 = 0.00014132401558886648.
+> optimized (24, 16, 4, 16) excitation parameters at site (3, 1) with ||X_(3, 1)||^2 = 0.0027143022228388524.
+> optimized (1, 4, 1, 4) excitation parameters at site (4, 0) with ||X_(4, 0)||^2 = 0.0002890050181557121.
+> optimized (8, 16, 2, 24) excitation parameters at site (4, 1) with ||X_(4, 1)||^2 = 0.023573225777487685.
+> optimized (24, 16, 2, 1) excitation parameters at site (4, 2) with ||X_(4, 2)||^2 = 0.0003205118448427154.
+> optimized (1, 16, 1, 16) excitation parameters at site (5, 0) with ||X_(5, 0)||^2 = 0.0016319098149571885.
+> optimized (16, 16, 1, 4) excitation parameters at site (5, 1) with ||X_(5, 1)||^2 = 0.00901644527718379.
+> optimized (4, 4, 1, 1) excitation parameters at site (5, 2) with ||X_(5, 2)||^2 = 0.0030327503117171207.
+-> optimized 34336 excitation parameters with ||X||^2 = sum_(nx,y) ||X_(nx,y)||^2 = 0.04071947428277185.
+excitations AL-AL-AL-X_column:
+> optimized (48, 16) excitation parameters at bond (5, 2) with ||X_column_2||^2 = 0.3176298308729687.
+> optimized (60, 4) excitation parameters at bond (5, 3) with ||X_column_3||^2 = 0.4309244369941165.
+> optimized (15, 1) excitation parameters at bond (5, 4) with ||X_column_4||^2 = 0.20578150261445896.
+-> optimized 1023 excitation parameters with ||X_column||^2 = sum_ny ||X_column_ny||^2 = 0.9543357704815435.
+=> |<psi|iso_peps(X,X_column)>| = (||X||^2 + ||X_column||^2)^1/2 = 0.9975245584767903.
+=> |<psi0_exact|iso_peps1>| = 3.88364107645767e-06.
+=> |<psi1_exact|iso_peps1>| = 0.9975245584767914.
+=> |<psi2_exact|iso_peps1>| = 0.010629430140681032.
+=> |<psi3_exact|iso_peps1>| = 0.0025825423435732464.
+=> |<psi4_exact|iso_peps1>| = 0.008495626271701945.
+sum_j |<psi(j)_exact|iso_peps1>|^2 = 0.9952470747552208.
+=> E1 = -61.361510931945446. 
+
+Excitation 2:
+Optimize excited isoPEPS from full wavefunction psi.
+excitations AL-VL-X-AR:
+> optimized (1, 16, 2, 48) excitation parameters at site (3, 0) with ||X_(3, 0)||^2 = 0.00014325409669240175.
+> optimized (24, 16, 4, 16) excitation parameters at site (3, 1) with ||X_(3, 1)||^2 = 0.019782936480810556.
+> optimized (1, 4, 1, 4) excitation parameters at site (4, 0) with ||X_(4, 0)||^2 = 8.315446118549673e-05.
+> optimized (8, 16, 2, 24) excitation parameters at site (4, 1) with ||X_(4, 1)||^2 = 0.05407756673490343.
+> optimized (24, 16, 2, 1) excitation parameters at site (4, 2) with ||X_(4, 2)||^2 = 0.002135091651101448.
+> optimized (1, 16, 1, 16) excitation parameters at site (5, 0) with ||X_(5, 0)||^2 = 0.005369560746066594.
+> optimized (16, 16, 1, 4) excitation parameters at site (5, 1) with ||X_(5, 1)||^2 = 0.02466542525481622.
+> optimized (4, 4, 1, 1) excitation parameters at site (5, 2) with ||X_(5, 2)||^2 = 0.026864733159672267.
+-> optimized 34336 excitation parameters with ||X||^2 = sum_(nx,y) ||X_(nx,y)||^2 = 0.13312172258524868.
+excitations AL-AL-AL-X_column:
+> optimized (48, 16) excitation parameters at bond (5, 2) with ||X_column_2||^2 = 0.20211807395830336.
+> optimized (60, 4) excitation parameters at bond (5, 3) with ||X_column_3||^2 = 0.6179857807221516.
+> optimized (15, 1) excitation parameters at bond (5, 4) with ||X_column_4||^2 = 0.01995798719578399.
+-> optimized 1023 excitation parameters with ||X_column||^2 = sum_ny ||X_column_ny||^2 = 0.8400618418762392.
+=> |<psi|iso_peps(X,X_column)>| = (||X||^2 + ||X_column||^2)^1/2 = 0.9865006662245535.
+=> |<psi0_exact|iso_peps2>| = 1.8228999831933377e-05.
+=> |<psi1_exact|iso_peps2>| = 0.010748211299767007.
+=> |<psi2_exact|iso_peps2>| = 0.9865006662245531.
+=> |<psi3_exact|iso_peps2>| = 0.0015248138393057116.
+=> |<psi4_exact|iso_peps2>| = 0.02766530683178214.
+sum_j |<psi(j)_exact|iso_peps2>|^2 = 0.9740667830992692.
+=> E2 = -59.60880410757662. 
+
+Excitation 3:
+Optimize excited isoPEPS from full wavefunction psi.
+excitations AL-VL-X-AR:
+> optimized (1, 16, 2, 48) excitation parameters at site (3, 0) with ||X_(3, 0)||^2 = 0.0009140105420216037.
+> optimized (24, 16, 4, 16) excitation parameters at site (3, 1) with ||X_(3, 1)||^2 = 0.0005098699343221442.
+> optimized (1, 4, 1, 4) excitation parameters at site (4, 0) with ||X_(4, 0)||^2 = 0.001540793789913376.
+> optimized (8, 16, 2, 24) excitation parameters at site (4, 1) with ||X_(4, 1)||^2 = 0.06787159022448506.
+> optimized (24, 16, 2, 1) excitation parameters at site (4, 2) with ||X_(4, 2)||^2 = 0.00014671362593743112.
+> optimized (1, 16, 1, 16) excitation parameters at site (5, 0) with ||X_(5, 0)||^2 = 0.0042628476355513105.
+> optimized (16, 16, 1, 4) excitation parameters at site (5, 1) with ||X_(5, 1)||^2 = 0.02145595371060585.
+> optimized (4, 4, 1, 1) excitation parameters at site (5, 2) with ||X_(5, 2)||^2 = 0.0022641348155610494.
+-> optimized 34336 excitation parameters with ||X||^2 = sum_(nx,y) ||X_(nx,y)||^2 = 0.09896591427839804.
+excitations AL-AL-AL-X_column:
+> optimized (48, 16) excitation parameters at bond (5, 2) with ||X_column_2||^2 = 0.18086191010428065.
+> optimized (60, 4) excitation parameters at bond (5, 3) with ||X_column_3||^2 = 0.3772945083810381.
+> optimized (15, 1) excitation parameters at bond (5, 4) with ||X_column_4||^2 = 0.3363182873191371.
+-> optimized 1023 excitation parameters with ||X_column||^2 = sum_ny ||X_column_ny||^2 = 0.8944747058044565.
+=> |<psi|iso_peps(X,X_column)>| = (||X||^2 + ||X_column||^2)^1/2 = 0.9967149141468962.
+=> |<psi0_exact|iso_peps3>| = 2.0250452813034035e-05.
+=> |<psi1_exact|iso_peps3>| = 0.0025846401758976845.
+=> |<psi2_exact|iso_peps3>| = 0.0015091876794391165.
+=> |<psi3_exact|iso_peps3>| = 0.9967149141468952.
+=> |<psi4_exact|iso_peps3>| = 0.005653129369890597.
+sum_j |<psi(j)_exact|iso_peps3>|^2 = 0.9934815363768968.
+=> E3 = -59.82816827106707. 
+
+Excitation 4:
+Optimize excited isoPEPS from full wavefunction psi.
+excitations AL-VL-X-AR:
+> optimized (1, 16, 2, 48) excitation parameters at site (3, 0) with ||X_(3, 0)||^2 = 0.001365933097897018.
+> optimized (24, 16, 4, 16) excitation parameters at site (3, 1) with ||X_(3, 1)||^2 = 0.025567562514301825.
+> optimized (1, 4, 1, 4) excitation parameters at site (4, 0) with ||X_(4, 0)||^2 = 0.0017293484998072758.
+> optimized (8, 16, 2, 24) excitation parameters at site (4, 1) with ||X_(4, 1)||^2 = 0.04454672864240643.
+> optimized (24, 16, 2, 1) excitation parameters at site (4, 2) with ||X_(4, 2)||^2 = 0.0026621558019129404.
+> optimized (1, 16, 1, 16) excitation parameters at site (5, 0) with ||X_(5, 0)||^2 = 0.012464741386869668.
+> optimized (16, 16, 1, 4) excitation parameters at site (5, 1) with ||X_(5, 1)||^2 = 0.029877284173030125.
+> optimized (4, 4, 1, 1) excitation parameters at site (5, 2) with ||X_(5, 2)||^2 = 0.04410207325876641.
+-> optimized 34336 excitation parameters with ||X||^2 = sum_(nx,y) ||X_(nx,y)||^2 = 0.16231582737499192.
+excitations AL-AL-AL-X_column:
+> optimized (48, 16) excitation parameters at bond (5, 2) with ||X_column_2||^2 = 0.22684500585977838.
+> optimized (60, 4) excitation parameters at bond (5, 3) with ||X_column_3||^2 = 0.36867369418695684.
+> optimized (15, 1) excitation parameters at bond (5, 4) with ||X_column_4||^2 = 0.20544322207247953.
+-> optimized 1023 excitation parameters with ||X_column||^2 = sum_ny ||X_column_ny||^2 = 0.8009619221192148.
+=> |<psi|iso_peps(X,X_column)>| = (||X||^2 + ||X_column||^2)^1/2 = 0.9814671413217086.
+=> |<psi0_exact|iso_peps4>| = 2.6028353605648985e-05.
+=> |<psi1_exact|iso_peps4>| = 0.008634620038579066.
+=> |<psi2_exact|iso_peps4>| = 0.027807190349854034.
+=> |<psi3_exact|iso_peps4>| = 0.005740954655887837.
+=> |<psi4_exact|iso_peps4>| = 0.9814671413217085.
+sum_j |<psi(j)_exact|iso_peps4>|^2 = 0.9641585052304065.
+=> E4 = -58.680715033350644. 
+

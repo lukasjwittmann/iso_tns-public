@@ -1,0 +1,27 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Abstract}{i}{chapter*.1}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Transverse field Ising model}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Qualitative quantum phase diagram}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Perturbation theory for large and small transverse field}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Exact solution in one dimension}{9}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Tensor network basics}{11}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Uniform matrix product states (uMPS)}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Primitivity, the manifold and its tangent space}{15}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Intrinsic canonical form and area law}{17}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Variational uniform matrix product states (VUMPS)}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Variational plane wave excitations (VPWE)}{26}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Matrix product states (MPS)}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Intrinsic canonical form}{32}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Density matrix renormalization group (DMRG)}{33}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Variational quasiparticle excitations (VQPE)}{38}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Isometric projected entangled pair states (isoPEPS)}{45}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Imposed canonical form and Yang-Baxter move}{46}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Boundary compression}{50}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Density matrix renormalization group squared ($\text {DMRG}^2$)}{57}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Variational quasiparticle excitations}{65}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion and outlook}{81}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Detailed Jordan-Wigner and Bogoliubov transformation}{87}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Quantum channels and matrix product states}{93}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Extensive tensor network diagrams}{105}{appendix.C}%
+\contentsline {chapter}{Bibliography}{116}{appendix*.20}%

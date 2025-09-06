@@ -1,0 +1,1413 @@
+Lx = 6, Ly = 6, g = 3.0, D_max = 2, chi_max_c = 12, chi_max_b = 12. 
+
+E0_exact = -227.308603832. 
+
+es = [-26.98209988 -17.98476015 -17.99774995 -17.99523284 -18.00175819
+ -17.99673046 -17.99829775 -17.99946642 -18.00275761 -18.00555616
+ -27.00523869].
+E = -215.96964810797758.
+E - E0 = 11.338955724022412.
+subtract energy E0_exact evenly from all columns.
+
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942474958797957e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.664919434281509e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.822551309255742e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1678839037169665e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.87894274348657e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2193205691070258e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.381157210960219e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.227206730919061e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.80720271418363e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.1514840926299447e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2043102680654309e-11).
+
+DMRGSquared sweep 1 ...
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 4), (4, 1, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 11.52525461999885 = 11.52525461999885.
+- C_updated leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 4), (4, 1, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 5.023024136413842e-10.
+- maximal number of matvec operations: 31.
+-> E_updated = 11.27596395988489.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594247491042964e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.9466609385851493e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.289783553183766e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6126925969599796e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.455833290488489e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.697152200133768e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.352321067803368e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.7757366704734187e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.005560658247538e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.685080265801803e-17).
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 2, 2), (2, 1, 2, 4), (4, 2, 2, 8), (8, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 8), (8, 1, 2, 4), (4, 2, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + 1.3398439626214529 + 9.936478843703169 = 11.276322806324622.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 1, 2, 8), (8, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 8), (8, 2, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 8.96497674034039e-09.
+- maximal number of matvec operations: 41.
+-> E_updated = 11.06371227290196.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594247425447636e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942474904709233e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1101741623915298e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.826926666178029e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.195963079953656e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.381799704348053e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.843473098951251e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.9402000270684976e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.044160898366863e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9883674329159515e-17).
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 8), (8, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 8), (8, 2, 2, 2), (2, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 1.0926247933351179 + 0.8927168459358534 + 9.076074821896333 = 11.061416461167305.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.139685905376936e-10.
+- maximal number of matvec operations: 51.
+-> E_updated = 10.17774964253838.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942256245864118e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.540049955794147e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942474897498686e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9813146292128184e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4442519331489032e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.4056167820906607e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.859559665323345e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5151981493379877e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.408660094023233e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.232102425388536e-17).
+Orthogonality column 3:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 1.147316214333981 + 0.8609518442665002 + 8.151858114387467 = 10.160126172987948.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 7.380195855482698e-10.
+- maximal number of matvec operations: 51.
+-> E_updated = 9.526566868486245.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942207667755835e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.770558031545141e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.119809918404153e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942474914278985e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.459252805106391e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.2942550486713622e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.537416864302451e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.585526774208853e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0017428846213913e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.899529959451012e-18).
+Orthogonality column 4:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 1.442626934656882 + 0.9320471145658484 + 7.148070948994345 = 9.522744998217075.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 5.940868990695217e-10.
+- maximal number of matvec operations: 51.
+-> E_updated = 9.253519647009082.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942216409167466e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.050164594333909e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4009350407098053e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.111572223750165e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942474953136055e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.3158618043999095e-21).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.591102257133444e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.964836931349171e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.3051045689055e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.8996886110700522e-18).
+Orthogonality column 5:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 2.185103274292732 + 0.9534947971625646 + 6.159092854202725 = 9.29769092565802.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.3065423595768017e-10.
+- maximal number of matvec operations: 41.
+-> E_updated = 9.205084021642932.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942208741505994e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.91426034005027e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.5183402026268015e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1488182994645225e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.270025326058134e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594247499338527e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.028416913776546e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.3331032321825344e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0530072092307113e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.566088441597358e-17).
+Orthogonality column 6:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.117567474916869 + 0.920153452481306 + 5.179705731923244 = 9.217426659321418.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.7781314265372015e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 9.135001723461594.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942209660817657e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.763969579888105e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.651840975844055e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.182813801238582e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.2233664566664663e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0942797209930354e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.59424749208869e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2122850020783011e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9598404410306707e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.556402120412535e-16).
+Orthogonality column 7:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 4.059199665741023 + 0.9306042303587433 + 4.2068485853784825 = 9.19665248147825.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 8.766483833785124e-09.
+- maximal number of matvec operations: 41.
+-> E_updated = 8.99988698904372.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594220772221896e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.758661279874658e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.9577265488125835e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1665881353777203e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2536454701178455e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.866867355373873e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.7053332319218295e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594247433283501e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9588769471510538e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2953275770040206e-15).
+Orthogonality column 8:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 4.911500960819812 + 0.8514607434939894 + 3.288763812159504 = 9.051725516473306.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.1930698630448616e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 8.480247050676386.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942207038267753e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.409782981607915e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.0882181555841954e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.219264953830241e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.2549327254502186e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2250821419605653e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.2644478339914923e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.3550606762437745e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942288760793858e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2646323077857812e-15).
+Orthogonality column 9:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 5.389269367473555 + 0.8347095624139351 + 2.273296404440651 = 8.49727533432814.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 8.971942931743456e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 7.659620727362389.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942208273950487e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.8082346187930236e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.6567124413674034e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1975721929766651e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2558927346300861e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.40961513309461e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6501985435388717e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.716372175943537e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9968777318319115e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594213989839124e-31).
+Orthogonality column 10:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 5.731340985579234 + 0.7311901099696678 + 1.1958690827957787 = 7.65840017834468.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.7903782590458544e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 6.351895784550435.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594220688814833e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.92906237478476e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.643549804404568e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1902602726824903e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.079417195234264e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.706779788596652e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.515272688516587e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.575900980584094e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.37117824440928e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.5187612876881847e-10).
+Orthogonality column 11:
+- C leg dimensions: [(1, 2, 1, 4), (4, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 5.89689112105549 + 0.6320299458557088 + None = 6.528921066911199.
+- C_updated leg dimensions: [(1, 2, 1, 2), (2, 2, 2, 8), (8, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.6761872707724453e-09.
+- maximal number of matvec operations: 31.
+-> E_updated = 6.360163800752107.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594220663679967e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.965059340408917e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.61542012327227e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1942627051448716e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.3525889151488593e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.064152170070453e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.0559766003469065e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.772342621602462e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.992827566668289e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2075491148659719e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0815392332881777e-10).
+Orthogonality column 12:
+- C leg dimensions: [(1, 2, 1, 2), (2, 2, 1, 4), (4, 2, 1, 8), (8, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 8), (8, 2, 1, 4), (4, 2, 1, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 6.3932345009074325 + None + None = 6.3932345009074325.
+- C_updated leg dimensions: [(1, 2, 1, 2), (2, 2, 1, 4), (4, 2, 1, 8), (8, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 8), (8, 2, 1, 4), (4, 2, 1, 2), (2, 2, 1, 1)].
+- largest Hermiticity error: 2.6564307259850826e-08.
+- maximal number of matvec operations: 31.
+-> E_updated = 6.389723020224121.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594220678151677e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.942240794180148e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.7429555914034467e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2231004561027944e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.105107001487713e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.444705491082249e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.049589762930823e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.996442907754191e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.271833749750421e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.273278960649334e-12).
+Orthogonality column 11:
+- C leg dimensions: [(1, 2, 1, 2), (2, 2, 2, 4), (4, 2, 1, 8), (8, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 8), (8, 2, 2, 4), (4, 2, 1, 2), (2, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 5.925196822522809 + 0.4703236648988751 + None = 6.395520487421684.
+- C_updated leg dimensions: [(1, 2, 1, 2), (2, 2, 2, 8), (8, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 8), (8, 2, 1, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.2180480347467113e-11.
+- maximal number of matvec operations: 31.
+-> E_updated = 6.359526636837275.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942205852778383e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.947689521149463e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.627313588329036e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2324442975238536e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.1907875401436556e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.193894430812918e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6317032970997994e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6695272227942761e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.840171918802323e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.52784545991913e-31).
+Orthogonality column 10:
+- C leg dimensions: [(1, 2, 2, 2), (2, 2, 2, 8), (8, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 8), (8, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 5.809129478054903 + 0.09243151906508884 + 0.45815542370617973 = 6.359716420826172.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.518790937991103e-09.
+- maximal number of matvec operations: 31.
+-> E_updated = 6.154528479808518.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942209630428013e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.8742907773460924e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.693371364855844e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1458573158214907e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.1035249179312605e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.835131284734556e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.589916092890161e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.127382029426109e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.549747520107291e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.414057880604133e-18).
+Orthogonality column 9:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 5.234696576854127 + 0.4377493850018347 + 0.5002364007675411 = 6.172682362623503.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.990045289875615e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 5.810284867865043.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594220963236034e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.3559835250334834e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.6572869359385796e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1200409208570096e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.2984876264328885e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.67309606401671e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.938256843529628e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5146709539154747e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.254224688497221e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2189888455428551e-11).
+Orthogonality column 8:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 4.727035467309755 + 0.5495996121970685 + 0.5914625149813824 = 5.868097594488207.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.636097841616944e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 5.616150453262904.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594220688889684e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.078688060626525e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.954721503615366e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1819408419848937e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.3899465873481317e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.139339003997516e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5076873822094073e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3371657856268704e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.311288526392406e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0503963350347383e-10).
+Orthogonality column 7:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 4.176063934720558 + 0.6019176321017566 + 0.9180165830839213 = 5.695998149906236.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.927486035707386e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 5.57115397888231.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594221197024756e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.2759786664792183e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.776948362191733e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0372265440766188e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.019860029727296e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.540050511875317e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.466850516255041e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3235178983333003e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.702218389656596e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.110327843841322e-10).
+Orthogonality column 6:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.1565847233872355 + 1.0594542889492773 + 1.4456888954801224 = 5.661727907816635.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.056449287380669e-11.
+- maximal number of matvec operations: 31.
+-> E_updated = 5.603944756493912.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594221687835692e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.404650216485453e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.388092374093339e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0787827414685244e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5909940255348617e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.865593696905757e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.9099376040986846e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.884349741429005e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1246170990019449e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6462313099933035e-10).
+Orthogonality column 5:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 2.164980860310421 + 0.95897292547253 + 2.484788359560502 = 5.608742145343452.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.252600375263631e-12.
+- maximal number of matvec operations: 31.
+-> E_updated = 5.603435244703986.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942208576873074e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5919817881879899e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.5185491990105926e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.511147817553617e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.732947046789745e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.435525969831607e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.847911214806782e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.349700498957461e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.953974226572794e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.179513158787667e-10).
+Orthogonality column 4:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 1.2604489136766939 + 0.9035552003735937 + 3.453566134696308 = 5.6175702487465955.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 5.069460720071553e-13.
+- maximal number of matvec operations: 31.
+-> E_updated = 5.442194668051501.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942225790707312e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.8649533021233099e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5933268865177317e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.896661053545853e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.022727930221971e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.921366343249162e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6022726636880203e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.5204994973157728e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1289072266149139e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.8942614479752872e-11).
+Orthogonality column 3:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.7476178259600587 + 0.6173766406125855 + 4.149760220352764 = 5.514754686925408.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.68193293298581e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 5.179522112919072.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942191284559754e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.592747687555076e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1087893714242075e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.38576289175981e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.424907731584427e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.868387924658578e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.201868904468919e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4802929947897012e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.0554810667238153e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.83160312116799e-11).
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.47032948055550666 + 0.41015666292270103 + 4.364167371060716 = 5.244653514538923.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.103208942614489e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.854023194068764.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.593300977525804e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.1066197270021223e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.612026529098664e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.403637788547525e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.712751383666582e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.4160870738888243e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.749862654040342e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.229956925692855e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7231181567245978e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.351389774653005e-11).
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 2, 4), (4, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 8), (8, 2, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + 0.4847318145904654 + 4.459711735594707 = 4.944443550185173.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 1, 2, 8), (8, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 8), (8, 2, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 2.3698489822616113e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.890119386178914.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.592682090705747e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.554941769996028e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.445095374893594e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.085625943108091e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.1418140860548203e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2971484831349706e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.798819381347101e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.1228296634908086e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.576771991779175e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.2372595248173317e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.1818245352306083e-11).
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 4.986078216079135 = 4.986078216079135.
+- C_updated leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 4), (4, 1, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 3.766469025588241e-10.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.985384407046019.
+=> <H> - E0 = 4.915529528678547.
+
+DMRGSquared sweep 2 ...
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 4), (4, 1, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 4.985384407045617 = 4.985384407045617.
+- C_updated leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 4), (4, 1, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 3.958662939665627e-10.
+- maximal number of matvec operations: 21.
+-> E_updated = 4.9853844070460225.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5940808887507523e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.574833923035291e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.869512704950392e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.899646977353587e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.146435060520514e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.931435833475416e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.6270788305859236e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0524940429192405e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0008940506178128e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.418622251993539e-13).
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 2, 2), (2, 1, 2, 4), (4, 2, 2, 8), (8, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 8), (8, 1, 2, 4), (4, 2, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + 0.46504888636239594 + 4.5210358133105455 = 4.986084699672942.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 1, 2, 8), (8, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 8), (8, 2, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 2.808598044125925e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.8924497903856485.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942350749629706e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5926190256235624e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.167580174479589e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.056884635584637e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.291420367603647e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.848010444685024e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9200656366535484e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7103736921887634e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.955888631285382e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0069444195585405e-13).
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 8), (8, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 8), (8, 2, 2, 2), (2, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.4505944369748187 + 0.09012676212008514 + 4.336356459967021 = 4.877077659061925.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.01878215001095e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.742796859188583.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942359692362844e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.602176292720503e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.499671501494178e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.528354713835896e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6524259226634464e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.603476068537236e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6248368512305052e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.078179176964838e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.787283039216494e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.509365613082842e-12).
+Orthogonality column 3:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.47867108320828045 + 0.09379948547756628 + 4.217978016735136 = 4.790448585420983.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.255080206662955e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.725107117350158.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594236845778631e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.8203000783700025e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2091003183382538e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.551935920969899e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.0397590443099623e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7824198635346296e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.1064840920776347e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3934276104558919e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0297647839652195e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.563054638240806e-13).
+Orthogonality column 4:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.5650404894144823 + 0.6887398542782796 + 3.5188764823313328 = 4.772656826024095.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.6558952406438753e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.551658163547782.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942404290145914e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3064055497651687e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.678998404401692e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3528956776561593e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5489849605364765e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.231838257746628e-20).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.127412741843747e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.8418768668073668e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.798366302959048e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.632854087886789e-11).
+Orthogonality column 5:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 1.0150118041915475 + 1.0288161904498518 + 2.519367982709153 = 4.563195977350553.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.686208077943766e-10.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.537022660631092.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942404518020144e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.32943241298146e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.870807102441656e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.519111484243205e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.937592349033585e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5703538610938307e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.710286237515501e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2298516936231416e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.412351590609102e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.015645282079069e-10).
+Orthogonality column 6:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 2.033715350815962 + 1.0447141084846765 + 1.4631145678116302 = 4.541544027112268.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.4286504907413773e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.49316910618619.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942408904235152e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.2736419435415693e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.50110165617289e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.724989674133177e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.114768326360041e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.330387329056982e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5342056316521837e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.331619789231578e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1131603296784848e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.970752076245328e-11).
+Orthogonality column 7:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.053176445579084 + 0.49272750065589677 + 0.9612551360184177 = 4.5071590822533985.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.240968803143127e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.447124380861266.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942408904780432e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.8594625136838e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.568728847299717e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.837776705211965e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.7098535671299185e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.2739673223238875e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.7743694641074337e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5283440572513245e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4215686632455089e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.431578180882765e-13).
+Orthogonality column 8:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.5159435000465953 + 0.2604796424231966 + 0.6898757711991962 = 4.466298913668988.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.2079018339310836e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.3831369941081295.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594241779851595e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.866024172670462e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.670167253878415e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.2042099275514394e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.804899763553129e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.718129976192818e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.744317169607353e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.4445992452967184e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.504794618437914e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.909055949432199e-18).
+Orthogonality column 9:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.768724403979299 + 0.12482736052175415 + 0.55257204616134 = 4.446123810662393.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.446995377016037e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.210365054428486.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942417740084933e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.3238932899120445e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.147834089743768e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0715242633460318e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.060636588950923e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.68002210752688e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.089547059197015e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.435678751053403e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.028908640075323e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.49612928053835e-31).
+Orthogonality column 10:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.7657626526868735 + 0.044953052760113264 + 0.49365953278535957 = 4.304375238232346.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 6.186335127302916e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.140225135807223.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594241777048591e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.8924437734825355e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.2231086468594793e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0993735100943952e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.706228215469856e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.138671537880407e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0709043421504354e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.319137912128887e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.718698345970559e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3023557848765534e-09).
+Orthogonality column 11:
+- C leg dimensions: [(1, 2, 1, 4), (4, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 8), (8, 2, 1, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.7871167125420278 + 0.5159277509674641 + None = 4.303044463509492.
+- C_updated leg dimensions: [(1, 2, 1, 2), (2, 2, 2, 8), (8, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 8), (8, 2, 1, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.6005073563738934e-11.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.295886124677114.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942417829440367e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.682654924884515e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.266897665108233e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1415806962607065e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.993479782591788e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.192459997352526e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.1778342727832325e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5012691118130436e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.4067856863909e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.210139631673032e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0603108276479376e-09).
+Orthogonality column 12:
+- C leg dimensions: [(1, 2, 1, 2), (2, 2, 1, 4), (4, 2, 1, 8), (8, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 8), (8, 2, 1, 4), (4, 2, 1, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 4.392885550877509 + None + None = 4.392885550877509.
+- C_updated leg dimensions: [(1, 2, 1, 2), (2, 2, 1, 4), (4, 2, 1, 8), (8, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 8), (8, 2, 1, 4), (4, 2, 1, 2), (2, 2, 1, 1)].
+- largest Hermiticity error: 1.2161272857208083e-09.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.390460705214776.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.59424178621151e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.917720617786402e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.26580832513952e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1071231543683475e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.62239767224126e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.1513703537926216e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.178358034274568e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.822150034460179e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.367097428572789e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.3582304099198756e-12).
+Orthogonality column 11:
+- C leg dimensions: [(1, 2, 1, 2), (2, 2, 2, 4), (4, 2, 1, 8), (8, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 8), (8, 2, 2, 4), (4, 2, 1, 2), (2, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.8419425685114925 + 0.5485285180152467 + None = 4.390471086526739.
+- C_updated leg dimensions: [(1, 2, 1, 2), (2, 2, 2, 8), (8, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 8), (8, 2, 1, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 6.480952238303616e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.292502306057115.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594241771621181e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.6992363358367085e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.146813403309123e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1063463711487897e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.495621563136344e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.8360867273562714e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.260898427552528e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.601285082676693e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.819226490618092e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5941129435045864e-31).
+Orthogonality column 10:
+- C leg dimensions: [(1, 2, 2, 2), (2, 2, 2, 8), (8, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 8), (8, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.8613498217488686 + -0.07168228839392657 + 0.5092236814484253 = 4.298891214803367.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.724627985187293e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.145193708578141.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942417660944286e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9502213984313017e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.072695260801873e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1279468384332124e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.960523849100156e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.8515226498140414e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.268049255422353e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.7287258871175203e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942148090236094e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.0511676409857397e-16).
+Orthogonality column 9:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.712636623350507 + 0.07999733310225474 + 0.4094417080956427 = 4.2020756645484045.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.4406665695727568e-10.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.100393049289127.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942418037965696e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.6418500000239704e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.14111586111668e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0915944170735108e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.287427574423811e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.399329382065518e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.563454035398867e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594211667332391e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4008952143432772e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0968133870357603e-09).
+Orthogonality column 8:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.5640963022871834 + 0.13727032699107353 + 0.49059919514119094 = 4.191965824419448.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.614980151500775e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.138313260643746.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594241717716545e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9608214861823627e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.784519830206832e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4258095453595053e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.987068104948907e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.1829961193982523e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5940649645550526e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5229086477629967e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.6258491292567317e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.2212547267926453e-10).
+Orthogonality column 7:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.0422409050330987 + 0.5498055930661065 + 0.6648818698793062 = 4.256928367978512.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.789201143238795e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.208579991372858.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942408884025437e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.485565681792229e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.811413424446336e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.42613632496786e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5894903920266183e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942267933287115e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.848767929619688e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.52363310050198e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5370086993264774e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.971875129128723e-09).
+Orthogonality column 6:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 2.0234920804410765 + 0.9996931447790718 + 1.2181420418259734 = 4.241327267046121.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.7403486867820523e-07.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.192615235480119.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594240390972974e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5695174975036135e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.257254227065778e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.9037612093575678e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594161553346354e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.477540190131949e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.8303179126254606e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5315025614548215e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6938921001727745e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.994746391259587e-09).
+Orthogonality column 5:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 1.0354930899597474 + 0.9746204038100539 + 2.192815415902126 = 4.202928909671927.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.221375575338138e-13.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.19463693066464.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942404467972826e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4234957180342434e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.835886165340126e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594061487245752e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1357971289542641e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7984019286157654e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.316891787824319e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1950023722276062e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.476370598085756e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0783360479268294e-09).
+Orthogonality column 4:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.5714994721217069 + 0.4610872420625741 + 3.1746955738129023 = 4.207282287997184.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.5927214575190637e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.192542485054359.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942373609275064e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.898118043379481e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594113787748425e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.674098290318622e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.771042450115626e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.2152606370408293e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.1081181653913204e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.800560998510105e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.89950023531187e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.944533081448196e-09).
+Orthogonality column 3:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.5277985169525276 + 0.04207194634721504 + 3.660060077783523 = 4.229930541083266.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.060118572124001e-10.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.094284943302846.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.59423599933931e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594226098580642e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.128869964521919e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.830970349915611e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0251755319731491e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.623142555550979e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.346726792746287e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7427503885104224e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1474637622038263e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.113339061378703e-10).
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.4773793914893395 + 0.06300579980877859 + 3.6474809696262662 = 4.187866160924385.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.304178181276846e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.104841882169164.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5940934482974184e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.6322975536757387e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.633493985820834e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.684418226849275e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.883408661838843e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.7954738807560355e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.872286560123757e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.532210286986654e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.745895421206238e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.5474830819543176e-09).
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 2, 4), (4, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 8), (8, 2, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + 0.48533381892275645 + 3.7533504998691227 = 4.238684318791879.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 1, 2, 8), (8, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 8), (8, 2, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 2.983020546962392e-10.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.214284362847843.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5941687221529615e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.325180795179026e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.3181778160582065e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0180287804149258e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3485829160268817e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3482723651655426e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9565344512503367e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.189797706191755e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.336606083681297e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7027709984797687e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.3110911297445543e-10).
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 4.292454238439209 = 4.292454238439209.
+- C_updated leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 4), (4, 1, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 3.289800678771115e-08.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.291691910698673.
+=> <H> - E0 = 4.302915711574144.
+
+DMRGSquared sweep 3 ...
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 4), (4, 1, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 4.291691910591779 = 4.291691910591779.
+- C_updated leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 4), (4, 1, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 4.937082040611481e-08.
+- maximal number of matvec operations: 21.
+-> E_updated = 4.291691910698669.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5941378496176654e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.931961544187349e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.3449134792378954e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0075041642801738e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.077803107155226e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2390442804668748e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.894343154305609e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.1067132983910564e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5631532817375891e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.835215045324098e-13).
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 2, 2), (2, 1, 2, 4), (4, 2, 2, 8), (8, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 8), (8, 1, 2, 4), (4, 2, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + 0.476249461489098 + 3.816155353411745 = 4.292404814900843.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 1, 2, 8), (8, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 8), (8, 2, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 4.77260708051644e-10.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.21584591483114.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594239738925891e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5941486608625518e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.92830872593864e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1768290948106122e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.746444153742106e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.916176304242821e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.60935147094106e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.7930603267228742e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.4937989653543937e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.861529563518002e-12).
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 8), (8, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 8), (8, 2, 2, 2), (2, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.4573156534121925 + 0.026747180563911007 + 3.7332549808353424 = 4.217317814811446.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.274423560474378e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.083603305463207.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942392340305765e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.334335931551615e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594125257582193e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.8014555583925194e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.380422075321098e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.612559837040307e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.477987225831121e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.666026095473974e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.088559719206673e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.565836837904895e-11).
+Orthogonality column 3:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.4901564924482071 + -0.02978262827257293 + 3.6925789946967575 = 4.152952858872392.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 6.076165654349179e-08.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.073025043295435.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942415514742944e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.3333458783302645e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2855289402608472e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942270427065454e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.413668330612206e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.9914887821309644e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.767828619681323e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.1685470281028224e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.7937227498506307e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.3369337242858024e-11).
+Orthogonality column 4:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.47232878728777916 + 0.4147073046599722 + 3.2247521188220403 = 4.111788210769792.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 5.419437329146602e-10.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.079196468294803.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594241572416174e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7432783473715493e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.153773274361867e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.4669607672518385e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594196340443232e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.057561640023787e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.360931177743866e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.847115840700831e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.615136149398443e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2106970386290782e-09).
+Orthogonality column 5:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.8941738661207944 + 0.994318112053456 + 2.2097583858322456 = 4.098250364006496.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.927205580154566e-10.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.075063659172614.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594241586880042e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.638320327294002e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.547233605847961e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5707760332052206e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.8536024497602843e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5941119545700375e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.09397527506968e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.871564669050237e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4524852833873102e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5118440466885647e-09).
+Orthogonality column 6:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 1.8872143212714914 + 0.9634247356840865 + 1.2383839968359796 = 4.089023053791557.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.7667678613561829e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.077292657554078.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942418649138767e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.107658712690977e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.839762779602248e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.412839748392354e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3569218812441592e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.074484066954087e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594200102871661e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.052634597036602e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.451791424095674e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.449185811801307e-10).
+Orthogonality column 7:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 2.855114121119521 + 0.5526985810681814 + 0.6779371017829146 = 4.085749803970617.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.2095272479966447e-13.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.070092262933833.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942418671266387e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.8647120632773638e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0683627949652943e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.832818019649103e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.0644208116251873e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.971449619064293e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1317791127607963e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594147063900888e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0477191815989377e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0023894219807213e-11).
+Orthogonality column 8:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.429881557894159 + 0.10835100632646005 + 0.5601239269602836 = 4.098356491180903.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.5387710620818704e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 3.9971625141746747.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942419392948263e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.857561031941375e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.452352372613431e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.7296111533875243e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.0977213357579025e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6754238193607795e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7175089229027514e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.188928743263642e-09).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594219012166963e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0370623691477598e-18).
+Orthogonality column 9:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.519803050813362 + 0.04502611979364301 + 0.4611900585998319 = 4.026019229206837.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.124565831377984e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 3.939365940825426.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942422126884694e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.8297728466085975e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.46158344081293e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.23242773136867e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.241322221439643e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.986514101724769e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6683574637072415e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.046366880241804e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.2654164413517893e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.593794900700343e-31).
+Orthogonality column 10:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.6406910328730495 + -0.1116687487521747 + 0.5374353797061412 = 4.066457663827016.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 8.691048873718757e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.0031995996101495.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.59424221740491e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1092303137655266e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5364526857506655e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5006272939022914e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1929744056324015e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.5491242891423254e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.039069957454594e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.555563815323171e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.624991055179446e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6756049442592789e-09).
+Orthogonality column 11:
+- C leg dimensions: [(1, 2, 1, 4), (4, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 8), (8, 2, 1, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.6489948384541413 + 0.517489886815899 + None = 4.16648472527004.
+- C_updated leg dimensions: [(1, 2, 1, 2), (2, 2, 2, 8), (8, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 8), (8, 2, 1, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.5951829989514944e-11.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.159319603731744.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942422225850715e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.463026347969898e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3820691742821981e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.254219290446542e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.880057319086961e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.787003292663745e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.886501037664495e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.175174670204967e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.916855032536689e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.639619758083523e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0238095050484308e-09).
+Orthogonality column 12:
+- C leg dimensions: [(1, 2, 1, 2), (2, 2, 1, 4), (4, 2, 1, 8), (8, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 8), (8, 2, 1, 4), (4, 2, 1, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 4.229942252747519 + None + None = 4.229942252747519.
+- C_updated leg dimensions: [(1, 2, 1, 2), (2, 2, 1, 4), (4, 2, 1, 8), (8, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 12), (12, 2, 1, 8), (8, 2, 1, 4), (4, 2, 1, 2), (2, 2, 1, 1)].
+- largest Hermiticity error: 1.0729854912706694e-09.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.227372916120402.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594242223454993e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.0994568397800466e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4773560283646103e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.08777022912855e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.380163151299683e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.225857777094863e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.067841766789519e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.869959278087073e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0707891555359393e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3185097790001384e-11).
+Orthogonality column 11:
+- C leg dimensions: [(1, 2, 1, 2), (2, 2, 2, 4), (4, 2, 1, 8), (8, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 8), (8, 2, 2, 4), (4, 2, 1, 2), (2, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.6884451556103297 + 0.5386830486730232 + None = 4.227128204283353.
+- C_updated leg dimensions: [(1, 2, 1, 2), (2, 2, 2, 8), (8, 2, 1, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 1, 12), (12, 2, 2, 8), (8, 2, 1, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.616046704777029e-09.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.154040319570102.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594242219785162e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.052572767979126e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3005344647246567e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6288482865806693e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3548845441215632e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.994603856203226e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5112434287950795e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.880728824748255e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.225606862727379e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.593923622085516e-31).
+Orthogonality column 10:
+- C leg dimensions: [(1, 2, 2, 2), (2, 2, 2, 8), (8, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 8), (8, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.7488132903015123 + -0.09972421388533825 + 0.5118626752865754 = 4.160951751702749.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.3268207895682463e-10.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.003891301850279.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594242220657305e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.2485389369976166e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.573158810273827e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7731877684242223e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.859118415249415e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.910090329279345e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.922254812691094e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2478152733629656e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942007136966912e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9259814286104846e-15).
+Orthogonality column 9:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.5964854723208277 + 0.051463919706449215 + 0.4170905097879557 = 4.065039901815233.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 2.274988319752023e-11.
+- maximal number of matvec operations: 41.
+-> E_updated = 3.9448415235854943.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594242159148747e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.6137300123878974e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.527950461104584e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.5187824563764974e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.005143388455424e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.94745940348811e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.7359825635323338e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942286316876196e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.829827647685115e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.1174869475859998e-09).
+Orthogonality column 8:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 3.4357506999731253 + 0.0938193497392112 + 0.5071759612771747 = 4.0367460109895115.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.2734182416686056e-12.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.007485681280837.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594241910921237e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.6520130949187042e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.4160756045151382e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.4264667100540916e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0230575688980467e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.51082825367013e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594230381011505e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.3386407217362217e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.26408136496978e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.8588083388007163e-10).
+Orthogonality column 7:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 2.8834799181674895 + 0.5315716059523025 + 0.6789937796912409 = 4.094045303811033.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 3.538772890717526e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.057241155955676.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594241842542535e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.727824810009471e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.7939220995468833e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.364802416318947e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0088819436229245e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594229591809158e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.73241783414274e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.320112329428966e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0992285393509477e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2493952922024345e-09).
+Orthogonality column 6:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 1.909984080957148 + 0.9625026464566789 + 1.2250856110516672 = 4.097572338465494.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.1998651992023746e-07.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.0718394704006835.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942415678550942e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.498407597374659e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.61443880144592e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.527598112839999e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594231749605709e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.391052626543925e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.387402998599922e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.365115103231597e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.54363273368531e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.334680173508987e-10).
+Orthogonality column 5:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.8971436261993708 + 0.9912339465280564 + 2.188265796392224 = 4.076643369119651.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 1.3950989769915856e-12.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.074587619433272.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942415868296095e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.7744214737713884e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 7.008523927848109e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942321058110954e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.283783516127913e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.7181575942891507e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.936832447452708e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.88414908349401e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.3762177897325376e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.9575833462674376e-10).
+Orthogonality column 4:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.48379309674858784 + 0.4137192770597477 + 3.1900339743575272 = 4.087546348165863.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.119123613444388e-13.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.070878321464588.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.59424171288093e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.84702546361114e-17).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942324825727782e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.465352573092461e-19).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.727138421034757e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.137328924202042e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.6075400251628684e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.251629802297739e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.1098165031675494e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.354232627312475e-10).
+Orthogonality column 3:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.4772613442548009 + -0.001929544949464296 + 3.626431474868342 = 4.1017632741736785.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.220187138347308e-06.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.053205613409633.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5942393393230317e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594231807408348e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0843039191344515e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.2304329275595098e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 6.382206611097141e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.3061733953157687e-10).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 4.5994799239843363e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.1889645745002296e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.935534365537636e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.2458228459036065e-10).
+Orthogonality column 2:
+- C leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- Lh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 3), (3, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = 0.49431955288623447 + -0.0053289064376388275 + 3.6455408912802496 = 4.134531537728845.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+- largest Hermiticity error: 4.4874282149965363e-10.
+- maximal number of matvec operations: 41.
+-> E_updated = 4.067855128869356.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.594231972444384e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9173122322101246e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.380919552318752e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.0333899019001383e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.3179473807506036e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0147366968206817e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 9.283902822898275e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 5.7170345132563065e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.3784321134541574e-11).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.144422350450466e-09).
+Orthogonality column 1:
+- C leg dimensions: [(1, 2, 2, 4), (4, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 8), (8, 2, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + 0.46156752071172696 + 3.7306790520579596 = 4.192246572769687.
+- C_updated leg dimensions: [(1, 2, 2, 4), (4, 1, 2, 8), (8, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 1, 2, 12), (12, 2, 2, 12), (12, 1, 2, 8), (8, 2, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 4.357162729553032e-06.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.1828019585814395.
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.5940729633986334e-31).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.3383817207146116e-18).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 1.9132458208295097e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 8.139199239132573e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.0252829153978446e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 3.503358201974146e-13).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.0965685539021953e-16).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.2300729403413683e-15).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.660097709288187e-14).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.9223283210881057e-12).
+BoundaryColumnCompression truncated <Bh|C> to chi_max_b = 12 for Bh (maximal truncation error: 2.3117827052849155e-10).
+Orthogonality column 0:
+- C leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 2), (2, 1, 2, 1)].
+- Rh leg dimensions: [(1, 2, 2, 4), (4, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 12), (12, 2, 2, 4), (4, 2, 2, 1)].
+-> E = <Lh|CC*> + <ALhAL*|CC*|ARhAR*> + <CC*|Rh> = None + None + 4.264121967895584 = 4.264121967895584.
+- C_updated leg dimensions: [(1, 1, 2, 2), (2, 1, 2, 4), (4, 1, 2, 8), (8, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 12), (12, 1, 2, 8), (8, 1, 2, 4), (4, 1, 2, 2), (2, 1, 2, 1)].
+- largest Hermiticity error: 1.0518087345220964e-05.
+- maximal number of matvec operations: 31.
+-> E_updated = 4.262881912961459.
+=> <H> - E0 = 4.272711489946516.
+
+<H>s - E0 = [4.91552953 4.30291571 4.27271149]

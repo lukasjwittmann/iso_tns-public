@@ -1,0 +1,3 @@
+[submodule "src/isometric_peps/a_iso_peps"]
+	path = src/isometric_peps/a_iso_peps
+	url = git@github.com:lukasjwittmann/YB-isoTPS.git

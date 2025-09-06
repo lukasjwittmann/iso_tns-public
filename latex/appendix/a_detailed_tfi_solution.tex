@@ -1,0 +1,202 @@
+Guided by \cite{pfeuty1970one} and \cite{sachdev2011quantum}, we present detailed analytical calculations which diagonalize the transverse field Ising model in one spatial dimension. The Hamiltonian with periodic boundary conditions $\sigma^x_{N+1} \equiv \sigma^x_1$ is given by
+\begin{equation}\label{eq:ising_hamiltonian_1d}
+	H = -J \sum_{n=1}^N \sigma^x_n \sigma^x_{n+1} - g \sum_{n=1}^N \sigma^z_n.
+\end{equation}
+
+% Jordan-Wigner transformation
+\noindent The essential tool is the \textit{Jordan-Wigner transformation}, mapping spin-1/2 degrees of freedom to spinless fermions. On every site, we associate the spin-up state with an empty orbital and the spin-down state with an occupied orbital. This fixes the relation 
+\begin{equation}\label{eq:spin_to_fermions_z}
+	\sigma^z_n = 1 - 2c_n^{\dagger}c_n,
+\end{equation}
+where $c_n^{\dagger}$ and $c_n$ denote the fermionic creation and annihilation operators. They have to fulfill the anti-commutation relations
+\begin{equation} \label{eq:fermionic_anticommutation_relations}	
+	 \{c_n, c_m\} = \{c_n^{\dagger}, c_m^{\dagger}\} = 0, \:\: \{c_n, c_m^{\dagger}\} = \delta_{nm}.
+\end{equation}
+Naively we may set $c_n$ equal to $\sigma_n = \frac{1}{2}(\sigma^x_n + i\sigma^y_n)$ (flipping the spin from down to up) and $c^{\dagger}_n$ equal to $\sigma^{\dagger}_n = \frac{1}{2}(\sigma^x_n - i\sigma^y_n)$ (flipping the spin from up to down). But spin operators commute on different sites:
+\begin{equation} \label{eq:spin_commutation_relations}	
+	[\sigma^{\alpha}_n, \sigma^{\beta}_m] = 0 \:\:\mathrm{for}\:\:n \neq m, \:\: \sigma^{\alpha}_n\sigma^{\beta}_n = \delta_{\alpha\beta} \mathbbm{1} + i \epsilon_{\alpha\beta\gamma}\sigma^{\gamma}_n.
+\end{equation}
+The solution to this dilemma is the introduction of the highly non-local Jordan-Wigner string 
+\begin{equation}
+	\eta_n = \prod_{m<n}\sigma^z_m = \prod_{m<n}(1-2c_m^{\dagger}c_m) = (-1)^{\sum\limits_{m<n}c_m^{\dagger}c_m} = \eta_n^{\dagger}.
+\end{equation}
+The following mappings are consistent with all commutation and anti-commutation relations:
+\begin{equation}
+	\sigma_n = \eta_n c_n, \:\: \sigma_n^{\dagger} = \eta_n c_n^{\dagger}.
+\end{equation}
+For the Pauli-x and Pauli-y matrices they translate to
+\begin{equation}
+	\sigma^x_n = \sigma_n^{\dagger} + \sigma_n = \eta_n (c_n^{\dagger} + c_n), \:\: \sigma^y_n = i(\sigma_n^{\dagger} - \sigma_n) = i\eta_n (c_n^{\dagger} - c_n).
+\end{equation}
+Let us prove the consistency of \eqref{eq:fermionic_anticommutation_relations} with \eqref{eq:spin_commutation_relations}.	For this we use the following identites, which directly follow from \eqref{eq:fermionic_anticommutation_relations}:
+\begin{equation}
+[c_n, c_m^{\dagger}c_m] = \delta_{nm}c_n, \:\: [c_n^{\dagger}, c_m^{\dagger}c_m] = -\delta_{nm}c_n^{\dagger}, \:\: [c_n^{\dagger}c_n, c_m^{\dagger}c_m] = 0,
+\end{equation}
+\begin{equation}
+	(c_n^{\dagger} + c_n)(1 - 2c_n^{\dagger}c_n) = -(1 - 2c_n^{\dagger}c_n)(c_n^{\dagger} + c_n) = c_n^{\dagger} - c_n.
+\end{equation}
+The Jordan-Wigner string is not needed for relations on the same site and can be made ineffective using $[\eta_n, c_n] = [\eta_n, c_n^{\dagger}] = 0$ and $\eta_n^2 = 1$. It is essential though for the relations $[\sigma^{\alpha}_n, \sigma^{\beta}_m] = 0$, with $n \neq m$ and $\alpha, \beta \in \{x, y\}$. We exemplarily prove the one for $\alpha = \beta = x$, the others are structurally similar. W.l.o.g assume $m > n$:
+\begin{align}
+\begin{split}
+	\sigma^x_n \sigma^x_m &= \eta_n (c_n^{\dagger} + c_n) \eta_m (c_m^{\dagger} + c_m) \\
+	&= \eta_n(c_n^{\dagger} + c_n)(1 - 2c_n^{\dagger}c_n) \prod_{l=n+1}^{m-1}(1 - 2c_l^{\dagger}c_l) (c_m^{\dagger} + c_m)\eta_n \\
+	&= (-1)\eta_n(1 - 2c_n^{\dagger}c_n) \prod_{l=n+1}^{m-1}(1 - 2c_l^{\dagger}c_l)(c_n^{\dagger} + c_n)(c_m^{\dagger} + c_m)\eta_n \\
+	&= (-1)^2\eta_m (c_m^{\dagger} + c_m) \eta_n (c_n^{\dagger} + c_n) \\
+	&= \sigma^x_m \sigma^x_n.
+\end{split}
+\end{align}
+Under the \textit{Jordan-Wigner transformation}, the Ising interaction for $n < N$ translates to
+\begin{align} \label{eq:spin_to_fermions_x}
+\begin{split}
+	\sigma^x_n \sigma^x_{n+1} &= \eta_n (c_n^{\dagger} + c_n) \eta_{n+1} (c_{n+1}^{\dagger} + c_{n+1}) \\
+	&= \eta_n^2 (c_n^{\dagger} + c_n)(1 - 2c_n^{\dagger}c_n)(c_{n+1}^{\dagger} + c_{n+1}) \\
+	&= (c_n^{\dagger} - c_n)(c_{n+1}^{\dagger} + c_{n+1}).
+\end{split}
+\end{align}
+\noindent Connecting the last and first site we have to be careful. There are no spins left of site $1$, so $\eta_1 = 1$. For the last Jordan-Wigner string we get
+\begin{equation}
+	\eta_N = \prod_{n<N}(1-2c_n^{\dagger}c_n) = \prod_{n \leq N}(1-2c_n^{\dagger}c_n)(1-2c_N^{\dagger}c_N) = (-1)^{N_f}(1-2c_N^{\dagger}c_N),
+\end{equation}
+where $N_f$ denotes the total number of fermions in the system. Taken together we have
+\begin{equation}
+	\sigma^x_N \sigma^x_{1} = (-1)^{N_f}(1-2c_N^{\dagger}c_N)(c_N^{\dagger} + c_N)(c_{1}^{\dagger} + c_{1}) = - P_f (c_N^{\dagger} - c_N)(c_{1}^{\dagger} + c_{1}),
+\end{equation}
+where we defined the fermionic parity operator 
+\begin{equation}
+	P_f = (-1)^{N_f} = (-1)^{\sum_n c_n^{\dagger} c_n} = \prod_n \sigma^z_n.
+\end{equation}
+To let \eqref{eq:spin_to_fermions_x} hold also for $n = N$, we impose PBC $c_{N+1} \equiv c_1$ for an odd number of fermions ($P_f = -1$) and APBC $c_{N+1} \equiv -c_1$ for an even number of fermions ($P_f = 1$). Then $[H, P_f] = 0$, i.e. the Hamiltonian block diagonalizes into the two parity sectors and we can diagonalize them independently. In the thermodynamic limit, we can stick to periodic boundary conditions and argue that the single correction term $+2J (c_N^{\dagger} - c_N)(c_{1}^{\dagger} + c_{1})$ becomes negligible. \\
+
+\noindent Inserting \eqref{eq:spin_to_fermions_z} and \eqref{eq:spin_to_fermions_x} into \eqref{eq:ising_hamiltonian_1d}, we obtain the fermionic Hamiltonian
+\begin{align}
+\begin{split}
+	H &= - \sum_n \left[J(c_n^{\dagger} - c_n)(c_{n+1}^{\dagger} + c_{n+1}) + g(1 - 2c_n^{\dagger}c_n)  \right] \\
+	&= - \sum_n \left[J(c_n^{\dagger}c_{n+1} + c_{n+1}^{\dagger}c_n + c_n^{\dagger}c_{n+1}^{\dagger} + c_{n+1}c_n) - 2gc_n^{\dagger}c_n + g  \right].
+\end{split}
+\end{align}
+
+% Fourier transformation
+\noindent Next we perform a \textit{Fourier transformation} $c_n = \frac{1}{\sqrt{N}}\sum_p e^{-ipn}c_p$, with momenta $p = \frac{2 \pi}{N}k$. The allowed $k$ values are determined by the fermionic parity of $N_f$, and the parity of the system size $N$:
+\begin{enumerate}
+	\item[1)] $N_f$ odd: $e^{ipN} = 1$ $\Rightarrow$ integer quantization.
+	\begin{itemize}
+		\item $N$ even: $k \in \{- \frac{N}{2}+1, ..., \frac{N}{2}\}$.
+		\item $N$ odd: $k \in \{ - \frac{N-1}{2}, ..., \frac{N-1}{2}\}$.
+	\end{itemize}
+	\item[2)] $N_f$ even: $e^{ipN} = -1$ $\Rightarrow$ half-integer quantization.
+	\begin{itemize}
+		\item $N$ even: $k \in \{ - \frac{N-1}{2}, ..., \frac{N-1}{2}\}$.
+		\item $N$ odd: $k \in \{- \frac{N}{2}+1, ..., \frac{N}{2}\}$.
+	\end{itemize}
+\end{enumerate}
+The following calculations are valid for any of these four sectors. We use $\sum_n e^{i(p-\Tilde{p})n} = N\delta_{p\Tilde{p}}$ and $e^{ip} = \cos(p) + i \sin(p)$ for
+\begin{align}
+\begin{split}
+	H &= -\frac{1}{N} \sum_{n, p, \Tilde{p}} J\left( e^{ipn}e^{-i\Tilde{p}(n+1)}c_p^{\dagger}c_{\Tilde{p}} + e^{ip(n+1)}e^{-i\Tilde{p}n}c_p^{\dagger}c_{\Tilde{p}} + e^{ipn}e^{i\Tilde{p}(n+1)}c_p^{\dagger}c_{\Tilde{p}}^{\dagger}  + e^{-ip(n+1)}e^{-i\Tilde{p}n}c_pc_{\Tilde{p}} \right) \\
+	& + \frac{1}{N} \sum_{n, p, \Tilde{p}} \left( 2g e^{ipn}e^{-i\Tilde{p}n}c_p^{\dagger}c_{\Tilde{p}} -g \right) \\
+	&= \sum_p \left[-J \left( e^{-ip}c_p^{\dagger}c_p + e^{ip}c_p^{\dagger}c_p + e^{ip}c_{-p}^{\dagger}c_p^{\dagger} + e^{ip}c_{-p}c_p\right) + 2g c_p^{\dagger}c_p - g \right] \\
+	&= \sum_p \left[ 2(g - J\cos(p))c_p^{\dagger}c_p - Je^{ip}(c_{-p}^{\dagger}c_p^{\dagger} + c_{-p}c_p) - g\right].
+\end{split}
+\end{align}
+We can simplify the middle term by exploiting the symmetry under $p \rightarrow -p$:
+\begin{align}
+\begin{split}
+	\sum_p e^{ip}(c_{-p}^{\dagger}c_p^{\dagger} + c_{-p}c_p) &= \sum_{0 < p < \pi} \left[ e^{ip}(c_{-p}^{\dagger}c_p^{\dagger} + c_{-p}c_p) + e^{-ip}(c_{p}^{\dagger}c_{-p}^{\dagger} + c_{p}c_{-p})\right] \\
+	&= \sum_{0 < p < \pi} (e^{ip} - e^{-ip})(c_{-p}^{\dagger}c_p^{\dagger} + c_{-p}c_p) \\
+	&= \sum_{0 < p < \pi} 2i\sin(p)(c_{-p}^{\dagger}c_p^{\dagger} + c_{-p}c_p) \\
+	&= \sum_p i\sin(p)(c_{-p}^{\dagger}c_p^{\dagger} + c_{-p}c_p).
+\end{split}
+\end{align}
+With this the Hamiltonian reads
+\begin{equation}\label{eq:ising_hamiltonian_1d_momentum}
+	H = 	\sum_p \left[ 2(g - J\cos(p))c_p^{\dagger}c_p - iJ\sin(p)(c_{-p}^{\dagger}c_p^{\dagger} + c_{-p}c_p) - g\right].
+\end{equation}
+
+% Bogoliubov transformation
+\noindent To diagonalize $H$, we define the \textit{Bogoliubov transformation} for real numbers $u_p$ and $v_p$:
+\begin{equation}\label{eq:bogoliubov}
+	\gamma_p = u_p c_p - i v_p c_{-p}^{\dagger}.
+\end{equation}
+For $\gamma_p$ defining proper fermionic operators, they have to inherit the canonical anti-commutation relations from $c_p$:
+\begin{align}
+\begin{split}
+	\{ \gamma_p, \gamma_{\Tilde{p}} \} &= \{ u_p c_p - i v_p c_{-p}^{\dagger}, u_{\Tilde{p}} c_{\Tilde{p}} - i v_{\Tilde{p}} c_{-{\Tilde{p}}}^{\dagger} \} = -i(u_p v_{-p} + u_{-p} v_p)\delta_{p,-\Tilde{p}} \overset{!}{=} 0, \\
+	\{\gamma_p^{\dagger}, \gamma_{\Tilde{p}}^{\dagger}\} &= \{u_p c_p^{\dagger} + i v_p c_{-p}, u_{\Tilde{p}} c_{\Tilde{p}}^{\dagger} + i v_{\Tilde{p}} c_{-{\Tilde{p}}}\} = i(u_p v_{-p} + u_{-p} v_p)\delta_{p,-\Tilde{p}} \overset{!}{=} 0, \\
+	\{ \gamma_p, \gamma_{\Tilde{p}}^{\dagger} \} &= \{ u_p c_p - i v_p c_{-p}^{\dagger}, u_{\Tilde{p}} c_{\Tilde{p}}^{\dagger} + i v_{\Tilde{p}} c_{-{\Tilde{p}}} \} = (u_p^2 + v_p^2)\delta_{p,\Tilde{p}} \overset{!}{=} \delta_{p,\Tilde{p}}.
+\end{split}
+\end{align}
+We meet the conditions $u_p = u_{-p}$, $v_p = -v_{-p}$ and $u_p^2 + v_p^2 = 1$ with $u_p = \cos(\frac{\vartheta_p}{2})$ and $v_p = \sin(\frac{\vartheta_p}{2})$. For the rest of the calculations the following trigonometric identities are very useful:
+\begin{align} \label{eq:trigonometric_identities}
+\begin{split}
+	u_p^2  - v_p^2 &= \cos^2 \left( \frac{\vartheta_p}{2} \right) - \sin^2 \left( \frac{\vartheta_p}{2} \right) =  \cos(\vartheta_p), \\
+	2 u_p v_p &= 2 \cos(\frac{\vartheta_p}{2}) \sin(\frac{\vartheta_p}{2}) = \sin(\vartheta_p), \\
+	v_p^2 &= \sin^2 \left( \frac{\vartheta_p}{2} \right) = (1-\cos(\vartheta_p))/2.
+\end{split}
+\end{align}
+Let us now insert the inverse of \eqref{eq:bogoliubov}, 
+\begin{equation}
+	c_p = u_p \gamma_p + i v_p \gamma_{-p}^{\dagger},
+\end{equation}
+into the Hamiltonian \eqref{eq:ising_hamiltonian_1d_momentum}. For this compute separately the terms
+\begin{align}
+\begin{split}
+	c_p^{\dagger}c_p &= (u_p \gamma_p^{\dagger} - i v_p \gamma_{-p})(u_p \gamma_p + i v_p \gamma_{-p}^{\dagger}) \\
+	&= u_p^2 \gamma_p^{\dagger} \gamma_p + v_p^2 \gamma_{-p}\gamma_{-p}^{\dagger} - i u_p v_p (\gamma_{-p}^{\dagger}\gamma_{p}^{\dagger} + \gamma_{-p}\gamma_p),
+\end{split}
+\end{align}
+\begin{align}
+\begin{split}
+c_{-p}^{\dagger}c_p^{\dagger} + c_{-p}c_p &= (u_p \gamma_{-p}^{\dagger} + i v_p \gamma_{p})(u_p \gamma_p^{\dagger} - i v_p \gamma_{-p}) + (u_p \gamma_{-p} - i v_p \gamma_{p}^{\dagger})(u_p \gamma_p + i v_p \gamma_{-p}^{\dagger}) \\
+&= i u_p v_p (\gamma_p \gamma_p^{\dagger}- \gamma_{-p}^{\dagger} \gamma_{-p} +  \gamma_{-p}\gamma_{-p}^{\dagger} - \gamma_p^{\dagger}\gamma_p) + (u_p^2 - v_p^2)(\gamma_{-p}^{\dagger}\gamma_{p}^{\dagger} + \gamma_{-p}\gamma_p).
+\end{split}
+\end{align}
+We demand that terms violating conservation of the $\gamma$-fermions (like $\gamma_{-p}^{\dagger}\gamma_{p}^{\dagger}$ and $\gamma_{-p}\gamma_p$) cancel out, requiring
+\begin{align}\label{eq:tan_vartheta}
+\begin{split}
+	& 2(g - J\cos(p))(-i u_p v_p) - iJ\sin(p)(u_p^2 - v_p^2) \overset{!}{=} 0 \\
+	&\Leftrightarrow \frac{u_p v_p}{u_p^2 - v_p^2} = -\frac{J\sin(p)}{2(g - J\cos(p))} \\
+	&\Leftrightarrow \tan(\vartheta_p) = -\frac{J\sin(p)}{g - J\cos(p)}.
+\end{split}
+\end{align}
+
+\noindent Next we simplify the remaining diagonal terms, again by exploiting the symmetry under $p \rightarrow -p$:
+\begin{align}\label{eq:simplify_diagonal_term_1}
+\begin{split}
+	&2(g - J\cos(p))c_p^{\dagger}c_p + 2(g - J\cos(-p))c_{-p}^{\dagger}c_{-p}\\
+	&= 2(g - J\cos(p))(u_p^2 \gamma_p^{\dagger} \gamma_p + v_p^2 \gamma_{-p}\gamma_{-p}^{\dagger} + u_p^2 \gamma_{-p}^{\dagger} \gamma_{-p} + v_p^2 \gamma_{p}\gamma_{p}^{\dagger}) \\
+	&= 2(g - J\cos(p))(u_p^2 \gamma_p^{\dagger} \gamma_p + v_p^2 \gamma_p\gamma_p^{\dagger}) + 2(g - J\cos(-p))({u_{-p}}^2\gamma_{-p}^{\dagger}\gamma_{-p} + {v_{-p}}^2\gamma_{-p}\gamma_{-p}^{\dagger}),
+\end{split}
+\end{align}
+\begin{align}\label{eq:simplify_diagonal_term_2}
+\begin{split}
+&-iJ\sin(p)(c_{-p}^{\dagger}c_p^{\dagger} +c_{-p}c_p) -i J\sin(-p)(c_{p}^{\dagger}c_{-p}^{\dagger} + c_{p}c_{-p}) \\
+&= 2 J\sin(p)  u_p v_p (\gamma_p \gamma_p^{\dagger} - \gamma_{-p}^{\dagger} \gamma_{-p} +  \gamma_{-p}\gamma_{-p}^{\dagger} - \gamma_p^{\dagger}\gamma_p) \\
+&= 2 J\sin(p)  u_p v_p (\gamma_p \gamma_p^{\dagger} - \gamma_p^{\dagger}\gamma_p) + 2J\sin(-p)  u_{-p} v_{-p} ( \gamma_{-p}\gamma_{-p}^{\dagger} - \gamma_{-p}^{\dagger} \gamma_{-p}).
+\end{split}
+\end{align}
+\noindent With \eqref{eq:simplify_diagonal_term_1} and \eqref{eq:simplify_diagonal_term_2} the Hamiltonian \eqref{eq:ising_hamiltonian_1d_momentum} takes the diagonal form
+\begin{align}
+\begin{split}
+	H &= 2 \sum_p \left[ (g - J\cos(p))(u_p^2 \gamma_p^{\dagger} \gamma_p + v_p^2 \gamma_p\gamma_p^{\dagger}) - J\sin(p)  u_p v_p (\gamma_p^{\dagger}\gamma_p-\gamma_p \gamma_p^{\dagger} ) - g/2 \right] \\
+	&= 2 \sum_p \left[ (g - J\cos(p))(u_p^2  - v_p^2) - 2J\sin(p)  u_p v_p \right]\gamma_p^{\dagger} \gamma_p \\
+	& - \sum_p \left[-2(g - J\cos(p))v_p^2 - 2J\sin(p)  u_p v_p + g \right].
+\end{split}
+\end{align}
+The trigonometric identities \eqref{eq:trigonometric_identities}, and the fact that $J \cos(p)$ sums up to 0, help us to bring the two terms into the same form:
+\begin{equation}
+	H = 2 \sum_p \left[ (g - J\cos(p))\cos(\vartheta_p) - J\sin(p)\sin(\vartheta_p) \right](\gamma_p^{\dagger} \gamma_p - 1/2).
+\end{equation}
+We define $\epsilon_p/2 := (g - J\cos(p))\cos(\vartheta_p) - J\sin(p)  \sin(\vartheta_p)$ and compute its square by inserting \eqref{eq:tan_vartheta} and using the trigonometric identities $\cos^2(\vartheta_p) = 1/(1+\tan^2(\vartheta_p))$, $\sin^2(\vartheta_p) = \tan^2(\vartheta_p)/(1+\tan^2(\vartheta_p))$ and $\cos(\vartheta_p)\sin(\vartheta_p) =  \tan(\vartheta_p)/(1+\tan^2(\vartheta_p))$:
+\begin{align}
+\begin{split}
+	\epsilon_p^2/4 &= [g - J\cos(p)]^2\cos^2(\vartheta_p) + [J\sin(p)]^2  \sin^2(\vartheta_p) - 2[g - J\cos(p)][J\sin(p)]\cos(\vartheta_p)\sin(\vartheta_p) \\
+	&= \frac{[g - J\cos(p)]^2 + [J\sin(p)]^2 \tan^2(\vartheta_p) - 2[g - J\cos(p)][J\sin(p)]\tan(\vartheta_p)}{1+\tan^2(\vartheta_p)} \\
+	&= \frac{[g - J\cos(p)]^2 + \frac{[J\sin(p)]^4}{[g - J\cos(p)]^2} + 2[J\sin(p)]^2}{1+\frac{[J\sin(p)]^2}{[g - J\cos(p)]^2}}\\
+	&= \frac{[g - J\cos(p)]^4 + [J\sin(p)]^4 + 2[g - J\cos(p)]^2[J\sin(p)]^2}{[g - J\cos(p)]^2+ [J\sin(p)]^2} \\
+	&= [g - J\cos(p)]^2+ [J\sin(p)]^2.
+\end{split} 
+\end{align}
+The final diagonal form of the Hamiltonian reads
+\begin{equation}
+	H = \sum_p \epsilon_p \gamma_p^{\dagger} \gamma_p + E_0 \:\:\: \mathrm{with} \:\: \epsilon_p = 2\sqrt{g^2 - 2 J g \cos(p) + J^2} \:\: \mathrm{and} \:\: E_0 = - \sum_p \epsilon_p/2.
+\end{equation}
