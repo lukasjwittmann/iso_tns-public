@@ -63,7 +63,7 @@ It turns out that for quantum channels the peripheral spectrum has trivial Jorda
 	\end{equation}
 	The eigenvectors fulfill the orthonormality conditions 
 	\begin{equation}
-	( \overline{\mathbbm{1}} \vert r ) = \tr [r] = 1, \:\: ( \overline{\mathbbm{1}} \vert r_j ) = \tr [r_j] = 0, \:\: ( \overline{l_j} \vert r_k ) = \tr [\overline{l_j}^{\dagger} r_k] = \delta_{jk}.
+	( \mathbbm{1} \vert r ) = \tr [r] = 1, \:\: ( \mathbbm{1} \vert r_j ) = \tr [r_j] = 0, \:\: ( l_j \vert r_k ) = \tr [l_j^{T} r_k] = \delta_{jk}.
 	\end{equation}
 	
 	\item \textit{Primitivity}: $\mathcal{E}$ is irreducible and has trivial peripheral spectrum, i.e. counting algebraic multiplicities, there is only one eigenvalue of magnitude and value one and the corresponding eigenvector $r$ is positive definite:
@@ -257,7 +257,7 @@ For tensors $A \in \mathbb{C}^{d \times D_A \times D_A}$ and $B \in \mathbb{C}^{
 	&= \tr[T_A^N].
 \end{split}
 \end{align}
-As $\mathcal{E}_A$ is CPU primitive, we can write $T_A = \tket{\mathbbm{1}} \tbra{l_A} + \mathcal{O}(\vert \lambda_2 \vert)$ with $\vert \lambda_2 \vert < 1$ the second largest eigenvalue magnitude. So $\langle \psi(A,N) \vert \psi(A,N) \rangle = \tr[T_A^N]$ equals  $( \overline{l_A} \vert \mathbbm{1} ) = \tr[\overline{l_A}] = 1$ up to a correction exponentially small in $N$. In the same manner we compute the mixed overlap
+As $\mathcal{E}_A$ is CPU primitive, we can write $T_A = \tket{\mathbbm{1}} \tbra{l_A} + \mathcal{O}(\vert \lambda_2 \vert)$ with $\vert \lambda_2 \vert < 1$ the second largest eigenvalue magnitude. So $\langle \psi(A,N) \vert \psi(A,N) \rangle = \tr[T_A^N]$ equals  $( l_A \vert \mathbbm{1} ) = \tr[l_A] = 1$ up to a correction exponentially small in $N$. In the same manner we compute the mixed overlap
 \begin{align}
 \begin{split}
 	\langle \psi(B,N) \vert \psi(A,N) \rangle &= \sum_{s_1, \ldots, s_N} \tr[A^{s_1} \cdots A^{s_N}]\overline{\tr[B^{s_1} \cdots B^{s_N}]} \\

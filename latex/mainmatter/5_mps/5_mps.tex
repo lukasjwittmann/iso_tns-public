@@ -1,4 +1,4 @@
-Compared to the previous chapter, where we worked in the thermodynamic limit, we now restrict the spin chain to a finite size $N$. Moreover, we explicitly break translation invariance by imposing open boundary conditions and allowing the tensors to be site dependent: 
+Compared to the previous chapter, where we worked in the thermodynamic limit, we now restrict the spin chain to a finite size $N$. Moreover, we explicitly break translation invariance by imposing open boundary conditions and allowing the tensors to be site-dependent: 
 \begin{equation}
 	A^{[n]} \in \mathbb{C}^{D_{n-1} \times d \times D_n} \text{ with } D_0 = D_N = 1. 
 \end{equation}
@@ -26,7 +26,7 @@ is biholomorphic to
 \begin{equation}
 	\mathcal{M}_{\{D_n\}} = \left\{ \ket{\psi ( A^{[1]}, \ldots, A^{[N]} )} \in \mathbb{C}^{d^N} \middle\vert \{ A^{[n]}\} \in \mathcal{A}_{\{D_n\}}\right\}.
 \end{equation}
-In section \ref{sec:dmrg} we will variationally approximate ground states within $\mathcal{M}_{\{D_n\}}$, using the \textit{density matrix renormalization group} (DMRG) algorithm. Then, in section \ref{sec:vqpe}, we will construct quasiparticle excitations on top, by optimizing (a parametrized version of) the tangent space vector
+In section \ref{sec:dmrg} we will variationally optimize ground states within $\mathcal{M}_{\{D_n\}}$, using the \textit{density matrix renormalization group} (DMRG) algorithm. Then, in section \ref{sec:vqpe}, we will construct quasiparticle excitations on top, by optimizing (a parametrized version of) the tangent space vector
 \begin{align} \label{eq:tangent_space_vector_mps}
 \begin{split}
 	\ket{\psi (B; A)} 
@@ -110,7 +110,7 @@ such that
 	H = \sum_{\{s_n\}} \sum_{\{\Tilde{s}_n\}} W^{[1] s_1, \Tilde{s}_1} W^{[2] s_2, \Tilde{s}_2} \cdots W^{[N] s_N, \Tilde{s}_N} \ket{s_1 \ldots s_N} \bra{\Tilde{s}_1 \ldots \Tilde{s}_N} 
 	= \raisebox{-0.44\height}{\includegraphics[height=1.7cm]{mpo.png}} \hspace{0.2em} .
 \end{equation}
-The key limitation for efficient algorithms involving such MPOs lies in the bond dimensions $\chi_{n}$. In the worst case, they scale exponentially in system size $N$. This is not the case for local Hamiltonians, which we want to demonstrate for the transverse field Ising model. Since our MPS \eqref{eq:canonical_form_mps} has open boundary conditions by construction, they are the most natural choice for the Hamiltonian as well. \\[0.75em]
+The key limitation for efficient algorithms involving such MPOs lies in the bond dimensions $\chi_{n}$. In the worst case, they scale exponentially in system size $N$. This is not the case for local Hamiltonians, which we demonstrate for the transverse field Ising model. Since our MPS \eqref{eq:canonical_form_mps} has open boundary conditions by construction, they are the most natural choice for the Hamiltonian as well. \\[0.75em]
 \noindent 1) Open boundary conditions (OBC) \\[0.5em]
 We start from the Hamiltonian in the normal form, namely as a sum of Kronecker products involving $N$ spin operators each:
 \begin{align} \label{eq:1d_tfi_obc}
@@ -230,7 +230,7 @@ This ensures that the individual states $\ket{\psi(X^{[n]}; A)}$ in the superpos
 are orthogonal to the ground state and pairwise to each other:
 \begin{equation} \label{eq:emps_orthogonality}
 	\langle \psi(\overline{A}) \vert \psi(X^{[n]}; A) \rangle = 0, \hspace{0.5em}
-	\langle \psi(\overline{Y}^{[m]}; \overline{A}) \vert \psi(X^{[n]}; A) \rangle = \delta_{nm} ( \overline{Y}^{[m]} \vert X^{[n]} ).
+	\langle \psi(\overline{Y}^{[m]}; \overline{A}) \vert \psi(X^{[n]}; A) \rangle = \delta_{nm} ( \overline{Y}^{[n]} \vert X^{[n]} ).
 \end{equation}
 From the latter relation it follows that the map $X \mapsto \ket{\psi(X; A)}$ is injective with 
 \begin{equation} \label{eq:norm_excitation}
@@ -282,7 +282,7 @@ we compute the following boundary tensors iteratively starting from $L^{[0]} = R
 	\hspace{1em} \text{\scriptsize{$(n = N, \ldots, 2)$}}.
 \end{array}
 \end{equation}
-After having solved \eqref{eq:effective_excitation_equation} with Lanczos for several algebraically smallest energy eigenvalues, we try to restore momentum as a good quantum number by diagonalizing the translation operator within each degenerate eigenspace. The successful result for $N = 20$ and $D_{\text{max}} = 64$ is shown in figure \ref{fig:excitations} (a). All excitations have a definite momentum $2\pi k /N$ for $k \in \{- \frac{N}{2}+1, ..., \frac{N}{2}\}$ and the corresponding energies agree with exact diagonalization. We also plot the single particle dispersion obtained from the exact mapping to free fermions in the odd parity sector. In the paramagnetic phase with representative transverse field value $g = 1.5$, the lowest lying excitations for all covered momenta lie perfectly on the dispersion curve. At the critical point $g = 1$ this is only roughly the case, as the distinction between different fermion parity sectors becomes more delicate for finite sizes. In the ferromagnetic phase, shown here for $g = 0.5$, the lowest lying excitations are topological domain walls, which are not accessible with a periodic Hamiltonian.
+After having solved \eqref{eq:effective_excitation_equation} with Lanczos for several algebraically smallest energy eigenvalues, we try to restore momentum as a good quantum number by diagonalizing the translation operator within each degenerate eigenspace. The successful result for $N = 20$ and $D_{\text{max}} = 64$ is shown in figure \ref{fig:excitations} (a). All excitations have a definite momentum $2\pi k /N$ for $k \in \{- \frac{N}{2}+1, ..., \frac{N}{2}\}$ and the corresponding energies agree with exact diagonalization. We also plot the single particle dispersion obtained from the exact mapping to free fermions in the odd parity sector. In the paramagnetic phase with representative transverse field value $g = 1.5$, the lowest-lying excitations for all covered momenta lie perfectly on the dispersion curve. At the critical point $g = 1$ this is only roughly the case, as the distinction between different fermion parity sectors becomes more delicate for finite sizes. In the ferromagnetic phase, shown here for $g = 0.5$, the lowest-lying excitations are topological domain walls, which are not accessible with a periodic Hamiltonian.
 \end{samepage}
 
 % effective translation operator
@@ -337,7 +337,7 @@ The value for $\alpha > 0$ is chosen heuristically. It should be large enough to
 \noindent The boundary tensors are specified in appendix \ref{ch:extensive_tensor_network_diagrams}. The recursive principle of summing up the terms that
 \begin{enumerate}
 	\item[(i)] apply $B^{[n]}$ to the identity boundary,
-	\item[(ii)] transfer the boundary for which all $B^{[m < n]}$ have already been applied,
+	\item[(ii)] transfer the boundary for which all $B^{[m < n]}$ already have been applied,
 \end{enumerate}
 is the same as for $H_{\text{eff}}$. The results for the TFI model, again for the values $g = 0.5$, $g = 1.0$ and $g = 1.5$ are shown in figure \ref{fig:excitations} (b). The crucial difference to (a) lies in the direct access to the whole dispersion relation, in the sense that we don't have to compute multiple excitations of the same momentum to reach the first excitation of other momenta. \\[1em]
 
@@ -345,14 +345,14 @@ is the same as for $H_{\text{eff}}$. The results for the TFI model, again for th
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\linewidth]{excitations.png}
-  \caption{TFI benchmark for variational quasiparticle excitations on top of a finite MPS ground state. We choose PBC for the Hamiltonian, chain length $N = 20$ and maximal bond dimension $D_{\text{max}} = 64$. On the left side (a), we first diagonalize the Hamiltonian and afterwards the translation operator within each energy-degenerate eigenspace. We compare the results to exact diagonalization and the single particle dispersion obtained from the Jordan-Wigner mapping to free fermions (in the odd parity sector). The lowest lying domain wall excitations in the ferromagnetic phase $g < 1$ are not eigenstates of the periodic Hamiltonian. The right side (b) shows the benchmark for quasiparticle excitations variational in energy and momentum. We include the Hermitian translation operator $- \alpha ( e^{-i 2\pi k / N} T_{\text{eff}} + e^{i 2\pi k / N} T_{\text{eff}}^{\dagger} )$ directly in the effective eigenvalue equation. This frees us from computing multiple excitations of the same momentum, whose energies lie below the first excitation of other momenta.}
+  \caption{TFI benchmark for variational quasiparticle excitations on top of a finite MPS ground state. We choose PBC for the Hamiltonian, chain length $N = 20$ and maximal bond dimension $D_{\text{max}} = 64$. On the left side (a), we first diagonalize the Hamiltonian and afterwards the translation operator within each energy-degenerate eigenspace. We compare the results to exact diagonalization and the single particle dispersion obtained from the Jordan-Wigner mapping to free fermions (in the odd parity sector). The lowest-lying domain wall excitations in the ferromagnetic phase $g < 1$ are not eigenstates of the periodic Hamiltonian. The right side (b) shows the benchmark for quasiparticle excitations variational in energy and momentum. We include the Hermitian translation operator $- \alpha ( e^{-i 2\pi k / N} T_{\text{eff}} + e^{i 2\pi k / N} T_{\text{eff}}^{\dagger} )$ directly in the effective eigenvalue equation. This frees us from computing multiple excitations of the same momentum, whose energies lie below the first excitation of other momenta.}
 \label{fig:excitations}
 \end{figure}
 
 
 % local energies
-\noindent \underline{Local energies} \\[0.5em]
-Going from periodic to open boundary conditions for the Hamiltonian, it does no longer commute with the translation operator. As a consequence, the excitations cannot be momentum eigenstates anymore. Nevertheless, we expect standing wave configurations of the very same dressed particle. 
+\noindent \underline{Local energies and OBC} \\[0.5em]
+Going from periodic to open boundary conditions for the Hamiltonian, it does no longer commute with the translation operator. As a consequence, the excitations cannot be momentum eigenstates anymore. Nevertheless, we expect standing wave configurations of the very same dressed particle \cite{van2021efficient}. 
 This can be understood easiest in the single particle picture, known from the perturbative approach in section \ref{sec:tfi_perturbation_theory}. For the effective Hamiltonian 
 \begin{equation}
 	H_{\text{eff}} =  \mu \sum_n \ket{n} \bra{n} - t \sum_n \left( \ket{n} \bra{n+1} + \ket{n+1} \bra{n} \right),
@@ -403,12 +403,12 @@ While the pure momentum states $\ket{\pm p}$ have constant local energy $\langle
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\linewidth]{excitations_local_energies.png}
-  \caption{TFI benchmark for the quasiparticle excitation waves with PBC and OBC. For $g = 1.5$, $N = 100$ and $D_{\text{max}} = 64$ we compute the four lowest lying MPS quasiparticle excitations. For OBC the local energies describe standing wave configurations with nodes at the boundary and corresponding wave numbers confined to half the Brillouin zone. For PBC the momenta are distributed symmetrically in both halves of the Brillouin zone and the superpositions of $\pm k$ eigenstates show periodic oscillations in the local energies, without nodes.}
+  \caption{TFI benchmark for the quasiparticle excitation waves with PBC and OBC. For $g = 1.5$, $N = 100$ and $D_{\text{max}} = 64$ we compute the four lowest-lying MPS quasiparticle excitations. For OBC the local energies describe standing wave configurations with nodes at the boundary and corresponding wave numbers confined to half the Brillouin zone. For PBC the momenta are distributed symmetrically in both halves of the Brillouin zone and the superpositions of $\pm k$ eigenstates show periodic oscillations in the local energies, without nodes.}
  \label{fig:excitations_local_energies}
 \end{figure}
 
 \vspace*{1.5em}
-\noindent For an MPS quasiparticle excitation \eqref{eq:excitation_ansatz}, the local energy expectation value leads to the double sum 
+\noindent For an MPS quasiparticle excitation \eqref{eq:excitation_ansatz}, a local energy expectation value leads to the double sum 
 \begin{equation}
 	\bra{\psi(\overline{B}; \overline{A})} h^{[n, n+1]} \ket{\psi(B; A)}
 	=
@@ -484,4 +484,4 @@ We efficiently combine the terms where $B^{[m]}$ and/or $\overline{B}^{[\Tilde{m
 \end{equation}
 
 \vspace*{1.5em}
-\noindent At $g = 1.5$, for $N = 100$ and $D_{\text{max}} = 64$, we contract these networks for the four lowest lying MPS quasiparticle excitations, both for PBC and OBC. The results meet the expectations, as demonstrated in figure \ref{fig:excitations_local_energies}. The bond energies show the correct spatial oscillations and reveal the wave numbers. The corresponding total energies lie on the analytical dispersion curve.
+\noindent At $g = 1.5$, for $N = 100$ and $D_{\text{max}} = 64$, we contract these networks for the four lowest-lying MPS quasiparticle excitations, both for PBC and OBC. The results meet the expectations, as demonstrated in figure \ref{fig:excitations_local_energies}. The bond energies show the correct spatial oscillations and reveal the wave numbers. The corresponding total energies lie on the analytical dispersion curve.

@@ -1,6 +1,6 @@
 % PRIMITIVITY, THE MANIFOLD AND ITS TANGENT SPACE
 \section{Primitivity, the manifold and its tangent space} \label{sec:primitivity_manifold_tangent_space}
-Our starting point is a single rank-3 tensor $A \in \mathbb{C}^{D \times d \times D}$, with one leg of \textit{physical dimension} $d$ and two legs of \textit{virtual/bond dimension} $D$. Equivalently, you can see $A$ as a set of $d$ complex matrices $A^s$ of dimension $D \times D$. Completely characterized by $A$, we define the \textit{uniform matrix product state} (uMPS) in the thermodynamic limit as the translation invariant quantum state whose amplitude for orthonormal basis indices $\{s_n\}_{n \in \mathbb{Z}}$ is given by the infinite product of the respective matrices:
+Our starting point is a single rank-3 tensor $A \in \mathbb{C}^{D \times d \times D}$, with one leg of \textit{physical dimension} $d$ and two legs of \textit{virtual/bond dimension} $D$. Equivalently, one can see $A$ as a set of $d$ complex matrices $A^s$ of dimension $D \times D$. Completely characterized by $A$, we define the \textit{uniform matrix product state} (uMPS) in the thermodynamic limit as the translation invariant quantum state whose amplitude for orthonormal basis indices $\{s_n\}_{n \in \mathbb{Z}}$ is given by the infinite product of the respective matrices:
 \begin{equation} \label{eq:umps}
 	\ket{\psi (A)} = \sum_{\{s_n\}} \tbra{v_L} \prod_{n \in \mathbb{Z}} A^{s_n}  \tket{v_R} \ket{\{s_n\}} = \raisebox{-0.55\height}{\includegraphics[height=1cm]{umps.png}} \hspace{0.2em}.
 \end{equation}
@@ -8,7 +8,7 @@ The boundary vectors $\tket{v_L}, \tket{v_R} \in \mathbb{C}^{D}$ ensure normaliz
 
 % primitivity
 \noindent \underline{Primitivity} \\[0.5em]
-\noindent The central object that occurs in all important computations (such as norm or local expectation values) is the \textit{transfer matrix} defined as
+\noindent The central object that occurs in all important computations---such as norm or local expectation values---is the \textit{transfer matrix} defined as
 \begin{equation} \label{eq:transfer_matrix}
 	T_A = \sum_{s=1}^d A^s \otimes \overline{A^s} = \raisebox{-0.45\height}{\includegraphics[height=1.6cm]{transfer_matrix.png}} \hspace{0.2em}.
 \end{equation}
@@ -38,7 +38,7 @@ We formally choose $v_L$ and $v_R$ such that these overlaps equal unity, but the
 
 % manifold
 \noindent \underline{The manifold} \\[0.5em]
-\noindent There exists a \textit{gauge freedom} in the choice of the tensor representation $A$ of a physical state $\ket{\psi (A)}$. It is easy to convince yourself that the \textit{similarity transformation} $B^s = S A^s S^{-1}$\footnote{With a slight abuse of notation, we often denote the matrix-wise similarity transformation $S A^s S^{-1}$ for all $s$ as $S A S^{-1}$.}, for any invertible matrix $S \in \mathbb{C}^{D \times D}$, leaves the uMPS invariant: $\ket{\psi (A)} = \ket{\psi (B)}$. It can be proven\footnote{and with the \textit{fundamental theorem} \ref{thm:fundamental_theorem} we do, but under the assumption of primitivity and unitality, which requires S to be unitary.} that this is in fact the only such transformation:
+\noindent There exists a \textit{gauge freedom} in the choice of the tensor representation $A$ of a physical state $\ket{\psi (A)}$. It is easy to convince oneself that the \textit{similarity transformation} $B^s = S A^s S^{-1}$\footnote{With a slight abuse of notation, we often denote the matrix-wise similarity transformation $S A^s S^{-1}$ for all $s$ as $S A S^{-1}$.}, for any invertible matrix $S \in \mathbb{C}^{D \times D}$, leaves the uMPS invariant: $\ket{\psi (A)} = \ket{\psi (B)}$. It can be proven\footnote{and with the \textit{fundamental theorem} \ref{thm:fundamental_theorem} we do, but under the assumption of primitivity and unitality, which requires S to be unitary.} that this is in fact the only such transformation:
 \begin{equation} \label{eq:umps_gauge}
 	\ket{\psi (A)} = \ket{\psi (B)} \text{ if and only if } B^s = S A^s S^{-1} \text{ for } S \in \mathrm{GL}(D, \mathbb{C}).
 \end{equation}
@@ -50,7 +50,7 @@ The primitivity property ensures that this quotient space is \textit{biholomorph
 \begin{equation}
 	\mathcal{M}_D = \{ \ket{\psi (A)} \in \mathcal{H} \: \vert \: A \in \mathcal{A}_D\},	
 \end{equation}
-turning it into a smooth, low-dimensional manifold in the exponentially large Hilbert space $\mathcal{H}$ of $d$-dimensional spins on an infinite chain. We will see in the next section \ref{sec:canonical_form_area_law}, that within $\mathcal{M}_D$ we can faithfully approximate ground states of local, gapped Hamiltonians. \\[1em]
+turning it into a smooth, low-dimensional manifold in the exponentially large Hilbert space $\mathcal{H}$ of $d$-dimensional spins on an infinite chain. We will see in the next section \ref{sec:canonical_form_area_law} that within $\mathcal{M}_D$ we can faithfully approximate ground states of local, gapped Hamiltonians. \\[1em]
 
 % tangent space
 \noindent \underline{The tangent space} \\[0.5em]
@@ -58,7 +58,7 @@ turning it into a smooth, low-dimensional manifold in the exponentially large Hi
 \begin{equation} \label{eq:tangent_space_vector}
 	\ket{\psi (B; A)} = \sum_{\alpha, s, \beta} B^s_{\alpha, \beta} \left[ \partial_{A^s_{\alpha, \beta}}\ket{\psi (A)} \right] = \sum_n \raisebox{-0.45\height}{\includegraphics[height=1.2cm]{tangent_vector.png}} \hspace{0.2em}.
 \end{equation}
-In section \ref{sec:uexcitations}, this will be the space in which the quasiparticle excitations on top of the ground state vacuum live. In figure \ref{fig:manifold_tangent_space} we illustrate the mapping of tensors to uMPS, the manifold and its tangent space. \cite{haegeman2014geometry, haegeman2013post}
+In section \ref{sec:uexcitations} this will be the space in which the quasiparticle excitations on top of the ground state vacuum live. In figure \ref{fig:manifold_tangent_space} we illustrate the mapping of tensors to uMPS, the manifold and its tangent space. \cite{haegeman2014geometry, haegeman2013post}
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.75\linewidth]{manifold_tangent_space.png}
@@ -122,7 +122,7 @@ Since the states
 	\ket{\psi(A_L)_{\alpha}} = \raisebox{-0.55\height}{\includegraphics[height=1.3cm]{psi_AL.png}}, \:\: \ket{\psi(A_R)_{\alpha}} = \raisebox{-0.55\height}{\includegraphics[height=1.3cm]{psi_AR.png}}
 \end{equation}
 are orthonormal, i.e. $\langle \psi (\overline{A}_L)_{\alpha} \vert \psi (A_L)_{\beta} \rangle = \delta_{\alpha \beta}$, $\langle \psi (\overline{A}_R)_{\alpha} \vert \psi (A_R)_{\beta} \rangle = \delta_{\alpha \beta}$, this is nothing but a \textit{Schmidt decomposition} with \textit{Schmidt values} $C_{\alpha} > 0$ and \textit{Schmidt rank} $D$.
-From this, the reduced density matrix $\rho_L = \mathrm{tr}_R \ket{\psi (A)}\bra{\psi (\overline{A})}$ yields the \textit{entanglement entropy}
+The reduced density matrix $\rho_L = \mathrm{tr}_R \ket{\psi (A)}\bra{\psi (\overline{A})}$ yields the \textit{entanglement entropy}
 \begin{equation}
 	S({\psi_A}) = - \mathrm{tr}[\rho_L \log \rho_L] = - \sum_{\alpha = 1}^D C_{\alpha}^2 \log C_{\alpha}^2.
 \end{equation}
@@ -159,7 +159,7 @@ For a variational optimum $\ket{\psi(A)}$ with energy $\lambda =  \bra{\psi(\ove
 
 % projector
 \noindent \underline{Projector onto tangent space} \\[0.5em]
-\noindent We derive a diagrammatic expression for $P_{\mathcal{T}_{\ket{\psi (A)}}}$. We do this in the canonical gauge \eqref{eq:umps_canonical_form}. Our starting point is a tangent space vector $\ket{\psi(B; A)}$ in the left gauge, so equal to \eqref{eq:tangent_space_vector} but with $A_L$ instead of $A$. For each state in the superposition, we then bring all tensors on the right of site $n$ into right isometric form. The remaining full rank matrix $C$ can be absorbed into the (unnormalized) perturbation tensor $B$ and we end up with
+\noindent We derive a diagrammatic expression for $P_{\mathcal{T}_{\ket{\psi (A)}}}$. We do this in the canonical gauge \eqref{eq:umps_canonical_form}. Our starting point is a tangent space vector $\ket{\psi(B; A)}$ in the left gauge, so equal to \eqref{eq:tangent_space_vector} but with $A_L$ instead of $A$. For each state in the superposition, we bring all tensors on the right of site $n$ into right isometric form. The remaining full rank matrix $C$ can be absorbed into the (for now unnormalized) perturbation tensor $B$ and we end up with
 \begin{equation} \label{eq:tangent_space_vector_canonical}
 	\ket{\psi (B; A)} = \sum_n \raisebox{-0.47\height}{\includegraphics[height=1.4cm]{tangent_vector_canonical.png}} \hspace{0.2em}.
 \end{equation}
@@ -182,7 +182,7 @@ are orthogonal to the original state $\ket{\psi(A)}$, but also that the overlap 
 Finding the projection of an arbitrary translation invariant state in the Hilbert space, $\ket{\varphi} \in \mathcal{H}$, onto the tangent space of $\ket{\psi(A)}$, is equivalent to the following minimization problem:
 \begin{align}
 \begin{split}
-	\min_X \Vert \ket{\varphi} - \ket{\psi(X; A)} \Vert^2 = \min_X \big[ & \langle \psi(\overline{X}; \overline{A}) \vert \psi(X; A) \rangle - \langle \psi(\overline{X}; \overline{A}) \vert \varphi \rangle \\
+	\argmin_X \Vert \ket{\varphi} - \ket{\psi(X; A)} \Vert^2 = \argmin_X \big[ & \langle \psi(\overline{X}; \overline{A}) \vert \psi(X; A) \rangle - \langle \psi(\overline{X}; \overline{A}) \vert \varphi \rangle \\
 	& - \langle \varphi \vert \psi(X; A) \rangle + \langle \varphi \vert \varphi \rangle \big].
 \end{split}
 \end{align}
@@ -206,7 +206,7 @@ and draw the following final form of the tangent space projector:
 
 % hamiltonian
 \noindent \underline{Two-site Hamiltonian} \\[0.5em]
-\noindent Describing $d$-dimensional spins on an infinite chain, we assume that $H$ is translational invariant and restricted to nearest neighbor interaction:
+\noindent Describing $d$-dimensional spins on an infinite chain, we assume that $H$ is translational invariant and restricted to nearest-neighbor interaction:
 \begin{equation} \label{eq:hamiltonian}
 	H = \sum_{n \in \mathbb{Z}} h^{[n, n+1]} \:\: \text{ with } h^{[n, n+1]} = \cdots \mathbbm{1} \otimes \mathbbm{1} \otimes \underset{n, \: n+1}{h} \otimes \mathbbm{1} \otimes \mathbbm{1} \cdots, \: h = h^{\dagger} \in \mathbb{C}^{d^2 \times d^2}.
 \end{equation}
@@ -309,7 +309,7 @@ is known: $A_L$ is equal to the isometry in the right polar decomposition of $A_
  \label{fig:vumps}
 \end{figure}
 \noindent \underline{Benchmark} \\[0.5em]
-\noindent We now benchmark the VUMPS algorithm with the TFl model, for which the ground state energy density can be exactly computed with Jordan-Wigner and Bogoliubov transformations (as summarized in section \ref{sec:tfi_exact_solution}):
+\noindent We now benchmark the VUMPS algorithm on the TFl model, for which the ground state energy density can be exactly computed with Jordan-Wigner and Bogoliubov transformations (as summarized in section \ref{sec:tfi_exact_solution}):
 \begin{equation}
 	e_{\mathrm{exact}} = - \frac{1}{2 \pi} \int_{-\pi}^{\pi} dp \: \frac{\epsilon_p}{2} 
 	\:\overset{J=1}{=}\:
@@ -352,7 +352,7 @@ For this we used the following relation, which reduces a double sum over $n, l \
 \begin{equation} \label{eq:double_sum}
 	\sum_{n, l \in \mathbb{Z}} e^{ipn} e^{-ikl} f(n-l) \overset{m=n-l}{=} \sum_{l\in \mathbb{Z}} e^{i(p-k)l} \sum_{m \in \mathbb{Z}}e^{ipm} f(m) = 2 \pi \delta (p-k) \sum_{m \in \mathbb{Z}} e^{ipm} f(m).
 \end{equation}
-From \eqref{eq:excitation_overlap} we can conclude that the gauge \eqref{eq:uexcitation_gauge} orthogonalizes excitations with different momenta and removes \textit{zero modes}, i.e. nonzero tensors $B_0 = A_L Y - e^{-ip} Y A_R \neq 0$ that correspond to zero states $\ket{\psi_p (B_0; A)} = 0$. As a consequence, for a fixed momentum $p$, the plane wave excitations \eqref{eq:plane_wave_excitations} are well-defined for a variational minimization of the energy with respect to $X$:
+From \eqref{eq:excitation_overlap} we can conclude that the gauge \eqref{eq:uexcitation_gauge} orthogonalizes excitations with different momenta and removes \textit{zero-modes}, i.e. nonzero tensors $B_0 = A_L Y - e^{-ip} Y A_R \neq 0$ that correspond to zero-states $\ket{\psi_p (B_0; A)} = 0$. As a consequence, for a fixed momentum $p$, the plane wave excitations \eqref{eq:plane_wave_excitations} are well-defined for a variational minimization of the energy with respect to $X$:
 \begin{equation}
 	\argmin_{X \in \mathbb{C}^{D(d-1) \times D}} \frac{\bra{\psi_p(\overline{X}; \overline{A})} H \ket{\psi_p(X; A)}}{\langle \psi_p(\overline{X}; \overline{A}) \vert \psi_p(X; A) \rangle}.
 \end{equation}
@@ -402,7 +402,7 @@ With this the boundary tensor $\tbra{L_B}$ is obtained from the solution of the 
 \begin{equation}
 	\tbra{L_B} \left[ \mathbbm{1} - e^{-ip} T_{RL} + e^{-ip} \tket{C^{\dagger}}\tbra{C^T} \right] = e^{-ip} \tbra{l_B}.
 \end{equation}
-\noindent Having implemented the whole action of $H_{\mathrm{eff}}(p)$ on $X$ with an iterative Arnoldi method, the optimization \eqref{eq:excitation_minimization} for the lowest lying excitation with momentum $p$ boils down to an iterative ground state search:
+\noindent Having implemented the whole action of $H_{\mathrm{eff}}(p)$ on $X$ with an iterative Arnoldi method, the optimization \eqref{eq:excitation_minimization} for the lowest-lying excitation with momentum $p$ boils down to an iterative ground state search:
 \begin{equation} \label{eq:ground_state_H_eff_p}
 	H_{\mathrm{eff}}(p) \tket{X} = \epsilon_p \tket{X},
 \end{equation}
@@ -414,7 +414,7 @@ where $\epsilon_p$ is the energy difference to the ground state. \\[1em]
 \begin{equation}
 	\sum_{l=0}^{\infty} \left[ e^{-ip} T_{\Tilde{R}L} \right]^l  = \left[ \mathbbm{1} - e^{-ip} T_{\Tilde{R}L} \right]^{-1}.
 \end{equation}
-As a second peculiarity, multiplying $\Tilde{A}_R$ with a phase $e^{i \phi}$ shifts the momentum $p \rightarrow p + \phi$. We fix it unambiguously by ensuring that the dominant eigenvalue of $T_{\Tilde{R}L}$ is positive. \\[1em]
+As a second peculiarity, multiplying $\Tilde{A}_R$ with a phase $e^{i \phi}$ shifts the momentum $p \rightarrow p + \phi$. We fix it unambiguously by ensuring that the dominant eigenvalue of $T_{\Tilde{R}L}$ is positive. \cite{vanderstraeten2019tangent} \\[1em]
 
 % benchmark
 \noindent \underline{Benchmark} \\[0.5em]
@@ -426,6 +426,6 @@ The result is shown in figure \ref{fig:uexcitations_dispersion}, again for the t
 \begin{figure}[t]
   \centering
   \includegraphics[width=1.0\linewidth]{uexcitations_dispersion.png}
-  \caption{TFI benchmark for variational plane wave excitations (VPWE) on top of a uMPS ground state. Optimization of the quasiparticle ansatz $\ket{\psi_p(X; A)}$ for the lowest lying excitation of the Hamiltonian boils down to the ground state equation $H_{\mathrm{eff}}(p) \tket{X} = \epsilon_p \tket{X}$. We solve it with an iterative Lanczos method for multiple momenta $p$ within the first Brillouin zone. The results lie on the exact dispersion curve for all three values of $g$, even at criticality.}
+  \caption{TFI benchmark for variational plane wave excitations (VPWE) on top of a uMPS ground state. Optimization of the quasiparticle ansatz $\ket{\psi_p(X; A)}$ for the lowest-lying excitation of the Hamiltonian boils down to the ground state equation $H_{\mathrm{eff}}(p) \tket{X} = \epsilon_p \tket{X}$. We solve it with an iterative Lanczos method for multiple momenta $p$ within the first Brillouin zone. The results lie on the exact dispersion curve for all three values of $g$, even at criticality.}
 \label{fig:uexcitations_dispersion}
 \end{figure}

@@ -1,6 +1,6 @@
 % EFFECTIVE HAMILTONIAN FOR PWE
 \section*{Effective Hamiltonian for uMPS plane wave excitations}
-In the actual \textit{matvec} implementation of $H_{\mathrm{eff}}(p)$, we compute $\textcolor{blue}{B} = V_L \textcolor{blue}{X}$, then $\textcolor{blue}{\Tilde{\tket{B}}} = H_{\mathrm{eff}}(p) \textcolor{blue}{\tket{B}}$, and in the end we transform back to $\textcolor{blue}{\Tilde{X}} = \overline{V_L} \textcolor{blue}{\Tilde{B}}$. In the following we draw all tensor diagrams appearing in the expectation value
+In the actual \textit{matvec} implementation of $H_{\mathrm{eff}}(p)$ \eqref{eq:Heff_p}, we compute $B = V_L X$, then $\Tilde{\tket{B}} = H_{\mathrm{eff}}(p) \tket{B}$, and in the end we transform back to $\Tilde{X} = \overline{V_L} \Tilde{B}$. In the following we draw all tensor diagrams appearing in the expectation value
 \begin{equation*}
 	\textcolor{blue}{\tbra{\overline{B}}} H_{\mathrm{eff}}(p) \textcolor{blue}{\tket{B}} = \sum_{m, n \in \mathbb{Z}} e^{ipm} \raisebox{-0.5\height}{\includegraphics[height=4.5cm]{B_H_B.png}} \hspace{0.2em} .
 \end{equation*}
@@ -144,7 +144,7 @@ For an MPS quasiparticle excitation ansatz \eqref{eq:emps_X}, variational in bot
 	 \tket{B} 
 	 = \epsilon_k \tket{B}.
 \end{equation*}
-In this appendix we specify the boundary tensors for the effective translation operator $T_{\text{eff}}$ and its adjoint. \\[1.5em]
+In this appendix we specify the boundary tensors for the effective translation operator $T_{\text{eff}}$ and its adjoint. Note that $B^{[n]} = V_L^{[n]} X^{[n]}$ \eqref{eq:excitation_gauge}. \\[1.5em]
 
 \begin{align*}
 \begin{split}
@@ -271,7 +271,7 @@ In this appendix we specify the boundary tensors for the effective translation o
 	\raisebox{-0.5\height}{\includegraphics[height=2.cm]{TdaggerRB3.png}}
 	\:+\:
 	\raisebox{-0.5\height}{\includegraphics[height=2.cm]{TdaggerRB4.png}}
-	\hspace{1em} \text{\scriptsize{$(n = N, \ldots, 2)$}}
+	\hspace{1em} \text{\scriptsize{$(n = N-1, \ldots, 2)$}}
 \end{array}
 \end{equation*}
 
