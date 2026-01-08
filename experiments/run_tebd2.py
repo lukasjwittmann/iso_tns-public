@@ -10,7 +10,7 @@ from ..src.isometric_peps.a_iso_peps.src.isoTPS.square.isoTPS import isoTPS_Squa
 from ..src.isometric_peps.b_model import TFIModelDiagonalSquare
 
 
-def run_tebd2(Lx, Ly, g, D_max, chi_max_c, dt=0.05, N_sweeps=100, profile=False):
+def run_tebd2(Lx, Ly, g, D_max, chi_max_c, dt=0.08, N_sweeps=100, profile=False):
     """Initialize an iso_peps with all spins up and perform N_sweeps TEBD^2 sweeps with imaginary 
     time step dt to find the ground state of the TFI model with transverse field g. Redirect prints 
     to log file and safe iso_peps after each sweep in pkl file."""
@@ -29,21 +29,47 @@ def run_tebd2(Lx, Ly, g, D_max, chi_max_c, dt=0.05, N_sweeps=100, profile=False)
         sys.stderr = log_file
         print(f"Lx = {Lx}, Ly = {Ly}, g = {g}, D_max = {D_max}, chi_max_c = {chi_max_c}, dt = {dt}. \n")
         tfi_model = TFIModelDiagonalSquare(Lx, Ly, g)
-        # exact diagonalization
+        # exact ground state energies (from exact diagonalization or extrapolated 1d DMRG)
+        E0 = None
         if 2*Lx*Ly <= 20:
             H = tfi_model.get_H()
             E0, _ = sparse.linalg.eigsh(H, k=1, which="SA")
-            print(f"E0_exact = {E0[0]}. \n")
+        elif g == 3.5:
+            if Lx == Ly == 4:
+                E0 = -115.74035475
+            elif Lx == Ly == 5:
+                E0 = -181.21975679
+            elif Lx == Ly == 6:
+                E0 = -261.32772977
+            elif Lx == Ly == 7:
+                E0 = -356.06436454
+            elif Lx == Ly == 8:
+                E0 = -465.42959266
+            elif Lx == Ly == 9:
+                E0 = -589.42349792
+            elif Lx == Ly == 10:
+                E0 = -728.04628166
+            elif Lx == Ly == 15:
+                E0 = -1640.59928393
+            elif Lx == Ly == 20:
+                E0 = -2918.92808769
         # tebd2
         iso_peps = DiagonalIsometricPEPS.from_qubit_product_state(Lx, Ly, D_max, chi_max_c, \
                                                                   spin_orientation="up")
         h_bonds = tfi_model.get_h_bonds()
         u_bonds = tfi_model.get_u_bonds(dt)
-        print(f"E = {np.sum(iso_peps.copy().get_bond_expectation_values(h_bonds))}.")
+        E = np.sum(iso_peps.copy().get_bond_expectation_values(h_bonds))
+        if E0 is not None:
+            print(f"deltaE = {E-E0}.")
+        else: 
+            print(f"E = {E}.")
         for i in range(N_sweeps):
             iso_peps.perform_TEBD2(u_bonds, 1)
-            print(f"TEBD performed {i+1} sweeps " \
-                  + f"-> E = {np.sum(iso_peps.copy().get_bond_expectation_values(h_bonds))}.")
+            E = np.sum(iso_peps.copy().get_bond_expectation_values(h_bonds))
+            if E0 is not None:
+                print(f"TEBD performed {i+1} sweeps -> deltaE = {E-E0}.")
+            else:
+                print(f"TEBD performed {i+1} sweeps -> E = {E}.")
             with open(pkl_path, "wb") as pkl_file:
                 pickle.dump(iso_peps, pkl_file)
     sys.stdout = sys.__stdout__

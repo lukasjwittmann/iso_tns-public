@@ -13,6 +13,7 @@ def dmrg_algorithm(mpo, guess_mps0, D_max, eps, num_runs):
     dmrg_engine = DMRGEngine(guess_mps0, mpo, D_max, eps)
     for i in range(num_runs):
         dmrg_engine.run()
+        print(f"DMRG performed {i+1} sweeps.")
     mps0 = dmrg_engine.mps
     E0 = mps0.get_mpo_expectation_value(mpo)
     var0 = mps0.get_mpo_variance(mpo)

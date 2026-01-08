@@ -12,10 +12,11 @@ from ..src.isometric_peps.a_iso_peps.src.isoTPS.square.isoTPS import isoTPS_Squa
 from ..src.isometric_peps.b_model import TFIModelDiagonalSquare
 from ..src.isometric_peps.d_expectation_values import subtract_energy_offset_mpos
 from ..src.isometric_peps.g_dmrg2 import DMRGSquared
+from ..src.isometric_peps.g_dmrg2_onesite import DMRGSquaredOneSite
 from ..src.isometric_peps.h_excitations2_overlap import get_overlap_wavefunction_iso_peps
 
 
-def run_dmrg2(Lx, Ly, g, D_max, chi_max_c, chi_max_b, N_sweeps_c, N_sweeps_b, N_sweeps, zeroE, \
+def run_dmrg2(Lx, Ly, g, D_max, chi_max_c, chi_max_b, N_sweeps_c, N_sweeps_b, N_sweeps, zeroE, mode, \
               profile=False, seed=0):
     """Initialize an iso_peps with all spins up (plus random perturbations) and perform N_sweeps 
     DMRG^2 sweeps to find the ground state of the TFI model with transverse field g. Redirect prints 
@@ -61,7 +62,7 @@ def run_dmrg2(Lx, Ly, g, D_max, chi_max_c, chi_max_b, N_sweeps_c, N_sweeps_b, N_
         N_sweeps_b = None
     # log, pkl and profile path
     script_path = Path(__file__).resolve().parent
-    file_base = f"dmrg_{Lx}_{Ly}_{g}_{D_max}_{chi_max_c}_{chi_max_b}_{N_sweeps_c}_{N_sweeps_b}_{N_sweeps}"
+    file_base = f"dmrg_{Lx}_{Ly}_{g}_{D_max}_{chi_max_c}_{chi_max_b}_{N_sweeps_c}_{N_sweeps_b}_{N_sweeps}_{mode}"
     log_path = script_path.parent / "data" / "dmrg2" / f"{file_base}.log"
     pkl_path = script_path.parent / "data" / "dmrg2" / f"{file_base}.pkl"
     if profile:
@@ -79,31 +80,19 @@ def run_dmrg2(Lx, Ly, g, D_max, chi_max_c, chi_max_b, N_sweeps_c, N_sweeps_b, N_
             eps = 1./np.abs(E0)
         else:
             eps = 1./(2 * Lx * Ly)
+        if g >= 3.:
+            spin_orientation = "up"
+        elif g < 3.:
+            spin_orientation = "right"
         iso_peps = DiagonalIsometricPEPS.from_perturbed_qubit_product_state(Lx, Ly, D_max, chi_max_c, \
-                                                                            spin_orientation="up", \
-                                                                            eps=eps)
-        """
-        iso_peps = DiagonalIsometricPEPS.from_random_state(Lx, Ly, D_max, chi_max_c)
-        file_base_tebd = f"tebd_{Lx}_{Ly}_{g}_{D_max}_{chi_max_c}_{0.05}_{100}"
-        pkl_path_tebd = script_path.parent / "data" / "tebd2" / f"{file_base_tebd}.pkl"
-        with open(pkl_path_tebd, "rb") as pkl_file_tebd:
-            iso_peps = pickle.load(pkl_file_tebd)
-        iso_peps_copy = DiagonalIsometricPEPS(iso_peps.Lx, iso_peps.Ly, D_max=iso_peps.D_max, \
-                                              chi_factor=iso_peps.chi_factor, chi_max=iso_peps.chi_max, \
-                                              d=iso_peps.d, shifting_options=iso_peps.shifting_options, \
-                                              yb_options=iso_peps.yb_options, \
-                                              tebd_options=iso_peps.tebd_options)
-        iso_peps_copy._init_as_copy(iso_peps)
-        iso_peps = iso_peps_copy
-        iso_peps.move_orthogonality_column_to(0)
-        """
+                                                                            spin_orientation, eps)
         h_mpos = tfi_model.get_h_mpos()
         es = iso_peps.copy().get_column_expectation_values(h_mpos)
         E = np.sum(es)
         print(f"es = {es}.")
         print(f"E = {E}.")
         if E0 is not None:
-            print(f"E - E0 = {E - E0}.")
+            print(f"E - E0_exact = {E - E0}.")
         if zeroE:
             assert E0 is not None
             es_subtract = [(es[n]/E)*E0 for n in range(len(es))]
@@ -113,7 +102,10 @@ def run_dmrg2(Lx, Ly, g, D_max, chi_max_c, chi_max_b, N_sweeps_c, N_sweeps_b, N_
             overlap = get_overlap_wavefunction_iso_peps(psi0, iso_peps.copy())
             print(f"<iso_peps|psi0> = {overlap}.")
         print("")
-        dmrg2 = DMRGSquared(iso_peps, h_mpos, chi_max_b, N_sweeps_c, N_sweeps_b)
+        if mode == "zerosite":
+            dmrg2 = DMRGSquared(iso_peps, h_mpos, chi_max_b, N_sweeps_c, N_sweeps_b)
+        elif mode == "onesite":
+            dmrg2 = DMRGSquaredOneSite(iso_peps, h_mpos, chi_max_b, N_sweeps_c, N_sweeps_b)
         print("")
         iso_peps_list = []
         expectation_value_list = []
@@ -122,6 +114,8 @@ def run_dmrg2(Lx, Ly, g, D_max, chi_max_c, chi_max_b, N_sweeps_c, N_sweeps_b, N_
         for i in range(N_sweeps):
             print(f"DMRGSquared sweep {i+1} ...")
             dmrg2.run(1)
+            if i == N_sweeps - 1:
+                dmrg2.quarter_sweep()
             iso_peps_list.append(dmrg2.psi)
             Es_list = dmrg2.Es
             Es_updated_list = dmrg2.Es_updated
@@ -160,18 +154,227 @@ def run_dmrg2(Lx, Ly, g, D_max, chi_max_c, chi_max_b, N_sweeps_c, N_sweeps_b, N_
     return dmrg2.psi
 
 
-def plot_dmrg2(g, N_sweeps_plot, chi_max_b_2, chi_max_b_3, chi_max_b_4, chi_max_b_5, chi_max_b_6):
+def plot_dmrg2(Lx, Ly, g, chi_max_b_2, chi_max_b_3, chi_max_b_4, chi_max_b_5, mode):
+    """After having ran dmrg2, plot the energies before and after each column dmrg update, and the 
+    final Yang-Baxter expectation value."""
+    N_sweeps_plot = 2
+    colors = ["limegreen", "turquoise", "dodgerblue", "blue"]
+    if mode == "zerosite":
+        Nx = 2*Lx+1 + 2*Lx
+        ns_labels = (list(range(2*Lx+1)) + list(reversed(range(2*Lx)))) * N_sweeps_plot + list(range(Lx))
+        ns_ticks_filtered = []
+        ns_labels_filtered = []
+        for n in range(len(ns_labels)):
+            if ns_labels[n]%Lx == 0:
+                ns_ticks_filtered.append(n)
+                ns_labels_filtered.append(ns_labels[n])
+        ns_ticks_filtered.append(len(ns_labels)-1)
+        ns_labels_filtered.append(Lx-1)
+    elif mode == "onesite":
+        Nx = 2*Lx + 2*Lx-1
+        ns_labels = (list(range(1, 2*Lx+1)) + list(reversed(range(1, 2*Lx)))) * N_sweeps_plot + list(range(1, Lx+1))
+        ns_ticks_filtered = []
+        ns_labels_filtered = []
+        for n in range(len(ns_labels)):
+            if ns_labels[n] == 1 or ns_labels[n] == Lx or ns_labels[n] == 2*Lx:
+                ns_ticks_filtered.append(n)
+                ns_labels_filtered.append(ns_labels[n])
+    ns = np.array(range(Nx * N_sweeps_plot + Lx))
+    ns_before_after = np.repeat(ns, 2)
+    # figure 
+    fig, ax = plt.subplots(1, 2, figsize=(13, 4))
+    plt.subplots_adjust(wspace=0.05, hspace=0.2)
+    script_path = Path(__file__).resolve().parent
+    png_path = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_{mode}.png"
+    ax[0].set_title(rf"(a) Variational boundary compression")
+    ax[1].set_title(rf"(b) New bulk-weighted boundary compression")
+    if mode == "zerosite":
+        xlabel = r"Orthogonality column $n_x$"
+    elif mode == "onesite":
+        xlabel = r"Column $n_x$"
+    ax[0].set_xlabel(xlabel)
+    ax[1].set_xlabel(xlabel)
+    ax[0].set_xticks(ns_ticks_filtered, labels=[f"{n}" for n in ns_labels_filtered])
+    ax[1].set_xticks(ns_ticks_filtered, labels=[f"{n}" for n in ns_labels_filtered])
+    ax[0].set_ylabel(r"$\frac{\vert E(n_x)-E_0 \vert}{\vert E_0 \vert}$", fontsize=13)
+    #ax[0].set_ylim(0.8*1e-6, 5e-1)
+    #ax[1].set_ylim(0.8*1e-6, 5e-1)
+    ax[0].set_ylim(0.9*1e-6, 2e-1)
+    ax[1].set_ylim(0.9*1e-6, 2e-1)
+    ax[1].tick_params(labelleft=False)
+    ## variational compression
+    N_sweeps_b = 3
+    # load energy data
+    pkl_path_2 = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_{2}_{12}_{chi_max_b_2}_{3}_{N_sweeps_b}_{2}_{mode}.pkl"
+    pkl_path_3 = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_{3}_{18}_{chi_max_b_3}_{3}_{N_sweeps_b}_{2}_{mode}.pkl"
+    pkl_path_4 = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_{4}_{24}_{chi_max_b_4}_{3}_{N_sweeps_b}_{2}_{mode}.pkl"
+    pkl_path_5 = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_{5}_{30}_{chi_max_b_5}_{3}_{N_sweeps_b}_{2}_{mode}.pkl"
+    # D_max = 2
+    if chi_max_b_2 is not None:
+        try:
+            with open(pkl_path_2, "rb") as pkl_file_2:
+                E0, Es_list_2, Es_updated_list_2, expectation_value_list_2, _ = pickle.load(pkl_file_2)
+            Es_before_2 = np.array(Es_list_2[:Nx * N_sweeps_plot + Lx])
+            Es_after_2 = np.array(Es_updated_list_2[:Nx * N_sweeps_plot + Lx])
+            Es_before_after_2 = np.ravel(np.column_stack((Es_before_2, Es_after_2)))
+        except FileNotFoundError:
+            print("No data available for D_max = 2.")
+    # D_max = 3
+    if chi_max_b_3 is not None:
+        try:
+            with open(pkl_path_3, "rb") as pkl_file_3:
+                E0, Es_list_3, Es_updated_list_3, expectation_value_list_3, _ = pickle.load(pkl_file_3)
+            Es_before_3 = np.array(Es_list_3[:Nx * N_sweeps_plot + Lx])
+            Es_after_3 = np.array(Es_updated_list_3[:Nx * N_sweeps_plot + Lx])
+            Es_before_after_3 = np.ravel(np.column_stack((Es_before_3, Es_after_3)))
+        except FileNotFoundError:
+            print("No data available for D_max = 3.")
+    # D_max = 4
+    if chi_max_b_4 is not None:
+        try:
+            with open(pkl_path_4, "rb") as pkl_file_4:
+                E0, Es_list_4, Es_updated_list_4, expectation_value_list_4, _ = pickle.load(pkl_file_4)
+            Es_before_4 = np.array(Es_list_4[:Nx * N_sweeps_plot + Lx])
+            Es_after_4 = np.array(Es_updated_list_4[:Nx * N_sweeps_plot + Lx])
+            Es_before_after_4 = np.ravel(np.column_stack((Es_before_4, Es_after_4)))
+        except FileNotFoundError:
+            print("No data available for D_max = 4.")
+    # D_max = 5
+    if chi_max_b_5 is not None:
+        try:
+            with open(pkl_path_5, "rb") as pkl_file_5:
+                E0, Es_list_5, Es_updated_list_5, expectation_value_list_5, _ = pickle.load(pkl_file_5)
+            Es_before_5 = np.array(Es_list_5[:Nx * N_sweeps_plot + Lx])
+            Es_after_5 = np.array(Es_updated_list_5[:Nx * N_sweeps_plot + Lx])
+            Es_before_after_5 = np.ravel(np.column_stack((Es_before_5, Es_after_5)))
+        except FileNotFoundError:
+            print("No data available for D_max = 5.")
+    # plot energies against columns
+    # D_max = 2
+    if chi_max_b_2 is not None:
+        before_after_2 = ax[0].semilogy(ns_before_after, np.abs(Es_before_after_2-E0)/np.abs(E0), "-", color=colors[0])
+        expectation_2 = ax[0].axhline(y=np.abs(expectation_value_list_2[N_sweeps_plot-1]-E0)/np.abs(E0), linestyle="--", color=colors[0], label=r"$\langle H \rangle$ for final state")
+    # D_max = 3
+    if chi_max_b_3 is not None:
+        before_after_3 = ax[0].semilogy(ns_before_after, np.abs(Es_before_after_3-E0)/np.abs(E0), "-", color=colors[1])
+        expectation_3 = ax[0].axhline(y=np.abs(expectation_value_list_3[N_sweeps_plot-1]-E0)/np.abs(E0), linestyle="--", color=colors[1], label=r"$\langle H \rangle$ for final state")
+    # D_max = 4
+    if chi_max_b_4 is not None:
+        before_after_4 = ax[0].semilogy(ns_before_after, np.abs(Es_before_after_4-E0)/np.abs(E0), "-", color=colors[2])
+        expectation_4 = ax[0].axhline(y=np.abs(expectation_value_list_4[N_sweeps_plot-1]-E0)/np.abs(E0), linestyle="--", color=colors[2], label=r"$\langle H \rangle$ for final state")
+    # D_max = 5
+    if chi_max_b_5 is not None:
+        before_after_5 = ax[0].semilogy(ns_before_after, np.abs(Es_before_after_5-E0)/np.abs(E0), "-", color=colors[3])
+        expectation_5 = ax[0].axhline(y=np.abs(expectation_value_list_5[N_sweeps_plot-1]-E0)/np.abs(E0), linestyle="--", color=colors[3], label=r"$\langle H \rangle$ for final state")
+    ## bulk-weighted compression
+    N_sweeps_b = None
+    # load energy data
+    pkl_path_2 = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_{2}_{12}_{chi_max_b_2}_{3}_{N_sweeps_b}_{2}_{mode}.pkl"
+    pkl_path_3 = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_{3}_{18}_{chi_max_b_3}_{3}_{N_sweeps_b}_{2}_{mode}.pkl"
+    pkl_path_4 = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_{4}_{24}_{chi_max_b_4}_{3}_{N_sweeps_b}_{2}_{mode}.pkl"
+    pkl_path_5 = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_{5}_{30}_{chi_max_b_5}_{3}_{N_sweeps_b}_{2}_{mode}.pkl"
+    # D_max = 2
+    if chi_max_b_2 is not None:
+        try:
+            with open(pkl_path_2, "rb") as pkl_file_2:
+                E0, Es_list_2, Es_updated_list_2, expectation_value_list_2, _ = pickle.load(pkl_file_2)
+            Es_before_2 = np.array(Es_list_2[:Nx * N_sweeps_plot + Lx])
+            Es_after_2 = np.array(Es_updated_list_2[:Nx * N_sweeps_plot + Lx])
+            Es_before_after_2 = np.ravel(np.column_stack((Es_before_2, Es_after_2)))
+        except FileNotFoundError:
+            print("No data available for D_max = 2.")
+    # D_max = 3
+    if chi_max_b_3 is not None:
+        try:
+            with open(pkl_path_3, "rb") as pkl_file_3:
+                E0, Es_list_3, Es_updated_list_3, expectation_value_list_3, _ = pickle.load(pkl_file_3)
+            Es_before_3 = np.array(Es_list_3[:Nx * N_sweeps_plot + Lx])
+            Es_after_3 = np.array(Es_updated_list_3[:Nx * N_sweeps_plot + Lx])
+            Es_before_after_3 = np.ravel(np.column_stack((Es_before_3, Es_after_3)))
+        except FileNotFoundError:
+            print("No data available for D_max = 3.")
+    # D_max = 4
+    if chi_max_b_4 is not None:
+        try:
+            with open(pkl_path_4, "rb") as pkl_file_4:
+                E0, Es_list_4, Es_updated_list_4, expectation_value_list_4, _ = pickle.load(pkl_file_4)
+            Es_before_4 = np.array(Es_list_4[:Nx * N_sweeps_plot + Lx])
+            Es_after_4 = np.array(Es_updated_list_4[:Nx * N_sweeps_plot + Lx])
+            Es_before_after_4 = np.ravel(np.column_stack((Es_before_4, Es_after_4)))
+        except FileNotFoundError:
+            print("No data available for D_max = 4.")
+    # D_max = 5
+    if chi_max_b_5 is not None:
+        try:
+            with open(pkl_path_5, "rb") as pkl_file_5:
+                E0, Es_list_5, Es_updated_list_5, expectation_value_list_5, _ = pickle.load(pkl_file_5)
+            Es_before_5 = np.array(Es_list_5[:Nx * N_sweeps_plot + Lx])
+            Es_after_5 = np.array(Es_updated_list_5[:Nx * N_sweeps_plot + Lx])
+            Es_before_after_5 = np.ravel(np.column_stack((Es_before_5, Es_after_5)))
+        except FileNotFoundError:
+            print("No data available for D_max = 5.")
+    # plot energies against orthogonality columns
+    # D_max = 2
+    if chi_max_b_2 is not None:
+        before_after_2 = ax[1].semilogy(ns_before_after, np.abs(Es_before_after_2-E0)/np.abs(E0), "-", color=colors[0])
+        expectation_2 = ax[1].axhline(y=np.abs(expectation_value_list_2[N_sweeps_plot-1]-E0)/np.abs(E0), linestyle="--", color=colors[0], label=r"$\langle H \rangle$ for final state")
+    # D_max = 3
+    if chi_max_b_3 is not None:
+        before_after_3 = ax[1].semilogy(ns_before_after, np.abs(Es_before_after_3-E0)/np.abs(E0), "-", color=colors[1])
+        expectation_3 = ax[1].axhline(y=np.abs(expectation_value_list_3[N_sweeps_plot-1]-E0)/np.abs(E0), linestyle="--", color=colors[1], label=r"$\langle H \rangle$ for final state")
+    # D_max = 4
+    if chi_max_b_4 is not None:
+        before_after_4 = ax[1].semilogy(ns_before_after, np.abs(Es_before_after_4-E0)/np.abs(E0), "-", color=colors[2])
+        expectation_4 = ax[1].axhline(y=np.abs(expectation_value_list_4[N_sweeps_plot-1]-E0)/np.abs(E0), linestyle="--", color=colors[2], label=r"$\langle H \rangle$ for final state")
+    # D_max = 5
+    if chi_max_b_5 is not None:
+        before_after_5 = ax[1].semilogy(ns_before_after, np.abs(Es_before_after_5-E0)/np.abs(E0), "-", color=colors[3])
+        expectation_5 = ax[1].axhline(y=np.abs(expectation_value_list_5[N_sweeps_plot-1]-E0)/np.abs(E0), linestyle="--", color=colors[3], label=r"$\langle H \rangle$ for final state")
+    # legend and save
+    def add_label_right_of_panel(fig, ax_right, text, y_value, color):
+        y_fig = ax_right.transData.transform((0, y_value))[1]
+        y_fig = fig.transFigure.inverted().transform((0, y_fig))[1]
+        x_fig = ax_right.get_position().x1 + 0.01
+        fig.text(x_fig, y_fig, text, color=color, ha="left", va="center", fontsize=12)
+    if chi_max_b_2 is not None:
+        add_label_right_of_panel(fig, ax[1], r"$D_{\max}=2$", 
+                                 np.abs(expectation_value_list_2[N_sweeps_plot-1]-E0)/np.abs(E0), 
+                                 colors[0])
+    if chi_max_b_3 is not None:
+        add_label_right_of_panel(fig, ax[1], r"$D_{\max}=3$", 
+                                 np.abs(expectation_value_list_3[N_sweeps_plot-1]-E0)/np.abs(E0), 
+                                 colors[1])
+    if chi_max_b_4 is not None:
+        add_label_right_of_panel(fig, ax[1], r"$D_{\max}=4$", 
+                                 np.abs(expectation_value_list_4[N_sweeps_plot-1]-E0)/np.abs(E0), 
+                                 colors[2])
+    if chi_max_b_5 is not None:
+        add_label_right_of_panel(fig, ax[1], r"$D_{\max}=5$", 
+                                np.abs(expectation_value_list_5[N_sweeps_plot-1]-E0)/np.abs(E0), 
+                                colors[3])
+    if mode == "onesite":
+        for i in range(N_sweeps_plot+1):
+            for n in [(2*Lx + 2*Lx-1) * i - 0.5]:
+                for axis in ax:
+                    axis.axvline(x=n, color="pink", linewidth=1)
+                    if i < N_sweeps_plot:
+                        axis.text(n+2*Lx, 0.1, f"sweep {i+1}", ha="center", va="bottom", transform=axis.get_xaxis_transform(), color="pink")
+    fig.savefig(png_path, dpi=300, bbox_inches="tight")
+    return
+
+
+def plot_dmrg2_old(g, N_sweeps_plot, chi_max_b_2, chi_max_b_3, chi_max_b_4, chi_max_b_5, chi_max_b_6):
     """After having ran test_dmrg2, plot the energies before and after each column dmrg update, and 
     the final expectation value."""
     # parameters
-    Lx = 6
-    Ly = 6
+    Lx = 10
+    Ly = 10
     Nx = 2*Lx+1 + 2*Lx
     ns_labels = (list(range(2*Lx+1)) + list(reversed(range(2*Lx)))) * N_sweeps_plot
     ns = np.array(range(Nx * N_sweeps_plot))
     ns_before_after = np.repeat(ns, 2)
     # figure 
-    fig, ax = plt.subplots(2, 1, figsize=(10, 8))
+    fig, ax = plt.subplots(2, 1, figsize=(15, 8))
     script_path = Path(__file__).resolve().parent
     png_path = script_path.parent / "data" / "dmrg2" / f"dmrg_{Lx}_{Ly}_{g}_2.png"
     fig.text(0.01, 0.5, 
@@ -185,8 +388,10 @@ def plot_dmrg2(g, N_sweeps_plot, chi_max_b_2, chi_max_b_3, chi_max_b_4, chi_max_
     ax[1].set_title(rf"(b) Variational boundary compression")
     ax[1].set_ylabel(r"$\frac{\vert E(n_x)-E_0 \vert}{\vert E_0 \vert}$", fontsize=13)
     ax[1].set_xlabel(r"Orthogonality column $n_x$")
-    ax[0].set_ylim(0.8*1e-6, 2.5e-1)
-    ax[1].set_ylim(0.8*1e-6, 2.5e-1)
+    #ax[0].set_ylim(0.8*1e-6, 2.5e-1)
+    #ax[1].set_ylim(0.8*1e-6, 2.5e-1)
+    ax[0].set_ylim(0.8*1e-5, 2.5e-1)
+    ax[1].set_ylim(0.8*1e-5, 2.5e-1)
     ns_ticks_filtered = []
     ns_labels_filtered = []
     for n in range(Nx * N_sweeps_plot):

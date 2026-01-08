@@ -96,6 +96,56 @@ class DiagonalSquareLattice:
             return 2
         else:
             return 4
+        
+    def get_NNN(self, site_vector):
+        x, y, p = site_vector
+        right = None
+        if x < self.Lx-1:
+            right_vector = (x+1, y, p)
+            right_paths = 2
+            if (y == 0 and p == 0) or (y == self.Ly-1 and p == 1):
+                right_paths = 1
+            right = (right_vector, right_paths)
+        top = None
+        if y < self.Ly-1:
+            top_vector = (x, y+1, p)
+            top_paths = 2
+            if (x == 0 and p == 0) or (x == self.Lx-1 and p == 1):
+                top_paths = 1
+            top = (top_vector, top_paths)
+        return right, top
+    
+    def get_NNNN(self, site_vector):
+        x, y, p = site_vector
+        bottom_vector = None
+        if x < self.Lx-1 and y > 0:
+            bottom_vector = (x+1, y-1, p)
+        top_vector = None
+        if x < self.Lx-1 and y < self.Ly-1:
+            top_vector = (x+1, y+1, p)
+        return bottom_vector, top_vector
+    
+    def get_diagonal_coordinates(self, site_vector):
+        x, y, p = site_vector
+        x_prime = x - y + self.Ly - 1
+        y_prime = x + y + p
+        return (x_prime, y_prime)
+    
+    def get_standing_waves(self, kx_prime, ky_prime):
+        Nx_prime = self.Lx + self.Ly - 1
+        Ny_prime = self.Lx + self.Ly
+        def psi(x_prime, y_prime):
+            return np.sin(np.pi * kx_prime * x_prime / (Nx_prime+1)) * np.sin(np.pi * ky_prime * y_prime / (Ny_prime+1)) 
+        
+        N = 2 * self.Lx * self.Ly
+        ss = [[None] * (2*self.Ly) for _ in range(self.Lx)]
+        for x in range(self.Lx):
+            for y in range(self.Ly):
+                for p in [0, 1]:
+                    x_prime, y_prime = self.get_diagonal_coordinates((x, y, p))
+                    s = psi(x_prime+1, y_prime+1) ** 2
+                    ss[x][2*y+p] = s
+        return ss
 
 
 class TFIModelDiagonalSquare:
@@ -160,7 +210,7 @@ class TFIModelDiagonalSquare:
             H_bonds[bond_scalar] = - self.J * XX - gb * ZId - gt * IdZ
         return H_bonds
     
-    def get_H_bonds_uniform(self):
+    def get_H_bonds_array(self):
         """Generate the uniform TFI two-site Hamiltonians as sparse matrices."""
         Id = sparse.csr_matrix(self.Id)
         sigma_x = sparse.csr_matrix(self.sigma_x)
@@ -182,11 +232,13 @@ class TFIModelDiagonalSquare:
             bot_site_vector, top_site_vector = self.lattice.get_sites(bond_vector, order="bottom_top")
             bot_site_scalar = self.lattice.get_site_scalar(bot_site_vector)
             top_site_scalar = self.lattice.get_site_scalar(top_site_vector)
+            gb = self.g / self.lattice.count_nearest_neighbors(bot_site_vector)
+            gt = self.g / self.lattice.count_nearest_neighbors(top_site_vector)
             XX = singlesite_to_full(sigma_x, bot_site_scalar) @ singlesite_to_full(sigma_x, top_site_scalar)
             ZId = singlesite_to_full(sigma_z, bot_site_scalar) @ singlesite_to_full(Id, top_site_scalar)
             IdZ = singlesite_to_full(Id, bot_site_scalar) @ singlesite_to_full(sigma_z, top_site_scalar)
             bx, by = bond_vector
-            H_bonds[bx][by] = - self.J * XX - (self.g / 2) * ZId - (self.g / 2) * IdZ
+            H_bonds[bx][by] = - self.J * XX - gb * ZId - gt * IdZ
         return H_bonds
             
     def get_H(self):
@@ -287,25 +339,47 @@ class TFIModelDiagonalSquare:
 
     def get_H_single_particle(self):
         assert self.g >= 3.0
-        t = self.J
         N = 2 * self.Lx * self.Ly
         H = sparse.csr_matrix((N, N))
+        # on-site energy
         for site_scalar in range(N):
             site_vector = self.lattice.get_site_vector(site_scalar)
-            mu = - 2 * self.g - self.lattice.count_nearest_neighbors(site_vector) * (self.J**2) / (4*self.g)
-            H[site_scalar, site_scalar] = - mu
+            mu = 2 * self.g + self.lattice.count_nearest_neighbors(site_vector) * (self.J**2) / (4*self.g)
+            H[site_scalar, site_scalar] = mu 
+        # NN hopping
         for bond_scalar in range(self.lattice.N_bonds):
             bond_vector = self.lattice.get_bond_vector(bond_scalar)
             bot_site_vector, top_site_vector = self.lattice.get_sites(bond_vector, order="bottom_top")
             bot_site_scalar = self.lattice.get_site_scalar(bot_site_vector)
             top_site_scalar = self.lattice.get_site_scalar(top_site_vector)
-            H[bot_site_scalar, top_site_scalar] = H[top_site_scalar, bot_site_scalar] = - t
+            H[bot_site_scalar, top_site_scalar] = H[top_site_scalar, bot_site_scalar] = - self.J
+        # NNN and NNNN hopping
+        """
+        for scalar in range(N):
+            vector = self.lattice.get_site_vector(scalar)
+            # NNN
+            right, top = self.lattice.get_NNN(site_vector)
+            if right is not None:
+                right_vector, right_paths = right
+                right_scalar = self.lattice.get_site_scalar(right_vector)
+                H[scalar, right_scalar] = H[right_scalar, scalar] = - right_paths * (self.J**2) / (4*self.g)
+            if top is not None:
+                top_vector, top_paths = top
+                top_scalar = self.lattice.get_site_scalar(top_vector)
+                H[scalar, top_scalar] = H[top_scalar, scalar] = - top_paths * (self.J**2) / (4*self.g)
+            # NNNN
+            bottom_vector, top_vector = self.lattice.get_NNNN(site_vector)
+            if bottom_vector is not None:
+                bottom_scalar = self.lattice.get_site_scalar(bottom_vector)
+                H[scalar, bottom_scalar] = H[bottom_scalar, scalar] = - (self.J**2) / (4*self.g)
+            if top_vector is not None:
+                top_scalar = self.lattice.get_site_scalar(top_vector)
+                H[scalar, top_scalar] = H[top_scalar, scalar] = - (self.J**2) / (4*self.g)
+        """
         return H
     
-    def get_H_bonds_uniform_single_particle(self):
+    def get_H_bonds_single_particle(self, uniform=None):
         assert self.g >= 3.0
-        t = self.J
-        mu = - 2 * self.g - (self.J**2) / self.g
         N = 2 * self.Lx * self.Ly
         H_bonds = [[None] * (2*self.Ly-1) for _ in range(2*self.Lx-1)]
         for bx in range(2*self.Lx-1):
@@ -314,18 +388,23 @@ class TFIModelDiagonalSquare:
                 bot_site_vector, top_site_vector = self.lattice.get_sites((bx, by), order="bottom_top")
                 bot_site_scalar = self.lattice.get_site_scalar(bot_site_vector)
                 top_site_scalar = self.lattice.get_site_scalar(top_site_vector)
-                H_bond[bot_site_scalar, top_site_scalar] = H_bond[top_site_scalar, bot_site_scalar] = - t
-                H_bond[bot_site_scalar, bot_site_scalar] = H_bond[top_site_scalar, top_site_scalar] = - mu/2
-                #H_bond[bot_site_scalar, bot_site_scalar] = -mu / self.lattice.count_nearest_neighbors(bot_site_vector)
-                #H_bond[top_site_scalar, top_site_scalar] = -mu / self.lattice.count_nearest_neighbors(top_site_vector)
+                H_bond[bot_site_scalar, top_site_scalar] = H_bond[top_site_scalar, bot_site_scalar] = - self.J
+                if uniform:
+                    mu = self.g + (self.J**2) / (4*self.g)
+                    H_bond[bot_site_scalar, bot_site_scalar] = H_bond[top_site_scalar, top_site_scalar] = mu
+                else:
+                    mu_bot = 2 * self.g / self.lattice.count_nearest_neighbors(bot_site_vector) + (self.J**2) / (4*self.g)
+                    H_bond[bot_site_scalar, bot_site_scalar] = mu_bot
+                    mu_top = 2 * self.g / self.lattice.count_nearest_neighbors(top_site_vector) + (self.J**2) / (4*self.g)
+                    H_bond[top_site_scalar, top_site_scalar] = mu_top
                 H_bonds[bx][by] = H_bond
         return H_bonds
     
-    def get_es_bond_single_particle(self, k):
+    def get_es_bond_single_particle(self, k, uniform=None):
         assert self.g >= 3.0
         H = self.get_H_single_particle()
         Es, psis = eigsh(H, k=k, which="SA")
-        H_bonds = self.get_H_bonds_uniform_single_particle()
+        H_bonds = self.get_H_bonds_single_particle(uniform)
         es_bond_list = []
         for i in range(k):
             psi = psis[:, i]

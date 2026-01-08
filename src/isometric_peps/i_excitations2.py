@@ -10,7 +10,7 @@ from copy import deepcopy
 
 from ..matrix_decompositions import qr_positive, svd_truncation
 from .a_iso_peps.src.isoTPS.square.isoTPS import isoTPS_Square as DiagonalIsometricPEPS
-from .b_model import DiagonalSquareLattice
+from .b_model import DiagonalSquareLattice, TFIModelDiagonalSquare
 from .c_mps import MPS, TwoSiteSweep
 from .d_expectation_values import get_flipped_As, get_flipped_hs, get_flipped_Cs, get_flipped_mps, \
                                   subtract_energy_offset_mpos, get_expectation_value_boundary
@@ -20,54 +20,103 @@ from ..mps.b_model_finite import TFIModelFinite
 
 class VariationalQuasiparticleExcitationsEngine:
     "..."
-    def __init__(self, iso_peps0, h_mpos, bc, chi_max_b, eps_b=1.e-15, zeroE=False):
+    def __init__(self, D_max, chi_max_c, ALs, ARs, CDs, CCs, CUs, h_mpos, bc, chi_max_b, eps_b=1.e-15):
         # lattice parameters
-        self.Lx = iso_peps0.Lx
-        self.Ly = iso_peps0.Ly
-        self.Nx = 2 * self.Lx
+        self.Nx = len(ALs)
+        self.Lx = self.Nx // 2
+        self.Ly = len(ALs[0])
         self.Ny = 2 * self.Ly - 1
+        self.N = 2 * self.Lx * self.Ly
         # ground state
-        self.iso_peps0 = iso_peps0
-        self.D_max = iso_peps0.D_max
-        self.chi_max_c = iso_peps0.chi_max
-        # ground state tensors and (shapes of) excitation tensors
-        self.ALs, self.ARs, self.CDs, self.CCs, self.CUs = extract_all_isometric_configurations(iso_peps0)
+        self.d = np.shape(ALs[0][0])[0]
+        self.D_max = D_max
+        self.chi_max_c = chi_max_c
+        self.ALs = ALs
+        self.ARs = ARs
+        self.CDs = CDs
+        self.CCs = CCs
+        self.CUs = CUs
+        # shapes of excitation tensors
         self.VLs = get_VLs(self.ALs)
         self.VDs = get_VDs(self.CDs[-1])
         self.shape_Xs, self.shape_vecX = get_shape_Xs_vecX(self.ALs, self.CDs, self.CCs, self.CUs)
         self.shape_Xs_column, self.shape_vecX_column = get_shape_Xs_vecX_column(self.CDs[-1])
         self.ADs, self.AUs = get_ADs_AUs(self.ALs, self.CDs, self.CUs)
-        # boundary compression parameters
-        #self.bc = bc
-        self.chi_max_b = chi_max_b
-        self.eps_b = eps_b
-        # Hamiltonian and ground state energy
+        # Hamiltonian (and ground state energy)
         self.h_mpos = h_mpos
+        """
         es0 = iso_peps0.copy().get_column_expectation_values(h_mpos)
         if zeroE:
             subtract_energy_offset_mpos(h_mpos, es0)
             es0 = iso_peps0.copy().get_column_expectation_values(h_mpos)
         self.E0 = np.sum(es0)
         print(f"Initialize excitation engine from ground state isoPEPS with E0 = {self.E0}.")
+        """
+        # boundary compression parameters
+        self.bc = bc
+        self.chi_max_b = chi_max_b
+        self.eps_b = eps_b
+        print(f"Initialize excitation engine with boundary compression = {bc}, chi_max_b = {chi_max_b}.")
         # boundaries only containing the Hamiltonian
-        self.bc = "column"
+        #self.bc = "column"
         self.Lhs = self.get_Lhs()
         self.Rhs = self.get_Rhs()
         print("Compressed boundaries Lhs and Rhs only containing the Hamiltonian.")
-        print(f"-> (Lh|C) = {get_expectation_value_boundary(self.CDs[-1], self.Lhs[-1], "left")}.")
-        self.bc = bc
+        print(f"-> (Lh|C) = {get_expectation_value_boundary(self.CDs[-1], self.Lhs[-1], "left")}. \n")
+        #self.bc = bc
 
-    def run(self, k):
+    def run(self, k, N=None):
+        """
+        if vecX_guess == "random":
+            np.random.seed(0)
+            vecX_guess = np.random.randn(self.shape_vecX + self.shape_vecX_column) \
+                         + 1.j * np.random.randn(self.shape_vecX + self.shape_vecX_column)
+            vecX_guess /= np.linalg.norm(vecX_guess)
+        elif vecX_guess == "spin_flip":
+            Bs_guess = Bs_from_spin_flip(g=3.5, k=1, ALs=self.ALs, CCs=self.CCs, CDs=self.CDs, direction="x")
+            vecX_guess = vecX_from_non_orthogonal_Bs(self.ALs, self.ARs, self.CDs, self.CCs, self.CUs, Bs_guess, self.chi_max_b)
+        E_guess = np.inner(np.conj(vecX_guess), Heff(self)._matvec(vecX_guess))
+        print(f"E_guess = {E_guess}.")
+        vecXs = []
+        Es = []
+        if N is None:
+            for i in range(k):
+                Bs_guess = Bs_from_spin_flip(g=3.5, k=i+1, ALs=self.ALs, CCs=self.CCs, CDs=self.CDs, direction="x")
+                vecX_guess = vecX_from_non_orthogonal_Bs(self.ALs, self.ARs, self.CDs, self.CCs, self.CUs, Bs_guess, self.chi_max_b)
+                H_eff = Heff(self, deflation_vecXs=vecXs)
+                E_guess = np.inner(np.conj(vecX_guess), H_eff._matvec(vecX_guess))
+                print(f"E_guess = {E_guess}.")
+                Es_gs, vecXs_gs = eigsh(H_eff, k=1, which="SA", maxiter=50, tol=1.e-4, v0=vecX_guess)
+                print(f"=> E{i} = {Es_gs[0]}. \n")
+                Es.append(Es_gs[0])
+                vecXs.append(vecXs_gs[:, 0])
+        print("Spin flips with coefficients from perturbation theory:")
+        for i in range(k):
+            Bs_guess = Bs_from_spin_flip(g=3.5, k=i+1, ALs=self.ALs, CCs=self.CCs, CDs=self.CDs, direction="x")
+            vecX_guess = vecX_from_non_orthogonal_Bs(self.ALs, self.ARs, self.CDs, self.CCs, self.CUs, Bs_guess, self.chi_max_b)
+            E_guess = np.inner(np.conj(vecX_guess), Heff(self)._matvec(vecX_guess))
+            print(f"=> E{i+1}_guess = {E_guess}.")
+        """
+        print("")
         print(f"Optimize {k} excitation(s) above the ground state from effective Hamiltonian.")
-        #Es, vecXs = eigsh(Heff(self), k, which="SA")
-        Es, vecXs = eigsh(Heff(self), k, which="SA", maxiter=50, tol=1.e-4)
+        if N is None:
+            Es, vecXs = eigsh(Heff(self), k=k, which="SA", maxiter=50, tol=1.e-4)
+        else:
+            T, phis = lanczos(vecX_guess, Heff(self), N, stabilize=True)
+            V = np.array(phis).transpose()
+            Es, us = np.linalg.eigh(T)
+            vecXs = np.dot(V, us)
         vecXs = [vecXs[:, i] for i in range(k)]
+        print(f"Optimization of {np.shape(vecXs[0])[0]} excitation parameters done.")
+        """
         for i in range(k):
             print(f"- Excitation {i+1}:")
             vecX = vecXs[i][:self.shape_vecX]
             vecX_column = vecXs[i][self.shape_vecX:]
             self.print_all_excitation_norms(vecX, vecX_column)
+            print(f"=> E_{i+1} = {Es[i]}.")
             print(f"=> E_{i+1} = {Es[i]} (e{i+1} = {Es[i] - self.E0}).")
+        """
         return Es, vecXs
     
     def print_all_excitation_norms(self, vecX, vecX_column):
@@ -173,10 +222,27 @@ class VariationalQuasiparticleExcitationsEngine:
                 Lh = get_flipped_mps(Lh)
                 Cs = get_flipped_Cs(Cs)
             # perform boundary compression
+            if self.bc == "variational":
+                if hs is None and Lh is None:
+                    Lh = None
+                else:
+                    try:
+                        vbc = VBC_h(A1s, A2s, hs, Lh, self.chi_max_b)
+                        vbc.run(N_sweeps=3)
+                        Lh = vbc.psi
+                    except AssertionError:
+                        Lh = None
+            elif self.bc == "column":
+                CCdaggers, _ = CCdaggers_to_down_isometric_form(Cs, side="left")
+                Ls_list = [get_Ls_h(hs, A1s, A2s, A1s, A2s), \
+                        get_Ls_transfer(Lh, A2s, A2s)]
+                Lh = self.perform_boundary_compression(Ls_list, CCdaggers)
+            """
             CCdaggers, _ = CCdaggers_to_down_isometric_form(Cs, side="left")
             Ls_list = [get_Ls_h(hs, A1s, A2s, A1s, A2s), \
-                       get_Ls_transfer(Lh, A2s, A2s)]
+                    get_Ls_transfer(Lh, A2s, A2s)]
             Lh = self.perform_boundary_compression(Ls_list, CCdaggers)
+            """
             # flip boundary mps back for even nx
             if nx%2 == 0:
                 Lh = get_flipped_mps(Lh)
@@ -199,10 +265,27 @@ class VariationalQuasiparticleExcitationsEngine:
                 Rh = get_flipped_mps(Rh)
                 Cs = get_flipped_Cs(Cs)
             # perform boundary compression
+            if self.bc == "variational":
+                if hs is None and Rh is None:
+                    Rh = None
+                else:
+                    try:
+                        vbc = VBC_h(A1s, A2s, hs, Rh, self.chi_max_b)
+                        vbc.run(N_sweeps=3)
+                        Rh = vbc.psi
+                    except AssertionError:
+                        Rh = None
+            elif self.bc == "column":
+                CCdaggers, _ = CCdaggers_to_down_isometric_form(Cs, side="right")
+                Rs_list = [get_Ls_h(hs, A1s, A2s, A1s, A2s), \
+                        get_Ls_transfer(Rh, A2s, A2s)]
+                Rh = self.perform_boundary_compression(Rs_list, CCdaggers)
+            """
             CCdaggers, _ = CCdaggers_to_down_isometric_form(Cs, side="right")
             Rs_list = [get_Ls_h(hs, A1s, A2s, A1s, A2s), \
-                       get_Ls_transfer(Rh, A2s, A2s)]
+                    get_Ls_transfer(Rh, A2s, A2s)]
             Rh = self.perform_boundary_compression(Rs_list, CCdaggers)
+            """
             # flip boundary mps back for even nx
             if nx%2 == 0:
                 Rh = get_flipped_mps(Rh)
@@ -230,9 +313,25 @@ class VariationalQuasiparticleExcitationsEngine:
                 RB = get_flipped_mps(RB)
                 Cs = get_flipped_Cs(Cs)
             # perform boundary compression
+            if self.bc == "variational":
+                if Bs_ket is None and RB is None:
+                    RB = None
+                else:
+                    try:
+                        vbc = VBC_B(Bs_ket, As_bra, As_ket, RB, self.chi_max_b)
+                        vbc.run(N_sweeps=3)
+                        RB = vbc.psi
+                    except AssertionError:
+                        RB = None
+            elif self.bc == "column":
+                Rs_list = [get_Ls_B(Bs_ket, As_bra), \
+                           get_Ls_transfer(RB, As_ket, As_bra)]
+                RB = self.perform_boundary_compression(Rs_list, Cs)
+            """
             Rs_list = [get_Ls_B(Bs_ket, As_bra), \
-                       get_Ls_transfer(RB, As_ket, As_bra)]
+                        get_Ls_transfer(RB, As_ket, As_bra)]
             RB = self.perform_boundary_compression(Rs_list, Cs)
+            """
             # flip boundary mps back for even nx
             if nx%2 == 0:
                 RB = get_flipped_mps(RB)
@@ -266,11 +365,29 @@ class VariationalQuasiparticleExcitationsEngine:
                 LhB = get_flipped_mps(LhB)
                 Cs = get_flipped_Cs(Cs)
             # perform boundary compression
+            if self.bc == "variational":
+                if B1s_ket is None and B2s_ket is None and LhB is None:
+                    LhB = None
+                else:
+                    try:
+                        vbc = VBC_Bh(hs, B1s_ket, B2s_ket, A1s_bra, A2s_bra, A2s_ket, Lh, LhB, self.chi_max_b)
+                        vbc.run(N_sweeps=3)
+                        LhB = vbc.psi
+                    except AssertionError:
+                        LhB = None
+            elif self.bc == "column":
+                Ls_list = [get_Ls_Bh(hs, B1s_ket, A2s_ket, A1s_bra, A2s_bra), \
+                        get_Ls_hB(hs, A1s_ket, B2s_ket, A1s_bra, A2s_bra), \
+                        get_Ls_LhB(Lh, B2s_ket, A2s_bra), \
+                        get_Ls_transfer(LhB, A2s_ket, A2s_bra)]
+                LhB = self.perform_boundary_compression(Ls_list, Cs)
+            """
             Ls_list = [get_Ls_Bh(hs, B1s_ket, A2s_ket, A1s_bra, A2s_bra), \
-                       get_Ls_hB(hs, A1s_ket, B2s_ket, A1s_bra, A2s_bra), \
-                       get_Ls_LhB(Lh, B2s_ket, A2s_bra), \
-                       get_Ls_transfer(LhB, A2s_ket, A2s_bra)]
+                    get_Ls_hB(hs, A1s_ket, B2s_ket, A1s_bra, A2s_bra), \
+                    get_Ls_LhB(Lh, B2s_ket, A2s_bra), \
+                    get_Ls_transfer(LhB, A2s_ket, A2s_bra)]
             LhB = self.perform_boundary_compression(Ls_list, Cs)
+            """
             # flip boundary mps back for even nx
             if nx%2 == 0:
                 LhB = get_flipped_mps(LhB)
@@ -717,6 +834,12 @@ class Heff(LinearOperator):
                                           excitation_engine.h_mpos[0][0].dtype])
         super().__init__(dtype=dtype, shape=shape)
         self.matvec_counter = 0
+        """
+        if deflation_vecXs is not None:
+            self.deflation_vecXs = [def_vecX/np.linalg.norm(def_vecX) for def_vecX in deflation_vecXs]
+        else:
+            self.deflation_vecXs = None
+        """
 
     def _matvec(self, vecX):
         self.matvec_counter += 1
@@ -751,12 +874,17 @@ class Heff(LinearOperator):
                     Bs_new[nx][y] = sum(B_new_list)
         # Bs_new -> vecX_new
         vecX_new = self.excitation_engine.Bs_to_vecX(Bs_new)
+        """
+        if self.deflation_vecXs is not None:
+            for def_vecX in self.deflation_vecXs:
+                vecX_new -= np.inner(np.conj(def_vecX), vecX_new) * def_vecX
+        """
         return vecX_new
     
 
 class ExcitedIsometricPEPS:
     def __init__(self, D_max, chi_max_c, ALs, ARs, CDs, CCs, CUs, vecX, bc, chi_max_b, eps_b=1.e-15):
-        print(f"Initialize ExcitedIsometricPEPS with {np.shape(vecX)[0]} excitations parameters.")
+        #print(f"Initialize ExcitedIsometricPEPS with {np.shape(vecX)[0]} excitations parameters.")
         # ground state iso_peps
         self.d = np.shape(ALs[0][0])[0]
         self.D_max = D_max
@@ -872,6 +1000,29 @@ class ExcitedIsometricPEPS:
                     LBB = get_flipped_mps(LBB)
                     As_ket, As_bra = get_flipped_As(As_ket), get_flipped_As(As_bra)
                 # perform boundary compression
+                if self.bc == "variational":
+                    if Bs_ket is None and LBB is None:
+                        LBB = None
+                    else:
+                        try:
+                            vbc = VBC_BB(Bs_ket, As_ket, None, LBB, self.chi_max_b)
+                            vbc.run(N_sweeps=3)
+                            LBB = vbc.psi
+                        except AssertionError:
+                            LBB = None
+                elif self.bc == "column":
+                    Ls_list = [get_Ls_BB(Bs_ket, Bs_bra), \
+                               get_Ls_transfer(LBB, As_ket, As_bra)]
+                    Ds = []
+                    for y in range(self.Ly):
+                        D1 = np.shape(As_ket[y])[3]
+                        Ds.append((D1, D1))
+                        if y < self.Ly-1:
+                            D2 = np.shape(As_ket[y])[4]
+                            Ds.append((D2, D2))
+                    Cs = mps_to_tensors(MPS.from_identity_product_state(Ds))
+                    LBB = self.perform_boundary_compression(Ls_list, Cs)
+                """
                 Ls_list = [get_Ls_BB(Bs_ket, Bs_bra), \
                            get_Ls_transfer(LBB, As_ket, As_bra)]
                 Ds = []
@@ -883,6 +1034,7 @@ class ExcitedIsometricPEPS:
                         Ds.append((D2, D2))
                 Cs = mps_to_tensors(MPS.from_identity_product_state(Ds))
                 LBB = self.perform_boundary_compression(Ls_list, Cs)
+                """
                 # flip boundary mps back for even nx
                 if nx%2 == 0:
                     LBB = get_flipped_mps(LBB)
@@ -909,9 +1061,25 @@ class ExcitedIsometricPEPS:
                 RBket = get_flipped_mps(RBket)
                 Cs = get_flipped_Cs(Cs)
             # perform boundary compression
+            if self.bc == "variational":
+                if Bs_ket is None and RBket is None:
+                    RBket = None
+                else:
+                    try:
+                        vbc = VBC_B(Bs_ket, As_bra, As_ket, RBket, self.chi_max_b)
+                        vbc.run(N_sweeps=3)
+                        RBket = vbc.psi
+                    except AssertionError:
+                        RBket = None
+            elif self.bc == "column":
+                Rs_list = [get_Ls_B(Bs_ket, As_bra), \
+                           get_Ls_transfer(RBket, As_ket, As_bra)]
+                RBket = self.perform_boundary_compression(Rs_list, Cs)
+            """
             Rs_list = [get_Ls_B(Bs_ket, As_bra), \
                        get_Ls_transfer(RBket, As_ket, As_bra)]
             RBket = self.perform_boundary_compression(Rs_list, Cs)
+            """
             # flip boundary mps back for even nx
             if nx%2 == 0:
                 RBket = get_flipped_mps(RBket)
@@ -921,6 +1089,13 @@ class ExcitedIsometricPEPS:
 
     def get_RBbras(self):
         RBbras = [None] * self.Nx
+        for nx in range(self.Nx):
+            RBket = self.RBkets[nx]
+            if RBket is not None:
+                RBbra = RBket.copy()
+                RBbra.Ms = [np.transpose(np.conj(M), (0, 2, 1, 3)) for M in RBbra.Ms]
+                RBbras[nx] = RBbra
+        """
         for nx in reversed(range(2, self.Nx)):
             # extract all needed tensors
             As_ket = deepcopy(self.ARs[nx])
@@ -946,6 +1121,7 @@ class ExcitedIsometricPEPS:
                 RBbra = get_flipped_mps(RBbra)
             # save boundary mps
             RBbras[nx] = RBbra
+            """
         return RBbras
 
     def get_RBBs(self, RBkets, RBbras):
@@ -967,10 +1143,37 @@ class ExcitedIsometricPEPS:
                 RBbra = get_flipped_mps(RBbra)
                 RBB = get_flipped_mps(RBB)
             # perform boundary compression
+            if self.bc == "variational":
+                if Bs_ket is None and RBB is None:
+                    RBB = None
+                else:
+                    try:
+                        vbc = VBC_BB(Bs_ket, As_ket, RBbra, RBB, self.chi_max_b)
+                        vbc.run(N_sweeps=3)
+                        RBB = vbc.psi
+                    except AssertionError:
+                        RBB = None
+            elif self.bc == "column":
+                Rs_list = [get_Ls_BB(Bs_ket, Bs_bra), \
+                           get_Ls_LhB(RBbra, Bs_ket, As_bra), \
+                           get_Ls_LBketBbra(RBket, As_ket, Bs_bra), \
+                           get_Ls_transfer(RBB, As_ket, As_bra)]
+                Ds = []
+                for y in range(self.Ly):
+                    D1 = np.shape(As_ket[y])[3]
+                    Ds.append((D1, D1))
+                    if y < self.Ly-1:
+                        D2 = np.shape(As_ket[y])[4]
+                        Ds.append((D2, D2))
+                Cs = mps_to_tensors(MPS.from_identity_product_state(Ds))
+                RBB = self.perform_boundary_compression(Rs_list, Cs)
+                if RBB is not None:
+                    print([np.shape(M) for M in RBB.Ms])
+            """
             Rs_list = [get_Ls_BB(Bs_ket, Bs_bra), \
-                       get_Ls_LhB(RBbra, Bs_ket, As_bra), \
-                       get_Ls_LBketBbra(RBket, As_ket, Bs_bra), \
-                       get_Ls_transfer(RBB, As_ket, As_bra)]
+                        get_Ls_LhB(RBbra, Bs_ket, As_bra), \
+                        get_Ls_LBketBbra(RBket, As_ket, Bs_bra), \
+                        get_Ls_transfer(RBB, As_ket, As_bra)]
             Ds = []
             for y in range(self.Ly):
                 D1 = np.shape(As_ket[y])[3]
@@ -980,6 +1183,7 @@ class ExcitedIsometricPEPS:
                     Ds.append((D2, D2))
             Cs = mps_to_tensors(MPS.from_identity_product_state(Ds))
             RBB = self.perform_boundary_compression(Rs_list, Cs)
+            """
             # flip boundary mps back for even nx
             if nx%2 == 0:
                 RBB = get_flipped_mps(RBB)
@@ -1204,20 +1408,13 @@ class ExcitedIsometricPEPS:
 
 
 # ground state 
-
 def extract_all_isometric_configurations(iso_peps, min_dims=True):
     """Extract all (ALs|CDs,CCs,CUs|ARs) configurations of iso_peps by moving the orthogonality 
     column from left to right with YB-moves and the orthogonality center from down to up with 
     QR-decompositions. If min_dims=True, always take the minimum of the outer dimensions for the 
     inner dimension in the orthogonal matrix decompositions."""
-    iso_peps_copy = DiagonalIsometricPEPS(iso_peps.Lx, iso_peps.Ly, D_max=iso_peps.D_max, \
-                                          chi_factor=iso_peps.chi_factor, chi_max=iso_peps.chi_max, \
-                                          d=iso_peps.d, shifting_options=iso_peps.shifting_options, \
-                                          yb_options=iso_peps.yb_options, \
-                                          tebd_options=iso_peps.tebd_options)
-    iso_peps_copy._init_as_copy(iso_peps)
-    Lx = iso_peps_copy.Lx
-    Ly = iso_peps_copy.Ly
+    Lx = iso_peps.Lx
+    Ly = iso_peps.Ly
     Nx = 2 * Lx
     Ny = 2 * Ly - 1
     ALs = [[None] * Ly for _ in range(Nx)]
@@ -1225,38 +1422,35 @@ def extract_all_isometric_configurations(iso_peps, min_dims=True):
     CDs = [[None] * Ny for _ in range(Nx)]
     CCs = [[None] * Ny for _ in range(Nx)]
     CUs = [[None] * Ny for _ in range(Nx)]
-    iso_peps_copy.move_orthogonality_column_to(0, min_dims)
-    if min_dims:
-        Cs = iso_peps_copy.get_Cs(0)
-        C = MPS(Cs, norm=1.)
-        Us, Vs, Ss, _ = C.get_canonical_form()
-        iso_peps_copy.Ws = [np.transpose(U, (1, 3, 2, 0)) for U in Us]
-    ARs[0] = iso_peps_copy.get_ARs(0)
-    for nx in range(Nx):
-        iso_peps_copy.move_orthogonality_column_to(nx+1, min_dims)
-        ALs[nx] = iso_peps_copy.get_ALs(nx+1)
-        if nx < Nx-1:
-            ARs[nx+1] = iso_peps_copy.get_ARs(nx+1)
-        Cs = iso_peps_copy.get_Cs(nx+1)
-        C = MPS(Cs, norm=1.)
-        Us, Vs, Ss, _ = C.get_canonical_form()
-        CDs[nx] = Us
-        CCs[nx] = [np.tensordot(Ss[ny], Vs[ny], axes=(1, 0)) for ny in range(Ny)]
-        CUs[nx] = Vs
-        if min_dims:
-            if nx%2 == 0:
-                iso_peps_copy.Ws = [np.transpose(V, (1, 3, 2, 0)) for V in Vs]
-            elif nx%2 == 1:
-                iso_peps_copy.Ws = [np.transpose(U, (1, 3, 2, 0)) for U in Us]
+    for nx in range(Nx+1):
+        iso_peps_copy = DiagonalIsometricPEPS(iso_peps.Lx, iso_peps.Ly, D_max=iso_peps.D_max, \
+                                              chi_factor=iso_peps.chi_factor, chi_max=iso_peps.chi_max, \
+                                              d=iso_peps.d, shifting_options=iso_peps.shifting_options, \
+                                              yb_options=iso_peps.yb_options, \
+                                              tebd_options=iso_peps.tebd_options)
+        iso_peps_copy._init_as_copy(iso_peps)
+        iso_peps_copy.move_orthogonality_column_to(nx, min_dims)
+        if nx < Nx:
+            ARs[nx] = iso_peps_copy.get_ARs(nx)
+        if nx > 0:
+            ALs[nx-1] = iso_peps_copy.get_ALs(nx)
+            Cs = iso_peps_copy.get_Cs(nx)
+            C = MPS(Cs, norm=1.)
+            Us, Vs, Ss, _ = C.get_canonical_form()
+            CDs[nx-1] = Us
+            CCs[nx-1] = [np.tensordot(Ss[ny], Vs[ny], axes=(1, 0)) for ny in range(Ny)]
+            CUs[nx-1] = Vs
     return ALs, ARs, CDs, CCs, CUs
 
-def get_ADs_AUs(ALs, CDs, CUs):
+
+def get_ADs_AUs_ACs(ALs, CDs, CUs, CCs):
     assert len(ALs) == len(CDs) == len(CUs)
     assert len(ALs[0]) == (len(CDs[0])+1)//2 == (len(CUs[0])+1)//2
     Nx = len(ALs)
     Ly = len(ALs[0])
     ADs = [[None] * Ly for _ in range(Nx)]
     AUs = [[None] * Ly for _ in range(Nx)]
+    ACs = [[None] * Ly for _ in range(Nx)]
     for nx in range(Nx):
         for y in range(Ly):
             AL = ALs[nx][y].copy()
@@ -1265,18 +1459,20 @@ def get_ADs_AUs(ALs, CDs, CUs):
                     CD1, CU1 = np.ones((1, 1, 1, 1)), np.ones((1, 1, 1, 1))
                 elif y > 0:
                     CD1, CU1 = CDs[nx][2*y-1].copy(), CUs[nx][2*y-1].copy()
-                CD2, CU2 = CDs[nx][2*y].copy(), CUs[nx][2*y].copy()
+                CD2, CU2, CC2 = CDs[nx][2*y].copy(), CUs[nx][2*y].copy(), CCs[nx][2*y].copy()
             elif nx%2 == 1:
                 CD1, CU1 = CDs[nx][2*y].copy(), CUs[nx][2*y].copy()
                 if y < Ly-1:
-                    CD2, CU2 = CDs[nx][2*y+1].copy(), CUs[nx][2*y+1].copy()
+                    CD2, CU2, CC2 = CDs[nx][2*y+1].copy(), CUs[nx][2*y+1].copy(), CCs[nx][2*y+1].copy()
                 elif y == Ly-1:
-                    CD2, CU2 = np.ones((1, 1, 1, 1)), np.ones((1, 1, 1, 1))
+                    CD2, CU2, CC2 = np.ones((1, 1, 1, 1)), np.ones((1, 1, 1, 1)), np.ones((1, 1, 1, 1))
             ADs[nx][y] = oe.contract("abcde,fdgh,heij->fjabcgi", \
                                      AL, CD1, CD2)
             AUs[nx][y] = oe.contract("abcde,fdgh,heij->fjabcgi", \
                                      AL, CU1, CU2)
-    return ADs, AUs
+            ACs[nx][y] = oe.contract("abcde,fdgh,heij->fjabcgi", \
+                                     AL, CD1, CC2)
+    return ADs, AUs, ACs
 
 
 # excitations AL-VL-X-AR
@@ -2032,3 +2228,1026 @@ def h_bonds_to_mpos(h_bonds, Lx, Ly):
         h_mpo[by], h_mpo[by+1] = h_d, h_u
         h_mpos_array[bx][by] = h_mpo
     return h_mpos_array
+
+
+def get_Ds(As_bottom, As_top):
+    assert len(As_bottom) == len(As_top)
+    L = len(As_bottom)
+    Ds = []
+    for y in range(L):
+        D1b = np.shape(As_bottom[y])[3]
+        D1t = np.shape(As_top[y])[3]
+        Ds.append((D1b, D1t))
+        if y < L-1:
+            D2b = np.shape(As_bottom[y])[4]
+            D2t = np.shape(As_top[y])[4]
+            Ds.append((D2b, D2t))
+    return Ds
+
+
+class VBC_h(TwoSiteSweep):
+    def __init__(self, A1s, A2s, hs, Bh1, chi_max, eps=1.e-15):
+        assert hs is not None or Bh1 is not None
+        mps_guess = MPS.from_random_up_isometries(get_Ds(A2s, A2s), chi_max, norm=1.)
+        super().__init__(mps_guess, chi_max, eps)
+        self.A1s = A1s
+        self.A2s = A2s
+        self.hs = hs
+        self.Bh1 = Bh1
+        if hs is not None:
+            self.DPs = [None] * self.N_centers
+            self.UPs = [None] * self.N_centers
+        if Bh1 is not None:
+            self.DPTs = [None] * self.N_centers
+            self.UPTs = [None] * self.N_centers
+        self.init_Env()
+
+    def get_theta_updated(self, n, theta2_guess):  
+        theta2_updated = np.zeros(shape=theta2_guess.shape, dtype=np.complex128)                    
+        if n%2 == 0:
+            if self.hs is not None:
+                theta2_updated += oe.contract("abcd,eafgh,bije,jcklm,fikn->dglhmn", \
+                                              self.DPs[n], \
+                                              self.A2s[n//2], self.hs[n+1], np.conj(self.A2s[n//2]), \
+                                              self.UPs[n])
+            if self.Bh1 is not None:
+                theta2_updated += self.Bh1.norm * oe.contract("ab,acde,efgh,icfjk,idglm,hn->bjlkmn", \
+                                                              self.DPTs[n], \
+                                                              self.Bh1.Ms[n], self.Bh1.Ms[n+1], \
+                                                              self.A2s[n//2], np.conj(self.A2s[n//2]), \
+                                                              self.UPTs[n])
+        elif n%2 == 1:
+            if self.hs is not None:
+                theta2_updated += oe.contract("abcdef,abcghi->fdeghi", \
+                                              self.DPs[n], \
+                                              self.UPs[n])
+            if self.Bh1 is not None:
+                theta2_updated += self.Bh1.norm * oe.contract("abcd,aefg->dbcefg", \
+                                                              self.DPTs[n], \
+                                                              self.UPTs[n])
+        return theta2_updated
+
+    def init_Env(self):                         
+        # Down parts for center 0
+        if self.hs is not None:
+            A1 = self.A1s[0][:, 0, :, 0, :]
+            h = self.hs[0][0, :, :, :]
+            DP = oe.contract("abc,dea,ebg->cdg", \
+                             A1, h, np.conj(A1))  
+            self.DPs[0] = DP[:, :, :, np.newaxis]
+        if self.Bh1 is not None:
+            self.DPTs[0] = np.ones((1, 1)) 
+        # Up parts for all centers
+        if self.hs is not None:
+            A2 = self.A2s[-1][:, :, 0, :, 0] 
+            h2 = self.hs[-1][:, 0, :, :]  
+            A1 = self.A1s[-1] 
+            h1 = self.hs[-2] 
+            UP = oe.contract("abc,dea,efg,hijkb,ldmh,mijnf->klncg", \
+                             A2, h2, np.conj(A2), \
+                             A1, h1, np.conj(A1))
+            self.UPs[-1] = UP[:, :, :, :, :, np.newaxis] 
+        if self.Bh1 is not None:
+            A2 = self.A2s[-1][:, :, 0, :, 0] 
+            Bh1 = self.Bh1.Ms[-1][:, :, :, 0] 
+            UPT = oe.contract("abc,dbe,dcf->aef", \
+                              Bh1, A2, np.conj(A2))  
+            self.UPTs[-1] = UPT[:, :, :, np.newaxis] 
+        for n in reversed(range(1, self.N_centers)):
+            self.update_Env(n, sweep_dir="back")
+        return
+            
+    def update_Env(self, n, sweep_dir):                                                   
+        if sweep_dir == "forth":
+            U_updated = self.Us[n] 
+            if n%2 == 0:
+                if self.hs is not None:
+                    DP_updated = oe.contract("abcd,eafgh,bije,jcklm,dgln->fikhmn", \
+                                             self.DPs[n], \
+                                             self.A2s[n//2], self.hs[n+1], np.conj(self.A2s[n//2]), \
+                                             np.conj(U_updated))
+                    self.DPs[n+1] = DP_updated 
+                if self.Bh1 is not None:
+                    DPT_updated = oe.contract("ab,acde,efgh,icfjk,idglm,bjln->hkmn", \
+                                              self.DPTs[n], \
+                                              self.Bh1.Ms[n], self.Bh1.Ms[n+1], \
+                                              self.A2s[n//2], np.conj(self.A2s[n//2]), \
+                                              np.conj(U_updated))
+                    self.DPTs[n+1] = DPT_updated 
+            elif n%2 == 1:
+                if self.hs is not None:
+                    DP_updated = oe.contract("abcdef,fdeg,hijak,blmh,mijcn->klng", \
+                                             self.DPs[n], \
+                                             np.conj(U_updated), \
+                                             self.A1s[(n+1)//2], self.hs[n+1], np.conj(self.A1s[(n+1)//2]))
+                    self.DPs[n+1] = DP_updated 
+                if self.Bh1 is not None:
+                    DPT_updated = oe.contract("abcd,dbce->ae", \
+                                              self.DPTs[n], \
+                                              np.conj(U_updated))  
+                    self.DPTs[n+1] = DPT_updated 
+            if n >= 2:
+                if self.hs is not None:
+                    self.UPs[n-2] = None
+                if self.Bh1 is not None:
+                    self.UPTs[n-2] = None
+            return
+        elif sweep_dir == "back" and n > 0:
+            V_updated = self.psi.Ms[n+1] 
+            if n%2 == 1:
+                if self.hs is not None:
+                    UP_updated = oe.contract("abcdef,gdef->abcg", \
+                                             self.UPs[n], \
+                                             np.conj(V_updated))
+                    self.UPs[n-1] = UP_updated 
+                if self.Bh1 is not None:
+                    UPT_updated = oe.contract("abcd,ebcd->ae", \
+                                              self.UPTs[n], \
+                                              np.conj(V_updated))  
+                    self.UPTs[n-1] = UPT_updated 
+            elif n%2 == 0:
+                if self.hs is not None:
+                    UP_updated = oe.contract("abcd,efagh,ibje,jkclm,nopqf,risn,soptk,uhmd->qrtglu", \
+                                             self.UPs[n], \
+                                             self.A2s[n//2], self.hs[n+1], np.conj(self.A2s[n//2]), \
+                                             self.A1s[n//2], self.hs[n] , np.conj(self.A1s[n//2]), \
+                                             np.conj(V_updated))
+                    self.UPs[n-1] = UP_updated 
+                if self.Bh1 is not None:
+                    UPT_updated = oe.contract("ab,cdea,fghc,igdjk,ihelm,nkmb->fjln", \
+                                              self.UPTs[n], \
+                                              self.Bh1.Ms[n+1], self.Bh1.Ms[n], \
+                                              self.A2s[n//2], np.conj(self.A2s[n//2]), \
+                                              np.conj(V_updated))
+                    self.UPTs[n-1] = UPT_updated 
+            if n <= self.N_centers-3:
+                if self.hs is not None:
+                    self.DPs[n+2] = None
+                if self.Bh1 is not None:
+                    self.DPTs[n+2] = None
+            return
+
+class VBC_B(TwoSiteSweep):
+    def __init__(self, Bs, ARs, ALs, RB, chi_max, eps=1.e-15):
+        assert Bs is not None or RB is not None
+        mps_guess = MPS.from_random_up_isometries(get_Ds(ALs, ARs), chi_max, norm=1.)
+        super().__init__(mps_guess, chi_max, eps)
+        self.Bs = Bs
+        self.ARs = ARs
+        self.ALs = ALs
+        self.RB = RB
+        if Bs is not None:
+            self.DPs = [None] * self.N_centers
+            self.UPs = [None] * self.N_centers
+        if RB is not None:
+            self.DPTs = [None] * self.N_centers
+            self.UPTs = [None] * self.N_centers
+        self.init_Env()
+
+    def get_theta_updated(self, n, theta2_guess):  
+        theta2_updated = np.zeros(shape=theta2_guess.shape, dtype=np.complex128)                    
+        if n%2 == 0:
+            if self.Bs is not None:
+                theta2_updated += oe.contract("ab,bcdefgh,defij,kc->agihjk", \
+                                              self.DPs[n], \
+                                              self.Bs[n//2], np.conj(self.ARs[n//2]), \
+                                              self.UPs[n])
+            if self.RB is not None:
+                theta2_updated += self.RB.norm * oe.contract("ab,acde,efgh,icfjk,idglm,hn->bjlkmn", \
+                                                             self.DPTs[n], \
+                                                             self.RB.Ms[n], self.RB.Ms[n+1], \
+                                                             self.ALs[n//2], np.conj(self.ARs[n//2]), \
+                                                             self.UPTs[n])
+        elif n%2 == 1:
+            if self.Bs is not None:
+                theta2_updated += oe.contract("abcd,ebfg->acdfge", \
+                                              self.DPs[n], \
+                                              self.UPs[n])
+            if self.RB is not None:
+                theta2_updated += self.RB.norm * oe.contract("abcd,aefg->dbcefg", \
+                                                             self.DPTs[n], \
+                                                             self.UPTs[n])
+        return theta2_updated
+    
+    def init_Env(self):                         
+        # Down parts for center 0
+        if self.Bs is not None: 
+            self.DPs[0] = np.ones((1, 1))
+        if self.RB is not None:
+            self.DPTs[0] = np.ones((1, 1)) 
+        # Up parts for all centers
+        if self.Bs is not None:
+            AR = self.ARs[-1][:, :, 0, :, 0] 
+            B = self.Bs[-1][:, :, :, :, 0, :, 0]  
+            self.UPs[-1] = oe.contract("abcde,cdf->baef", \
+                                       B, np.conj(AR))
+        if self.RB is not None:
+            AR = self.ARs[-1][:, :, 0, :, 0] 
+            AL = self.ALs[-1][:, :, 0, :, 0]
+            RB = self.RB.Ms[-1][:, :, :, 0] 
+            UPT = oe.contract("abc,dbe,dcf->aef", \
+                              RB, AL, np.conj(AR))  
+            self.UPTs[-1] = UPT[:, :, :, np.newaxis] 
+        for n in reversed(range(1, self.N_centers)):
+            self.update_Env(n, sweep_dir="back")
+        return
+    
+    def update_Env(self, n, sweep_dir):                                                   
+        if sweep_dir == "forth":
+            U_updated = self.Us[n] 
+            if n%2 == 0:
+                if self.Bs is not None:
+                    DP_updated = oe.contract("ab,bcdefgh,defij,agik->kchj", \
+                                             self.DPs[n], \
+                                             self.Bs[n//2], np.conj(self.ARs[n//2]), \
+                                             np.conj(U_updated))
+                    self.DPs[n+1] = DP_updated 
+                if self.RB is not None:
+                    DPT_updated = oe.contract("ab,acde,efgh,icfjk,idglm,bjln->hkmn", \
+                                              self.DPTs[n], \
+                                              self.RB.Ms[n], self.RB.Ms[n+1], \
+                                              self.ALs[n//2], np.conj(self.ARs[n//2]), \
+                                              np.conj(U_updated))
+                    self.DPTs[n+1] = DPT_updated 
+            elif n%2 == 1:
+                if self.Bs is not None:
+                    DP_updated = oe.contract("abcd,acde->eb", \
+                                             self.DPs[n], \
+                                             np.conj(U_updated))
+                    self.DPs[n+1] = DP_updated 
+                if self.RB is not None:
+                    DPT_updated = oe.contract("abcd,dbce->ae", \
+                                              self.DPTs[n], \
+                                              np.conj(U_updated))  
+                    self.DPTs[n+1] = DPT_updated 
+            if n >= 2:
+                if self.Bs is not None:
+                    self.UPs[n-2] = None
+                if self.RB is not None:
+                    self.UPTs[n-2] = None
+            return
+        elif sweep_dir == "back" and n > 0:
+            V_updated = self.psi.Ms[n+1] 
+            if n%2 == 1:
+                if self.Bs is not None:
+                    UP_updated = oe.contract("abcd,ecda->eb", \
+                                             self.UPs[n], \
+                                             np.conj(V_updated))
+                    self.UPs[n-1] = UP_updated 
+                if self.RB is not None:
+                    UPT_updated = oe.contract("abcd,ebcd->ae", \
+                                              self.UPTs[n], \
+                                              np.conj(V_updated))  
+                    self.UPTs[n-1] = UPT_updated 
+            elif n%2 == 0:
+                if self.Bs is not None:
+                    UP_updated = oe.contract("ab,cbdefgh,defij,khja->kcgi", \
+                                             self.UPs[n], \
+                                             self.Bs[n//2], np.conj(self.ARs[n//2]), \
+                                             np.conj(V_updated))
+                    self.UPs[n-1] = UP_updated 
+                if self.RB is not None:
+                    UPT_updated = oe.contract("ab,cdea,fghc,igdjk,ihelm,nkmb->fjln", \
+                                              self.UPTs[n], \
+                                              self.RB.Ms[n+1], self.RB.Ms[n], \
+                                              self.ALs[n//2], np.conj(self.ARs[n//2]), \
+                                              np.conj(V_updated))
+                    self.UPTs[n-1] = UPT_updated 
+            if n <= self.N_centers-3:
+                if self.Bs is not None:
+                    self.DPs[n+2] = None
+                if self.RB is not None:
+                    self.DPTs[n+2] = None
+            return
+
+class VBC_Bh(TwoSiteSweep):
+    def __init__(self, hs, B1s, B2s, AL1s, AL2s, AR2s, Lh, LBh, chi_max, eps=1.e-15):
+        assert B1s is not None or B2s is not None or LBh is not None
+        mps_guess = MPS.from_random_up_isometries(get_Ds(AR2s, AL2s), chi_max, norm=1.)
+        super().__init__(mps_guess, chi_max, eps)
+        self.hs = hs
+        self.B1s = B1s
+        self.B2s = B2s
+        self.AL1s = AL1s
+        self.AL2s = AL2s
+        self.AR2s = AR2s
+        self.Lh = Lh
+        self.LBh = LBh
+        if B1s is not None:
+            self.DP1s = [None] * self.N_centers
+            self.UP1s = [None] * self.N_centers 
+        if B2s is not None:
+            self.DP2s = [None] * self.N_centers
+            self.UP2s = [None] * self.N_centers 
+            if Lh is not None:
+                self.DP3s = [None] * self.N_centers
+                self.UP3s = [None] * self.N_centers            
+        if LBh is not None:
+            self.DPTs = [None] * self.N_centers
+            self.UPTs = [None] * self.N_centers
+        self.init_Env()
+
+    def get_theta_updated(self, n, theta2_guess):  
+        theta2_updated = np.zeros(shape=theta2_guess.shape, dtype=np.complex128)                    
+        if n%2 == 0:
+            if self.B1s is not None:
+                theta2_updated += oe.contract("oabcd,eafgh,bije,jcklm,ofikn->dglhmn", \
+                                              self.DP1s[n], \
+                                              self.AR2s[n//2], self.hs[n+1], np.conj(self.AL2s[n//2]), \
+                                              self.UP1s[n])
+            if self.B2s is not None:
+                theta2_updated += oe.contract("oabcd,opeafgh,bije,jcklm,pfikn->dglhmn", \
+                                              self.DP2s[n], \
+                                              self.B2s[n//2], self.hs[n+1], np.conj(self.AL2s[n//2]), \
+                                              self.UP2s[n])
+                if self.Lh is not None:
+                    theta2_updated += self.Lh.norm * oe.contract("oab,acde,efgh,opicfjk,idglm,phn->bjlkmn", \
+                                                                 self.DP3s[n], \
+                                                                 self.Lh.Ms[n], self.Lh.Ms[n+1], \
+                                                                 self.B2s[n//2], np.conj(self.AL2s[n//2]), \
+                                                                 self.UP3s[n])
+            if self.LBh is not None:
+                theta2_updated += self.LBh.norm * oe.contract("ab,acde,efgh,icfjk,idglm,hn->bjlkmn", \
+                                                              self.DPTs[n], \
+                                                              self.LBh.Ms[n], self.LBh.Ms[n+1], \
+                                                              self.AR2s[n//2], np.conj(self.AL2s[n//2]), \
+                                                              self.UPTs[n])
+        elif n%2 == 1:
+            if self.B1s is not None:
+                theta2_updated += oe.contract("jabcdef,jabcghi->fdeghi", \
+                                              self.DP1s[n], \
+                                              self.UP1s[n])
+            if self.B2s is not None:
+                theta2_updated += oe.contract("jabcdef,jabcghi->fdeghi", \
+                                              self.DP2s[n], \
+                                              self.UP2s[n])
+                if self.Lh is not None:
+                    theta2_updated += self.Lh.norm * oe.contract("habcd,haefg->dbcefg", \
+                                                                 self.DP3s[n], \
+                                                                 self.UP3s[n])
+            if self.LBh is not None:
+                theta2_updated += self.LBh.norm * oe.contract("abcd,aefg->dbcefg", \
+                                                              self.DPTs[n], \
+                                                              self.UPTs[n])
+        return theta2_updated
+    
+    def init_Env(self):                         
+        # Down parts for center 0
+        if self.B1s is not None:
+            B1 = self.B1s[0][0, :, :, 0, :, 0, :]
+            AL1 = self.AL1s[0][:, 0, :, 0, :]
+            h = self.hs[0][0, :, :, :]
+            DP = oe.contract("habc,dea,ebg->hcdg", \
+                             B1, h, np.conj(AL1))  
+            self.DP1s[0] = DP[:, :, :, :, np.newaxis]
+        if self.B2s is not None:
+            AL1 = self.AL1s[0][:, 0, :, 0, :]
+            h = self.hs[0][0, :, :, :]
+            DP = oe.contract("abc,dea,ebg->cdg", \
+                             AL1, h, np.conj(AL1))  
+            self.DP2s[0] = DP[np.newaxis, :, :, :, np.newaxis]
+            if self.Lh is not None:
+                self.DP3s[0] = np.ones((1, 1, 1)) 
+        if self.LBh is not None:
+            self.DPTs[0] = np.ones((1, 1)) 
+        # Up parts for all centers
+        if self.B1s is not None:
+            AR2 = self.AR2s[-1][:, :, 0, :, 0] 
+            AL2 = self.AL2s[-1][:, :, 0, :, 0]
+            h2 = self.hs[-1][:, 0, :, :]  
+            B1 = self.B1s[-1][:, 0, :, :, :, :, :]
+            h1 = self.hs[-2] 
+            AL1 = self.AL1s[-1]
+            UP = oe.contract("abc,dea,efg,ohijkb,ldmh,mijnf->oklncg", \
+                             AR2, h2, np.conj(AL2), \
+                             B1, h1, np.conj(AL1))
+            self.UP1s[-1] = UP[:, :, :, :, :, :, np.newaxis] 
+        if self.B2s is not None:
+            B2 = self.B2s[-1][:, 0, :, :, 0, :, 0] 
+            AL2 = self.AL2s[-1][:, :, 0, :, 0]
+            h2 = self.hs[-1][:, 0, :, :]  
+            AL1 = self.AL1s[-1]
+            h1 = self.hs[-2] 
+            UP = oe.contract("oabc,dea,efg,hijkb,ldmh,mijnf->oklncg", \
+                             B2, h2, np.conj(AL2), \
+                             AL1, h1, np.conj(AL1))
+            self.UP2s[-1] = UP[:, :, :, :, :, :, np.newaxis] 
+            if self.Lh is not None:
+                B = self.B2s[-1][:, 0, :, :, 0, :, 0] 
+                AL = self.AL2s[-1][:, :, 0, :, 0]
+                Lh = self.Lh.Ms[-1][:, :, :, 0] 
+                UP = oe.contract("abc,gdbe,dcf->gaef", \
+                                 Lh, B, np.conj(AL))  
+                self.UP3s[-1] = UP[:, :, :, :, np.newaxis]
+        if self.LBh is not None:
+            AR = self.AR2s[-1][:, :, 0, :, 0] 
+            AL = self.AL2s[-1][:, :, 0, :, 0]
+            LBh = self.LBh.Ms[-1][:, :, :, 0] 
+            UPT = oe.contract("abc,dbe,dcf->aef", \
+                              LBh, AR, np.conj(AL))  
+            self.UPTs[-1] = UPT[:, :, :, np.newaxis] 
+        for n in reversed(range(1, self.N_centers)):
+            self.update_Env(n, sweep_dir="back")
+        return
+    
+    def update_Env(self, n, sweep_dir):                                                   
+        if sweep_dir == "forth":
+            U_updated = self.Us[n] 
+            if n%2 == 0:
+                if self.B1s is not None:
+                    DP_updated = oe.contract("oabcd,eafgh,bije,jcklm,dgln->ofikhmn", \
+                                             self.DP1s[n], \
+                                             self.AR2s[n//2], self.hs[n+1], np.conj(self.AL2s[n//2]), \
+                                             np.conj(U_updated))
+                    self.DP1s[n+1] = DP_updated 
+                if self.B2s is not None:
+                    DP_updated = oe.contract("oabcd,opeafgh,bije,jcklm,dgln->pfikhmn", \
+                                             self.DP2s[n], \
+                                             self.B2s[n//2], self.hs[n+1], np.conj(self.AL2s[n//2]), \
+                                             np.conj(U_updated))
+                    self.DP2s[n+1] = DP_updated 
+                    if self.Lh is not None:
+                        DP_updated = oe.contract("oab,acde,efgh,opicfjk,idglm,bjln->phkmn", \
+                                                 self.DP3s[n], \
+                                                 self.Lh.Ms[n], self.Lh.Ms[n+1], \
+                                                 self.B2s[n//2], np.conj(self.AL2s[n//2]), \
+                                                 np.conj(U_updated))
+                        self.DP3s[n+1] = DP_updated 
+                if self.LBh is not None:
+                    DP_updated = oe.contract("ab,acde,efgh,icfjk,idglm,bjln->hkmn", \
+                                             self.DPTs[n], \
+                                             self.LBh.Ms[n], self.LBh.Ms[n+1], \
+                                             self.AR2s[n//2], np.conj(self.AL2s[n//2]), \
+                                             np.conj(U_updated))
+                    self.DPTs[n+1] = DP_updated 
+            elif n%2 == 1:
+                if self.B1s is not None:
+                    DP_updated = oe.contract("oabcdef,fdeg,ophijak,blmh,mijcn->pklng", \
+                                             self.DP1s[n], \
+                                             np.conj(U_updated), \
+                                             self.B1s[(n+1)//2], self.hs[n+1], np.conj(self.AL1s[(n+1)//2]))
+                    self.DP1s[n+1] = DP_updated 
+                if self.B2s is not None:
+                    DP_updated = oe.contract("oabcdef,fdeg,hijak,blmh,mijcn->oklng", \
+                                             self.DP2s[n], \
+                                             np.conj(U_updated), \
+                                             self.AL1s[(n+1)//2], self.hs[n+1], np.conj(self.AL1s[(n+1)//2]))
+                    self.DP2s[n+1] = DP_updated
+                    if self.Lh is not None:
+                        DP_updated = oe.contract("fabcd,dbce->fae", \
+                                                 self.DP3s[n], \
+                                                 np.conj(U_updated))  
+                        self.DP3s[n+1] = DP_updated 
+                if self.LBh is not None:
+                    DP_updated = oe.contract("abcd,dbce->ae", \
+                                             self.DPTs[n], \
+                                             np.conj(U_updated))  
+                    self.DPTs[n+1] = DP_updated 
+            if n >= 2:
+                if self.B1s is not None:
+                    self.UP1s[n-2] = None
+                if self.B2s is not None:
+                    self.UP2s[n-2] = None
+                    if self.Lh is not None:
+                        self.UP3s[n-2] = None
+                if self.LBh is not None:
+                    self.UPTs[n-2] = None
+            return
+        elif sweep_dir == "back" and n > 0:
+            V_updated = self.psi.Ms[n+1] 
+            if n%2 == 1:
+                if self.B1s is not None:
+                    UP_updated = oe.contract("habcdef,gdef->habcg", \
+                                             self.UP1s[n], \
+                                             np.conj(V_updated))
+                    self.UP1s[n-1] = UP_updated 
+                if self.B2s is not None:
+                    UP_updated = oe.contract("habcdef,gdef->habcg", \
+                                             self.UP2s[n], \
+                                             np.conj(V_updated))
+                    self.UP2s[n-1] = UP_updated 
+                    if self.Lh is not None:
+                        UP_updated = oe.contract("fabcd,ebcd->fae", \
+                                                 self.UP3s[n], \
+                                                 np.conj(V_updated))  
+                        self.UP3s[n-1] = UP_updated 
+                if self.LBh is not None:
+                    UP_updated = oe.contract("abcd,ebcd->ae", \
+                                             self.UPTs[n], \
+                                             np.conj(V_updated))  
+                    self.UPTs[n-1] = UP_updated 
+            elif n%2 == 0:
+                if self.B1s is not None:
+                    UP_updated = oe.contract("vabcd,efagh,ibje,jkclm,wvnopqf,risn,soptk,uhmd->wqrtglu", \
+                                             self.UP1s[n], \
+                                             self.AR2s[n//2], self.hs[n+1], np.conj(self.AL2s[n//2]), \
+                                             self.B1s[n//2], self.hs[n] , np.conj(self.AL1s[n//2]), \
+                                             np.conj(V_updated))
+                    self.UP1s[n-1] = UP_updated
+                if self.B2s is not None:
+                    UP_updated = oe.contract("vabcd,wvefagh,ibje,jkclm,nopqf,risn,soptk,uhmd->wqrtglu", \
+                                             self.UP2s[n], \
+                                             self.B2s[n//2], self.hs[n+1], np.conj(self.AL2s[n//2]), \
+                                             self.AL1s[n//2], self.hs[n] , np.conj(self.AL1s[n//2]), \
+                                             np.conj(V_updated))
+                    self.UP2s[n-1] = UP_updated
+                    if self.Lh is not None:
+                        UP_updated = oe.contract("oab,cdea,fghc,poigdjk,ihelm,nkmb->pfjln", \
+                                                 self.UP3s[n], \
+                                                 self.Lh.Ms[n+1], self.Lh.Ms[n], \
+                                                 self.B2s[n//2], np.conj(self.AL2s[n//2]), \
+                                                 np.conj(V_updated))
+                        self.UP3s[n-1] = UP_updated
+                if self.LBh is not None:
+                    UP_updated = oe.contract("ab,cdea,fghc,igdjk,ihelm,nkmb->fjln", \
+                                              self.UPTs[n], \
+                                              self.LBh.Ms[n+1], self.LBh.Ms[n], \
+                                              self.AR2s[n//2], np.conj(self.AL2s[n//2]), \
+                                              np.conj(V_updated))
+                    self.UPTs[n-1] = UP_updated 
+            if n <= self.N_centers-3:
+                if self.B1s is not None:
+                    self.DP1s[n+2] = None
+                if self.B2s is not None:
+                    self.DP2s[n+2] = None
+                    if self.Lh is not None:
+                        self.DP3s[n+2] = None
+                if self.LBh is not None:
+                    self.DPTs[n+2] = None
+            return
+
+
+class VBC_BB(TwoSiteSweep):
+    def __init__(self, Bs, As, BB, BBB, chi_max, eps=1.e-15):
+        assert Bs is not None or BBB is not None
+        mps_guess = MPS.from_random_up_isometries(get_Ds(As, As), chi_max, norm=1.)
+        super().__init__(mps_guess, chi_max, eps)
+        self.Bs = Bs
+        self.As = As
+        self.BB = BB
+        self.BBB = BBB
+        if Bs is not None:
+            self.DP1s = [None] * self.N_centers
+            self.UP1s = [None] * self.N_centers
+            if BB is not None:
+                self.DP2s = [None] * self.N_centers
+                self.UP2s = [None] * self.N_centers
+                BBdagger = BB.copy()
+                BBdagger.Ms = [np.transpose(np.conj(M), (0, 2, 1, 3)) for M in BBdagger.Ms]
+                self.BBdagger = BBdagger
+                self.DP3s = [None] * self.N_centers
+                self.UP3s = [None] * self.N_centers
+        if BBB is not None:
+            self.DPTs = [None] * self.N_centers
+            self.UPTs = [None] * self.N_centers
+        self.init_Env()
+
+    def get_theta_updated(self, n, theta2_guess):  
+        theta2_updated = np.zeros(shape=theta2_guess.shape, dtype=np.complex128)                    
+        if n%2 == 0:
+            if self.Bs is not None:
+                theta2_updated += oe.contract("abl,bcdefgh,lmdefij,kcm->agihjk", \
+                                              self.DP1s[n], \
+                                              self.Bs[n//2], np.conj(self.Bs[n//2]), \
+                                              self.UP1s[n])
+                if self.BB is not None:
+                    theta2_updated += self.BB.norm * oe.contract("oab,acde,efgh,opicfjk,idglm,phn->bjlkmn", \
+                                                                 self.DP2s[n], \
+                                                                 self.BB.Ms[n], self.BB.Ms[n+1], \
+                                                                 self.Bs[n//2], np.conj(self.As[n//2]), \
+                                                                 self.UP2s[n])
+                    theta2_updated += self.BBdagger.norm * oe.contract("oab,acde,efgh,icfjk,opidglm,phn->bjlkmn", \
+                                                                      self.DP3s[n], \
+                                                                      self.BBdagger.Ms[n], self.BBdagger.Ms[n+1], \
+                                                                      self.As[n//2], np.conj(self.Bs[n//2]), \
+                                                                      self.UP3s[n])
+            if self.BBB is not None:
+                theta2_updated += self.BBB.norm * oe.contract("ab,acde,efgh,icfjk,idglm,hn->bjlkmn", \
+                                                              self.DPTs[n], \
+                                                              self.BBB.Ms[n], self.BBB.Ms[n+1], \
+                                                              self.As[n//2], np.conj(self.As[n//2]), \
+                                                              self.UPTs[n])
+        elif n%2 == 1:
+            if self.Bs is not None:
+                theta2_updated += oe.contract("abhcd,ebhfg->acdfge", \
+                                              self.DP1s[n], \
+                                              self.UP1s[n])
+                if self.BB is not None:
+                    theta2_updated += self.BB.norm * oe.contract("habcd,haefg->dbcefg", \
+                                                                 self.DP2s[n], \
+                                                                 self.UP2s[n])
+                    theta2_updated += self.BBdagger.norm * oe.contract("habcd,haefg->dbcefg", \
+                                                                       self.DP3s[n], \
+                                                                       self.UP3s[n])
+            if self.BBB is not None:
+                theta2_updated += self.BBB.norm * oe.contract("abcd,aefg->dbcefg", \
+                                                              self.DPTs[n], \
+                                                              self.UPTs[n])
+        return theta2_updated
+    
+    def init_Env(self):                         
+        # Down parts for center 0
+        if self.Bs is not None: 
+            self.DP1s[0] = np.ones((1, 1, 1))
+            if self.BB is not None:
+                self.DP2s[0] = np.ones((1, 1, 1)) 
+                self.DP3s[0] = np.ones((1, 1, 1))
+        if self.BBB is not None:
+            self.DPTs[0] = np.ones((1, 1)) 
+        # Up parts for all centers
+        if self.Bs is not None:
+            B = self.Bs[-1][:, 0, :, :, 0, :, 0]  
+            UP = oe.contract("abcd,ebcf->aedf", \
+                             B, np.conj(B))
+            UP = UP[np.newaxis, :, :, :, :]
+            self.UP1s[-1] = UP
+            if self.BB is not None:
+                B = self.Bs[-1][:, 0, :, :, 0, :, 0] 
+                A = self.As[-1][:, :, 0, :, 0]
+                BB = self.BB.Ms[-1][:, :, :, 0] 
+                UP = oe.contract("abc,gdbe,dcf->gaef", \
+                                 BB, B, np.conj(A))  
+                self.UP2s[-1] = UP[:, :, :, :, np.newaxis]
+                BBdagger = self.BBdagger.Ms[-1][:, :, :, 0] 
+                UP = oe.contract("abc,dbe,gdcf->gaef", \
+                                 BBdagger, A, np.conj(B))  
+                self.UP3s[-1] = UP[:, :, :, :, np.newaxis]
+        if self.BBB is not None:
+            A = self.As[-1][:, :, 0, :, 0] 
+            BBB = self.BBB.Ms[-1][:, :, :, 0] 
+            UP = oe.contract("abc,dbe,dcf->aef", \
+                             BBB, A, np.conj(A))  
+            self.UPTs[-1] = UP[:, :, :, np.newaxis] 
+        for n in reversed(range(1, self.N_centers)):
+            self.update_Env(n, sweep_dir="back")
+        return
+    
+    def update_Env(self, n, sweep_dir):                                                   
+        if sweep_dir == "forth":
+            U_updated = self.Us[n] 
+            if n%2 == 0:
+                if self.Bs is not None:
+                    DP_updated = oe.contract("abl,bcdefgh,lmdefij,agik->kcmhj", \
+                                             self.DP1s[n], \
+                                             self.Bs[n//2], np.conj(self.Bs[n//2]), \
+                                             np.conj(U_updated))
+                    self.DP1s[n+1] = DP_updated 
+                    if self.BB is not None:
+                        DP_updated = oe.contract("oab,acde,efgh,opicfjk,idglm,bjln->phkmn", \
+                                                 self.DP2s[n], \
+                                                 self.BB.Ms[n], self.BB.Ms[n+1], \
+                                                 self.Bs[n//2], np.conj(self.As[n//2]), \
+                                                 np.conj(U_updated))
+                        self.DP2s[n+1] = DP_updated 
+                        DP_updated = oe.contract("oab,acde,efgh,icfjk,opidglm,bjln->phkmn", \
+                                                 self.DP3s[n], \
+                                                 self.BBdagger.Ms[n], self.BBdagger.Ms[n+1], \
+                                                 self.As[n//2], np.conj(self.Bs[n//2]), \
+                                                 np.conj(U_updated))
+                        self.DP3s[n+1] = DP_updated 
+                if self.BBB is not None:
+                    DP_updated = oe.contract("ab,acde,efgh,icfjk,idglm,bjln->hkmn", \
+                                             self.DPTs[n], \
+                                             self.BBB.Ms[n], self.BBB.Ms[n+1], \
+                                             self.As[n//2], np.conj(self.As[n//2]), \
+                                             np.conj(U_updated))
+                    self.DPTs[n+1] = DP_updated 
+            elif n%2 == 1:
+                if self.Bs is not None:
+                    DP_updated = oe.contract("abfcd,acde->ebf", \
+                                             self.DP1s[n], \
+                                             np.conj(U_updated))
+                    self.DP1s[n+1] = DP_updated 
+                    if self.BB is not None:
+                        DP_updated = oe.contract("fabcd,dbce->fae", \
+                                                 self.DP2s[n], \
+                                                 np.conj(U_updated))  
+                        self.DP2s[n+1] = DP_updated 
+                        DP_updated = oe.contract("fabcd,dbce->fae", \
+                                                 self.DP3s[n], \
+                                                 np.conj(U_updated))  
+                        self.DP3s[n+1] = DP_updated 
+                if self.BBB is not None:
+                    DP_updated = oe.contract("abcd,dbce->ae", \
+                                             self.DPTs[n], \
+                                             np.conj(U_updated))  
+                    self.DPTs[n+1] = DP_updated 
+            if n >= 2:
+                if self.Bs is not None:
+                    self.UP1s[n-2] = None
+                    if self.BB is not None:
+                        self.UP2s[n-2] = None
+                        self.UP3s[n-2] = None
+                if self.BBB is not None:
+                    self.UPTs[n-2] = None
+            return
+        elif sweep_dir == "back" and n > 0:
+            V_updated = self.psi.Ms[n+1] 
+            if n%2 == 1:
+                if self.Bs is not None:
+                    UP_updated = oe.contract("abfcd,ecda->ebf", \
+                                             self.UP1s[n], \
+                                             np.conj(V_updated))
+                    self.UP1s[n-1] = UP_updated 
+                    if self.BB is not None:
+                        UP_updated = oe.contract("fabcd,ebcd->fae", \
+                                                 self.UP2s[n], \
+                                                 np.conj(V_updated))  
+                        self.UP2s[n-1] = UP_updated 
+                        UP_updated = oe.contract("fabcd,ebcd->fae", \
+                                                 self.UP3s[n], \
+                                                 np.conj(V_updated))  
+                        self.UP3s[n-1] = UP_updated 
+                if self.BBB is not None:
+                    UP_updated = oe.contract("abcd,ebcd->ae", \
+                                             self.UPTs[n], \
+                                             np.conj(V_updated))  
+                    self.UPTs[n-1] = UP_updated 
+            elif n%2 == 0:
+                if self.Bs is not None:
+                    UP_updated = oe.contract("abl,cbdefgh,mldefij,khja->kcmgi", \
+                                             self.UP1s[n], \
+                                             self.Bs[n//2], np.conj(self.Bs[n//2]), \
+                                             np.conj(V_updated))
+                    self.UP1s[n-1] = UP_updated 
+                    if self.BB is not None:
+                        UP_updated = oe.contract("oab,cdea,fghc,poigdjk,ihelm,nkmb->pfjln", \
+                                                 self.UP2s[n], \
+                                                 self.BB.Ms[n+1], self.BB.Ms[n], \
+                                                 self.Bs[n//2], np.conj(self.As[n//2]), \
+                                                 np.conj(V_updated))
+                        self.UP2s[n-1] = UP_updated
+                        UP_updated = oe.contract("oab,cdea,fghc,igdjk,poihelm,nkmb->pfjln", \
+                                                 self.UP3s[n], \
+                                                 self.BBdagger.Ms[n+1], self.BBdagger.Ms[n], \
+                                                 self.As[n//2], np.conj(self.Bs[n//2]), \
+                                                 np.conj(V_updated))
+                        self.UP3s[n-1] = UP_updated
+                if self.BBB is not None:
+                    UP_updated = oe.contract("ab,cdea,fghc,igdjk,ihelm,nkmb->fjln", \
+                                              self.UPTs[n], \
+                                              self.BBB.Ms[n+1], self.BBB.Ms[n], \
+                                              self.As[n//2], np.conj(self.As[n//2]), \
+                                              np.conj(V_updated))
+                    self.UPTs[n-1] = UP_updated 
+            if n <= self.N_centers-3:
+                if self.Bs is not None:
+                    self.DP1s[n+2] = None
+                    if self.BB is not None:
+                        self.DP2s[n+2] = None
+                        self.DP3s[n+2] = None
+                if self.BBB is not None:
+                    self.DPTs[n+2] = None
+            return
+
+
+def Bs_from_spin_flip(g, k, ALs, CCs, CDs, direction="x"):
+    # lattice parameters
+    Nx = len(ALs)
+    Lx = Nx // 2
+    Ly = len(ALs[0])
+    lattice = DiagonalSquareLattice(Lx, Ly)
+    # compute coefficients
+    """
+    if 2*Lx*Ly <= 20:
+        H = TFIModelDiagonalSquare(Lx, Ly, g).get_H()
+        Es, psis = eigsh(H, k=k+1, which="SA")
+        es = Es[1:] - Es[0]
+        psis = psis[1:]
+        print(f"es_exact = {np.array(es)}.")
+    else:
+        H = TFIModelDiagonalSquare(Lx, Ly, g).get_H_single_particle()
+        es, psis = eigsh(H, k=k, which="SA")
+        print(f"es_pert = {np.array(es)}.")
+    """
+    H = TFIModelDiagonalSquare(Lx, Ly, g).get_H_single_particle()
+    print("hamiltonian done.")
+    es, psis = eigsh(H, k=k, which="SA")
+    psi = psis[:, -1]
+    cs = [[None] * Ly for _ in range(Nx)]
+    for nx in range(Nx):
+        for y in range(Ly):
+            x, p = nx//2, nx%2
+            site_scalar = lattice.get_site_scalar((x, y, p))
+            cs[nx][y] = psi[site_scalar]
+    # choose operator
+    if direction == "x":
+        op = np.array([[0., 1.], [1., 0.]])
+    elif direction == "y":
+        op = np.array([[0., -1.j], [1.j, 0.]])
+    elif direction == "z":
+        op = np.array([[1., 0.], [0., -1.]])
+    # compute Bs
+    Bs = [[None] * Ly for _ in range(Nx)]
+    for nx in range(Nx):
+        for y in range(Ly):
+            AL = ALs[nx][y].copy()
+            if nx%2 == 0:
+                if y == 0:
+                    CD = np.ones((1, 1, 1, 1))
+                elif y > 0:
+                    CD = CDs[nx][2*y-1].copy()
+                CC = CCs[nx][2*y].copy()
+            elif nx%2 == 1:
+                CD = CDs[nx][2*y].copy()
+                if y < Ly-1:
+                    CC = CCs[nx][2*y+1].copy()
+                elif y == Ly-1:
+                    CC = np.ones((1, 1, 1, 1))
+            AC = oe.contract("abcde,fdgh,heij->fjabcgi", \
+                             AL, CD, CC)
+            B = cs[nx][y] * oe.contract("abcdefg,hc->abhdefg", \
+                                        AC, op)
+            Bs[nx][y] = B
+    return Bs
+
+
+def vecX_from_non_orthogonal_Bs(ALs, ARs, CDs, CCs, CUs, Bs, chi_max_b, eps=1.e-15):
+    # lattice parameters
+    Nx = len(ALs)
+    Lx = Nx // 2
+    Ly = len(ALs[0])
+    lattice = DiagonalSquareLattice(Lx, Ly)
+    # excitation dimensions
+    ADs, AUs = get_ADs_AUs(ALs, CDs, CUs)
+    VLs = get_VLs(ALs)
+    VDs = get_VDs(CDs[-1])
+    shape_Xs, shape_vecX = get_shape_Xs_vecX(ALs, CDs, CCs, CUs)
+    shape_Xs_column, shape_vecX_column = get_shape_Xs_vecX_column(CDs[-1])
+    # orthogonal random Bs
+    vecX_random = np.random.randn(shape_vecX + shape_vecX_column) \
+                  + 1.j * np.random.randn(shape_vecX + shape_vecX_column)
+    vecX_random /= np.linalg.norm(vecX_random)
+    Xs_random = vec_to_tensors(vecX_random[:shape_vecX], shape_Xs)
+    Bs_random = Xs_to_Bs(Xs_random, VLs)
+    Xs_random_column = vec_to_tensors_column(vecX_random[shape_vecX:], shape_Xs_column)
+    Bs_random_column = Xs_column_to_Bs_column(Xs_random_column, VDs)
+    Bs_random_double = Bs_column_to_Bs(Bs_random_column, ALs[-1], CDs[-1], CUs[-1])
+    for y in range(Ly):
+        if Bs_random_double[y] is not None:
+            if Bs_random[-1][y] is not None:
+                Bs_random[-1][y] += Bs_random_double[y]
+            else:
+                Bs_random[-1][y] = Bs_random_double[y]
+    # non-orthogonal Bs
+    Bs_sum = Bs_to_Bs_sum(Bs, ADs, AUs)
+    # compute LBs 
+    LBs = [None] * Nx
+    for nx in range(Nx-1):
+        if Bs_sum[nx] is not None:
+            # extract all needed tensors
+            Bs_ket = deepcopy(Bs_sum[nx])
+            LB = LBs[nx-1].copy() if nx > 0 and LBs[nx-1] is not None else None
+            As_ket = [np.transpose(AR, (0, 3, 4, 1, 2)) for AR in deepcopy(ARs[nx])]
+            As_bra = deepcopy(ALs[nx])
+            # flip tensors for even nx
+            if nx%2 == 0:
+                Bs_ket = get_flipped_Bs_sum(Bs_ket)
+                LB = get_flipped_mps(LB)
+                As_ket, As_bra = get_flipped_As(As_ket), get_flipped_As(As_bra)
+            # perform boundary compression
+            if Bs_ket is None and LB is None:
+                LB = None
+            else:
+                try:
+                    vbc = VBC_B(Bs_ket, As_bra, As_ket, LB, chi_max_b)
+                    vbc.run(N_sweeps=3)
+                    LB = vbc.psi
+                except AssertionError:
+                    LB = None
+            # flip boundary mps back for even nx
+            if nx%2 == 0:
+                LB = get_flipped_mps(LB)
+            # save boundary mps
+            LBs[nx] = LB
+    # compute Bs_new_L
+    Bs_new_L = [[None] * Ly for _ in range(Nx)]
+    for nx in range(1, Nx):
+        if np.any([B is not None for B in Bs_random[nx]]) and LBs[nx-1] is not None:
+            # extract all needed tensors
+            LB = mps_to_tensors(LBs[nx-1])
+            As_ket = [np.transpose(AR, (0, 3, 4, 1, 2)) for AR in deepcopy(ARs[nx])]
+            ADs_bra, AUs_bra = deepcopy(ADs[nx]), deepcopy(AUs[nx])
+            # flip tensors for odd nx
+            if nx%2 == 1:
+                LB = get_flipped_Cs(LB)
+                As_ket, ADs_bra, AUs_bra = get_flipped_As(As_ket), get_flipped_Bs(AUs_bra), get_flipped_Bs(ADs_bra)
+            # compute up and down environments
+            LB = [np.ones((1, 1, 1, 1))] + LB
+            DPs = [None] * Ly
+            DPs[0] = np.ones((1, 1))
+            for y in range(Ly-1):
+                DPs[y+1] = oe.contract("ab,acde,efgh,icfjk,blidgjk->hl", \
+                                        DPs[y], LB[2*y], LB[2*y+1], As_ket[y], np.conj(ADs_bra[y]))
+            UPs = [None] * Ly
+            UPs[-1] = np.ones((1, 1))
+            for y in range(Ly-1, 0, -1):
+                UPs[y-1] = oe.contract("ab,cdef,fgha,idgjk,lbiehjk->cl", \
+                                        UPs[y], LB[2*y], LB[2*y+1], As_ket[y], np.conj(AUs_bra[y]))
+            # compute new B tensors
+            for y in range(Ly):
+                if nx%2 == 0:
+                    Y = y
+                elif nx%2 == 1:
+                    Y = Ly - 1 - y
+                if Bs_random[nx][Y] is not None:
+                    Bs_new_L[nx][y] = oe.contract("ab,acde,efgh,icfjk,hl->blidgjk", \
+                                                  DPs[y], LB[2*y], LB[2*y+1], As_ket[y], UPs[y])
+            if nx%2 == 1:
+                Bs_new_L[nx] = get_flipped_Bs(Bs_new_L[nx])  
+    # compute Bs_new_C
+    Bs_new_C = [[None] * Ly for _ in range(Nx)]
+    for nx in range(Nx): 
+        if np.any([B is not None for B in Bs_random[nx]]):
+            # extract all needed tensors
+            Bs_ket = deepcopy(Bs_sum[nx])
+            ADs_bra, AUs_bra = deepcopy(ADs[nx]), deepcopy(AUs[nx])
+            # flip tensors for odd nx
+            if nx%2 == 1:
+                Bs_ket = get_flipped_Bs_sum(Bs_ket)
+                ADs_bra, AUs_bra = get_flipped_Bs(AUs_bra), get_flipped_Bs(ADs_bra)
+            # compute up and down environments
+            DPs = [None] * Ly
+            DPs[0] = np.ones((1, 1))
+            for y in range(Ly-1):
+                DPs[y+1] = oe.contract("ab,acdefgh,bidefgh->ci", \
+                                       DPs[y], Bs_ket[y], np.conj(ADs_bra[y]))
+            UPs = [None] * Ly
+            UPs[-1] = np.ones((1, 1))
+            for y in range(Ly-1, 0, -1):
+                UPs[y-1] = oe.contract("ab,cadefgh,ibdefgh->ci", \
+                                       UPs[y], Bs_ket[y], np.conj(AUs_bra[y]))
+            # compute new B tensors
+            for y in range(Ly):
+                if nx%2 == 0:
+                    Y = y
+                elif nx%2 == 1:
+                    Y = Ly - 1 - y
+                if Bs_random[nx][Y] is not None:
+                    Bs_new_C[nx][y] = oe.contract("ab,acdefgh,ci->bidefgh", \
+                                                  DPs[y], Bs_ket[y], UPs[y])
+            if nx%2 == 1:
+                Bs_new_C[nx] = get_flipped_Bs(Bs_new_C[nx]) 
+    # compute Bs_new
+    Bs_new = [[None] * Ly for _ in range(Nx)]
+    for nx in range(Nx):
+        for y in range(Ly):
+            B_new_list = [Bs_new_L[nx][y], Bs_new_C[nx][y]]
+            B_new_list = [B for B in B_new_list if B is not None]
+            if B_new_list:
+                Bs_new[nx][y] = sum(B_new_list)
+    # Bs_new -> vecX_new
+    Xs_new = Bs_to_Xs(Bs_new, VLs)
+    vecX_new = tensors_to_vec(Xs_new, shape_vecX)
+    Xs_column_new = Bs_to_Xs_column(Bs_new[-1], ALs[-1], CDs[-1], CUs[-1], VDs)
+    vecX_column_new = tensors_to_vec_column(Xs_column_new, shape_vecX_column)
+    vecX = np.hstack([vecX_new, vecX_column_new])
+    vecX /= np.linalg.norm(vecX)
+    return vecX 
+
+
+def lanczos(phi0, H, N=200, stabilize=True):
+    if phi0 is None:
+        phi0 = np.random.randn(H.shape[0]) + 1.j * np.random.randn(H.shape[0])
+        phi0 /= np.linalg.norm(phi0)
+    if phi0.ndim != 1:
+        raise ValueError("phi0 should be a vector")
+    if H.shape[1] != phi0.shape[0]:
+        raise ValueError("shape of H does not match length of phi0")
+    
+    phis = []
+    T = np.zeros((N, N))
+    
+    matvec_counter = 0
+    phi0 = phi0 / np.linalg.norm(phi0)
+    phis.append(phi0)
+    phi = H._matvec(phi0)   #@ gives matrix product for both dense and sparse
+    matvec_counter += 1
+    print(f"{matvec_counter} matvecs done.")
+    alpha = np.inner(phi0.conj(),phi).real
+    T[0,0] = alpha
+    
+    phi = phi-alpha*phis[-1]
+    
+    for n in range(1,N):
+        beta = np.linalg.norm(phi)
+        if beta<1.e-13:
+            print("lanczos terminated early after n={n:d} steps".format(n=n))
+            T = T[:n,:n]
+            break
+        phi /= beta
+        if stabilize:
+            for vec in phis:
+                phi -= vec*np.inner(vec.conj(),phi)
+            phi /= np.linalg.norm(phi)
+        phis.append(phi)
+        phi = H._matvec(phi)-beta*phis[-2]
+        matvec_counter += 1
+        print(f"{matvec_counter} matvecs done.")
+        alpha = np.inner(phis[-1].conj(),phi).real
+        T[n,n] = alpha
+        T[n-1,n] = T[n,n-1] = beta
+        
+        phi = phi-alpha*phis[-1]
+    
+    return T,phis   #phis has krylov basis states as rows

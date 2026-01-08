@@ -268,7 +268,7 @@ def plot_uexcitations_dispersion(D):
     png_path = script_path.parent / "data" / "mps_ground_states_excitations" / f"uexcitations_dispersion.png"
     ax.set_xlabel(r"momentum $p$")
     ax.set_xticks(np.arange(-np.pi, 3*np.pi/2, np.pi/2), [r"$-\pi$",r"$-\pi /2$", r"$0$", r"$\pi /2$",r"$\pi$"])
-    ax.set_ylabel(r"$\epsilon_p$")
+    ax.set_ylabel(r"excitation energy $\epsilon_p$")
     ax.grid(True, which='both', linestyle='-', linewidth=0.5, alpha=0.7)
     # load dispersion data
     pkl_path_05 = script_path.parent / "data" / "mps_ground_states_excitations" / f"uexcitations_dispersion_0.5_{D}.pkl"
@@ -763,9 +763,9 @@ def plot_excitations(N, D_max):
     script_path = Path(__file__).resolve().parent
     # figure 
     fig, ax = plt.subplots(3, 2, figsize=(10, 9))
-    png_path = script_path.parent / "data" / "mps_ground_states_excitations" / f"excitations.png"
+    png_path = script_path.parent / "data" / "mps_ground_states_excitations" / f"excitations_presentation.png"
     # left column
-    ax[0, 0].set_title("(a)")
+    #ax[0, 0].set_title("(a)")
     ax[1, 0].set_ylabel(r"excitation energy")
     ax[2, 0].set_xlabel(r"momentum $k$")
     for i in range(3):
@@ -832,7 +832,7 @@ def plot_excitations(N, D_max):
         ax[2, 0].plot(ps_15_ed[:-4], es_15_ed[:-4], "x", color="purple", label="Exact diagonalization")
         plot_15, = ax[2, 0].plot(ps_15[:-4], es_15[:-4], ".", color="blue", label=r"DMRG + VQPE ($D_{\text{max}} = 64$)")
     # right colomn
-    ax[0, 1].set_title("(b)")
+    #ax[0, 1].set_title("(b)")
     ax[1, 1].set_ylabel(r"$\epsilon_k$")
     ax[2, 1].set_xlabel(r"momentum $k$")
     for i in range(3):
@@ -885,6 +885,7 @@ def plot_excitations(N, D_max):
         plot_con_15, = ax[2, 1].plot(ps_con_15, es_con_15, "-", color="lightskyblue", label=r"$\epsilon_k = 2 \sqrt{g^2 - 2g\cos \left( \frac{2\pi}{N}k \right) + 1}$")
         plot_t_15, = ax[2, 1].plot(ps_15, es_15, ".", color="blue", label=r"$\left[H_{\text{eff}} - \alpha \left( e^{-i\frac{2\pi}{N}k}T_{\text{eff}} + e^{i\frac{2\pi}{N}k}T_{\text{eff}}^{\dagger} \right) \right] \vert X ) = \epsilon_k \vert X )$")
     # legend
+    """
     fig.legend(handles=[plot_05, plot_10, plot_15], \
                labels=[r"$g = 0.5$", r"$g = 1.0$", r"$g = 1.5$"], \
                loc="center left", \
@@ -904,6 +905,7 @@ def plot_excitations(N, D_max):
                loc="center left", \
                bbox_to_anchor=(0.6, -0.01), \
                title=r"(b) $\left[H_{\text{eff}} - \alpha \left( e^{-i\frac{2\pi}{N}k}T_{\text{eff}} + e^{i\frac{2\pi}{N}k}T_{\text{eff}}^{\dagger} \right) \right] \vert X ) = \epsilon_k \vert X )$")
+    """
     # save
     fig.savefig(png_path, dpi=300, bbox_inches="tight")
     return
@@ -1045,5 +1047,109 @@ def plot_excitations_local_energies(N, g, D_max):
     handles2, labels2 = ax[1, 0].get_legend_handles_labels()
     ax[1, 1].legend(handles0 + handles1 + handles2, labels0 + labels1 + labels2, loc='lower left', bbox_to_anchor=(0, -0.15))
     ax[1, 1].axis('off')
+    fig.savefig(png_path, dpi=300, bbox_inches="tight")
+    return
+
+
+def plot_excitations_local_energies_presentation(N, g, D_max):
+    """Both for PBC and OBC, plot the local energies of the four lowest lying excitations. Also show
+    that the total energies lie on the dispersion curve, for respective momenta (PBC) and wave 
+    number (OBC)."""
+    script_path = Path(__file__).resolve().parent
+    # figure 
+    png_path = script_path.parent / "data" / "mps_ground_states_excitations" / f"excitations_local_energies_presentation.png"
+    fig, ax = plt.subplots(2, 1, figsize=(10, 10))
+    plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.1, wspace=0.15, hspace=0.15)
+    #ax[0].set_title("Bond energies")
+    ax[0].set_xlabel(r"bond $n$")
+    ax[0].set_ylabel(r"bond energy $\langle h_{n, n+1} \rangle$")
+    ax[0].set_yticks([0, 0.005, 0.01, 0.015, 0.02])
+    #ax[1].set_title("Total energies")
+    ax[1].set_xlabel(r"wave number $p$")
+    ax[1].set_xticks(np.arange(-np.pi, 3*np.pi/2, np.pi/2), [r"$-\pi$",r"$-\pi /2$", r"$0$", r"$\pi /2$",r"$\pi$"])
+    ax[1].set_ylabel(r"total energy $\epsilon_p$")
+    ax[1].grid(True, which='both', linestyle='-', linewidth=0.5, alpha=0.7)
+    # model and local Hamiltonians
+    tfi_model_finite = TFIModelFinite(N, g)
+    h_bonds = tfi_model_finite.get_h_bonds()
+    # PBC
+    pkl_path_pbc = script_path.parent / "data" / "mps_ground_states_excitations" / f"excitations_pbc_{N}_{g}_{D_max}.pkl"
+    es_pbc = None
+    try:
+        with open(pkl_path_pbc, "rb") as pkl_file_pbc:
+            empss_sup_p, _, es_pbc, empss = pickle.load(pkl_file_pbc)
+    except FileNotFoundError:
+        print(f"No data available for PBC")
+    # OBC
+    pkl_path_obc = script_path.parent / "data" / "mps_ground_states_excitations" / f"excitations_obc_{N}_{g}_{D_max}.pkl"
+    es_obc = None
+    try:
+        with open(pkl_path_obc, "rb") as pkl_file_obc:
+            es_obc, empss = pickle.load(pkl_file_obc)
+    except FileNotFoundError:
+        print(f"No data available for OBC")
+    # local energies
+    _, mps0, _= run_dmrg(N, "open", g, D_max, guess_mps0="product")
+    E_bonds_gs = mps0.get_bond_expectation_values(h_bonds)
+    E_bonds_1 = empss[0].get_bond_expectation_values(h_bonds)
+    e_bonds_1 = [E_bonds_1[n] - E_bonds_gs[n] for n in range(1, N-2)]
+    E_bonds_2 = empss[1].get_bond_expectation_values(h_bonds)
+    e_bonds_2 = [E_bonds_2[n] - E_bonds_gs[n] for n in range(1, N-2)]
+    E_bonds_3 = empss[2].get_bond_expectation_values(h_bonds)
+    e_bonds_3 = [E_bonds_3[n] - E_bonds_gs[n] for n in range(1, N-2)]
+    E_bonds_4 = empss[3].get_bond_expectation_values(h_bonds)
+    e_bonds_4 = [E_bonds_4[n] - E_bonds_gs[n] for n in range(1, N-2)]
+    colors_obc = ["gold", "olivedrab", "green", "darkslategray"]
+    ax[0].plot(range(2, N-1), e_bonds_1, "-", color=colors_obc[0], label=rf"$\vert k^{{\prime}} = 1 \rangle$")
+    ax[0].plot(range(2, N-1), e_bonds_2, "-", color=colors_obc[1], label=rf"$\vert k^{{\prime}} = 2 \rangle$")
+    ax[0].plot(range(2, N-1), e_bonds_3, "-", color=colors_obc[2], label=rf"$\vert k^{{\prime}} = 3 \rangle$")
+    ax[0].plot(range(2, N-1), e_bonds_4, "-", color=colors_obc[3], label=rf"$\vert k^{{\prime}} =4 \rangle$")
+    # (quasi) dispersion relation
+    ps_pbc, es_pbc_exact, ps_con, es_con = tfi_model_finite.get_exact_excitation_dispersion()
+    ps_pbc = [2* np.pi * p / N for p in ps_pbc]
+    ps_con = [2* np.pi * p / N for p in ps_con]
+    ps_obc = [np.pi * p / (N+1) for p in range(1, N+1)]
+    es_obc_exact = 2 * np.sqrt(g**2 - 2 * g * np.cos(ps_obc) + 1)
+    ax[1].set_yticks([1, 2, 3, 4, 5])
+    ax[1].plot(ps_con, es_con, "-", color="lightgray", zorder=1)
+    #ax[1].plot(ps_pbc, es_pbc_exact, "x", color="lightgray", markersize=3, zorder=2)
+    #ax[1].plot(ps_obc, es_obc_exact, ".", color="lightgray", markersize=3, zorder=3)
+    ax[1].scatter(ps_obc[:4], es_obc[:4], c=colors_obc, s=10, zorder=5)
+    from mpl_toolkits.axes_grid1.inset_locator import inset_axes, mark_inset
+    axins = inset_axes(ax[1], width="60%", height="60%", loc="upper center")
+    axins.plot(ps_con, es_con, "-", color="lightgray", zorder=1, label=r"$\epsilon_p = 2 \sqrt{g^2 - 2g\cos(p) + 1}$")
+    axins.scatter(
+        ps_pbc, es_pbc_exact,
+        marker="s",
+        facecolors="none",          # empty
+        edgecolors="lightgray",     # outline color
+        s=40,                       # size (roughly markersize^2)
+        zorder=2,
+        label=r"PBC momenta $p = \frac{2\pi}{N}k$"
+    )
+    #axins.scatter(ps_pbc, es_pbc_exact, marker="s", markerfacecolor="none", color="lightgray", markersize=6, zorder=2, label=r"PBC momenta $p = \frac{2\pi}{N}k$")
+    axins.plot(ps_obc, es_obc_exact, ".", color="lightgray", markersize=7, zorder=3, label=r"OBC wave numbers $p = \frac{\pi}{N+1}k^{\prime}$")
+    #axins.scatter([2*np.pi/N, -2*np.pi/N, 4*np.pi/N, -4*np.pi/N], es_pbc[1:5], c=["royalblue"]*4, marker="x", s=70, zorder=4)
+    axins.scatter(ps_obc[:4], es_obc[:4], c=colors_obc, s=35, zorder=5)
+    axins.set_xlim(-5*np.pi/N, 5*np.pi/N)
+    axins.set_ylim(0.98, 1.05)
+    #axins.set_xticks([])
+    axins.set_xticks([-4*np.pi/N, -2*np.pi/N, 0, 2*np.pi/N, 4*np.pi/N])
+    axins.set_xticklabels(
+        [r"$-\frac{4\pi}{N}$", r"$-\frac{2\pi}{N}$", r"0",
+        r"$\frac{2\pi}{N}$", r"$\frac{4\pi}{N}$"],
+        fontsize=12)
+    axins.tick_params(axis="x", direction="in", pad=-25)
+    axins.set_yticks([])
+    axins.xaxis.grid(True, linestyle="--", alpha=0.5)  
+    #axins.xaxis.grid(False)
+    mark_inset(ax[1], axins, loc1=3, loc2=4, fc="none", ec="0.5")
+    # legends and save
+    handles0, labels0 = axins.get_legend_handles_labels()
+    handles1, labels1 = ax[0].get_legend_handles_labels()
+    handles2, labels2 = ax[1].get_legend_handles_labels()
+    ax[0].legend(handles1, labels1, loc='lower left', bbox_to_anchor=(0, -1.6))
+    ax[1].legend(handles0 + handles2, labels0 + labels2, loc='lower left', bbox_to_anchor=(0.15, -0.45))
+    #ax[1].axis('off')
     fig.savefig(png_path, dpi=300, bbox_inches="tight")
     return

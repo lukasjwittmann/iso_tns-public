@@ -2,7 +2,8 @@
 
 import numpy as np
 
-from ..matrix_decompositions import lq_positive, svd_safe
+from ..matrix_decompositions import svd_safe
+from scipy.linalg import qr
 
 
 class MPS:
@@ -42,7 +43,8 @@ class MPS:
             A = np.tensordot(As[n], L, axes=(2, 0))  # vL(n-1) pn [vRn], [vLn] vRn -> vL(n-1) pn vRn
             Dnm1, d, Dn = np.shape(A)
             A = np.reshape(A, (Dnm1, d * Dn))  # vL(n-1) pn.vRn
-            L, Q = lq_positive(A)  # vL(n-1) vR(n-1), vL(n-1) pn.vRn
+            Q, R = qr(A.T, mode="economic")  # pn.vRn vL(n-1), vR(n-1) vL(n-1)
+            L, Q = R.T, Q.T  # vL(n-1) vR(n-1), vL(n-1) pn.vRn
             Dnm1_new = np.shape(Q)[0]
             ARs[n] = np.reshape(Q, (Dnm1_new, d, Dn))  # vL(n-1) pn vRn
         return ARs
@@ -80,13 +82,13 @@ class MPS:
     def from_desired_bond_dimension(cls, N, D_max, d=2):
         """Initialize MPS instance from random tensors of maximal bond dimension D_max."""
         As_random = [None] * N
-        As_random[0] = np.random.normal(size=(1, d, D_max)) \
-                       + 1.j * np.random.normal(size=(1, d, D_max))
+        A = np.random.normal(size=(1, d, D_max)) + 1.j * np.random.normal(size=(1, d, D_max))
+        As_random[0] = A / np.linalg.norm(A)
         for n in range(1, N-1):
-            As_random[n] = np.random.normal(size=(D_max, d, D_max)) \
-                           + 1.j * np.random.normal(size=(D_max, d, D_max))
-        As_random[N-1] = np.random.normal(size=(D_max, d, 1)) \
-                         + 1.j * np.random.normal(size=(D_max, d, 1))
+            A = np.random.normal(size=(D_max, d, D_max)) + 1.j * np.random.normal(size=(D_max, d, D_max))
+            As_random[n] = A / np.linalg.norm(A)
+        A = np.random.normal(size=(D_max, d, 1)) + 1.j * np.random.normal(size=(D_max, d, 1))
+        As_random[N-1] = A / np.linalg.norm(A)
         return cls.from_non_canonical_tensors(As_random)
     
     @classmethod

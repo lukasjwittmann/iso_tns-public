@@ -248,7 +248,7 @@ def test_boundary_compression_convergence(Lx, Ly, g, D_max, chi_max_c, dt, N_swe
     return
 
 
-def plot_boundary_compression():
+def plot_boundary_compression_6():
     """After having ran test_boundary_compression_convergence for iso_peps ground state of fixed Lx, 
     Ly, g and varying D_max = 2, ..., 6, plot the energy differences against chi_max_bs. Both for 
     N_sweeps_b = 3 (variational BoundaryCompression) and N_sweeps = None (BoundaryColumnCompression).
@@ -613,6 +613,219 @@ def plot_boundary_compression():
                        r"$D_{\text{max}} = 6$"], \
                loc="center left", \
                bbox_to_anchor=(0.9, 0.55), \
+               title=r"New bulk-weighted boundary compression")
+    # save figures
+    fig.savefig(png_path, dpi=300, bbox_inches="tight")
+    return
+
+
+def plot_boundary_compression(Lx, Ly):
+    """After having ran test_boundary_compression_convergence for iso_peps ground state of fixed Lx, 
+    Ly, g and varying D_max = 2, ..., 6, plot the energy differences against chi_max_bs. Both for 
+    N_sweeps_b = 3 (variational BoundaryCompression) and N_sweeps = None (BoundaryColumnCompression).
+    """
+    script_path = Path(__file__).resolve().parent
+    fig, axes = plt.subplots(1, 1, figsize=(6, 3))
+    png_path = script_path.parent / "data" / "boundary_compression" / f"boundary_compression_{Lx}_{Ly}.png"
+    # g = 3.5
+    g = 3.5
+    if Lx == Ly == 4:
+        E0 = -115.74035475
+    elif Lx == Ly == 5:
+        E0 = -181.21975679
+    elif Lx == Ly == 6:
+        E0 = -261.32772977
+    elif Lx == Ly == 7:
+        E0 = -356.06436454
+    elif Lx == Ly == 8:
+        E0 = -465.42959266
+    elif Lx == Ly == 9:
+        E0 = -589.42349792
+    elif Lx == Ly == 10:
+        E0 = -728.04628166
+    elif Lx == Ly == 15:
+        E0 = -1640.59928393
+    elif Lx == Ly == 20:
+            E0 = -2918.92808769
+    axes.set_title(rf"$L_x = {Lx}$, $L_y = {Ly}$, $g = {g}$")
+    axes.set_ylabel(r"$\frac{\vert E_{\text{bc}} - E_{\text{YB}} \vert}{\vert E_{\text{YB}} \vert}$", fontsize=13)
+    axes.set_ylim(0.5*1e-4, 2*1e-1)
+    # N_sweeps_b = 3 (variational BoundaryCompression)
+    # load data
+    script_path = Path(__file__).resolve().parent
+    pkl_path_2 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{2}_{12}_{3}.pkl"
+    pkl_path_3 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{3}_{18}_{3}.pkl"
+    pkl_path_4 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{4}_{24}_{3}.pkl"
+    pkl_path_5 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{5}_{30}_{3}.pkl"
+    pkl_path_6 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{6}_{36}_{3}.pkl" 
+    chi_max_b_list_2 = None   
+    try:
+        with open(pkl_path_2, "rb") as pkl_file_2:
+            E, chi_max_b_list_2, E_bcc_list_2, trunc_errors_Lhs_bcc_list_2 = pickle.load(pkl_file_2)
+            deltaE_bcc_list_2 = [(E_bcc_2 - E)/np.abs(E0) for E_bcc_2 in E_bcc_list_2]
+    except FileNotFoundError:
+        print("No data available for D_max = 2 (N_sweeps_b = 3).")
+    chi_max_b_list_3 = None   
+    try:
+        with open(pkl_path_3, "rb") as pkl_file_3:
+            E, chi_max_b_list_3, E_bcc_list_3, trunc_errors_Lhs_bcc_list_3 = pickle.load(pkl_file_3)
+            deltaE_bcc_list_3 = [(E_bcc_3 - E)/np.abs(E0) for E_bcc_3 in E_bcc_list_3]
+    except FileNotFoundError:
+        print("No data available for D_max = 3 (N_sweeps_b = 3).")
+    chi_max_b_list_4 = None
+    try:
+        with open(pkl_path_4, "rb") as pkl_file_4:
+            E, chi_max_b_list_4, E_bcc_list_4, trunc_errors_Lhs_bcc_list_4 = pickle.load(pkl_file_4)
+            deltaE_bcc_list_4 = [(E_bcc_4 - E)/np.abs(E0) for E_bcc_4 in E_bcc_list_4]
+    except FileNotFoundError:
+        print("No data available for D_max = 4 (N_sweeps_b = 3).")
+    chi_max_b_list_5 = None
+    try:
+        with open(pkl_path_5, "rb") as pkl_file_5:
+            E, chi_max_b_list_5, E_bcc_list_5, trunc_errors_Lhs_bcc_list_5 = pickle.load(pkl_file_5)
+            deltaE_bcc_list_5 = [(E_bcc_5 - E)/np.abs(E0) for E_bcc_5 in E_bcc_list_5]
+    except FileNotFoundError:
+        print("No data available for D_max = 5 (N_sweeps_b = 3).")
+    chi_max_b_list_6 = None
+    try:
+        with open(pkl_path_6, "rb") as pkl_file_6:
+            E, chi_max_b_list_6, E_bcc_list_6, trunc_errors_Lhs_bcc_list_6 = pickle.load(pkl_file_6)
+            deltaE_bcc_list_6 = [(E_bcc_6 - E)/np.abs(E0) for E_bcc_6 in E_bcc_list_6]
+    except FileNotFoundError:
+        print(rf"No data available for D_max = 6 (N_sweeps_b = 3).")
+    # plot energies
+    handles_vbc = []
+    labels_vbc = []
+    if chi_max_b_list_2 is not None:
+        chi_max_b_list_2_pos, deltE_bcc_list_2_pos, chi_max_b_list_2_neg, deltE_bcc_list_2_neg = separate_pos_neg_values(chi_max_b_list_2, deltaE_bcc_list_2)
+        axes.semilogy(chi_max_b_list_2_pos, deltE_bcc_list_2_pos, ".", color="gold")
+        axes.semilogy(chi_max_b_list_2_neg, np.abs(deltE_bcc_list_2_neg), "x", color="gold")
+        energy_2_bcc_var, = axes.semilogy(chi_max_b_list_2, np.abs(deltaE_bcc_list_2), "--", color="gold")
+        handles_vbc.append(energy_2_bcc_var)
+        labels_vbc.append(r"$D_{\text{max}} = 2$")
+    if chi_max_b_list_3 is not None:
+        chi_max_b_list_3_pos, deltE_bcc_list_3_pos, chi_max_b_list_3_neg, deltE_bcc_list_3_neg = separate_pos_neg_values(chi_max_b_list_3, deltaE_bcc_list_3)
+        axes.semilogy(chi_max_b_list_3_pos, deltE_bcc_list_3_pos, ".", color="yellowgreen")
+        axes.semilogy(chi_max_b_list_3_neg, np.abs(deltE_bcc_list_3_neg), "x", color="yellowgreen")
+        energy_3_bcc_var, = axes.semilogy(chi_max_b_list_3, np.abs(deltaE_bcc_list_3), "--", color="yellowgreen")
+        handles_vbc.append(energy_3_bcc_var)
+        labels_vbc.append(r"$D_{\text{max}} = 3$")
+    if chi_max_b_list_4 is not None:
+        chi_max_b_list_4_pos, deltE_bcc_list_4_pos, chi_max_b_list_4_neg, deltE_bcc_list_4_neg = separate_pos_neg_values(chi_max_b_list_4, deltaE_bcc_list_4)
+        axes.semilogy(chi_max_b_list_4_pos, deltE_bcc_list_4_pos, ".", color="limegreen")
+        axes.semilogy(chi_max_b_list_4_neg, np.abs(deltE_bcc_list_4_neg), "x", color="limegreen")
+        energy_4_bcc_var, = axes.semilogy(chi_max_b_list_4, np.abs(deltaE_bcc_list_4), "--", color="limegreen")
+        handles_vbc.append(energy_4_bcc_var)
+        labels_vbc.append(r"$D_{\text{max}} = 4$")
+    if chi_max_b_list_5 is not None:
+        chi_max_b_list_5_pos, deltE_bcc_list_5_pos, chi_max_b_list_5_neg, deltE_bcc_list_5_neg = separate_pos_neg_values(chi_max_b_list_5, deltaE_bcc_list_5)
+        axes.semilogy(chi_max_b_list_5_pos, deltE_bcc_list_5_pos, ".", color="green")
+        axes.semilogy(chi_max_b_list_5_neg, np.abs(deltE_bcc_list_5_neg), "x", color="green")
+        energy_5_bcc_var, = axes.semilogy(chi_max_b_list_5, np.abs(deltaE_bcc_list_5), "--", color="green")
+        handles_vbc.append(energy_5_bcc_var)
+        labels_vbc.append(r"$D_{\text{max}} = 5$")
+    if chi_max_b_list_6 is not None:
+        chi_max_b_list_6_pos, deltE_bcc_list_6_pos, chi_max_b_list_6_neg, deltE_bcc_list_6_neg = separate_pos_neg_values(chi_max_b_list_6, deltaE_bcc_list_6)
+        axes.semilogy(chi_max_b_list_6_pos, deltE_bcc_list_6_pos, ".", color="darkslategray")
+        axes.semilogy(chi_max_b_list_6_neg, np.abs(deltE_bcc_list_6_neg), "x", color="darkslategray")
+        energy_6_bcc_var, = axes.semilogy(chi_max_b_list_6, np.abs(deltaE_bcc_list_6), "--", color="darkslategray")
+        handles_vbc.append(energy_6_bcc_var)
+        labels_vbc.append(r"$D_{\text{max}} = 6$")
+    # N_sweeps_b = None (BoundaryColumnCompression)
+    # load data
+    script_path = Path(__file__).resolve().parent
+    pkl_path_2 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{2}_{12}_{None}.pkl"
+    pkl_path_3 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{3}_{18}_{None}.pkl"
+    pkl_path_4 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{4}_{24}_{None}.pkl"
+    pkl_path_5 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{5}_{30}_{None}.pkl"
+    pkl_path_6 = script_path.parent / "data" / "boundary_compression" / f"bc_{Lx}_{Ly}_{g}_{6}_{36}_{None}.pkl" 
+    chi_max_b_list_2 = None   
+    try:
+        with open(pkl_path_2, "rb") as pkl_file_2:
+            E, chi_max_b_list_2, E_bcc_list_2, trunc_errors_Lhs_bcc_list_2 = pickle.load(pkl_file_2)
+            deltaE_bcc_list_2 = [(E_bcc_2 - E)/np.abs(E0) for E_bcc_2 in E_bcc_list_2]
+    except FileNotFoundError:
+        print(rf"No data available for D_max = 2 (N_sweeps_b = None).")
+    chi_max_b_list_3 = None   
+    try:
+        with open(pkl_path_3, "rb") as pkl_file_3:
+            E, chi_max_b_list_3, E_bcc_list_3, trunc_errors_Lhs_bcc_list_3 = pickle.load(pkl_file_3)
+            deltaE_bcc_list_3 = [(E_bcc_3 - E)/np.abs(E0) for E_bcc_3 in E_bcc_list_3]
+    except FileNotFoundError:
+        print(rf"No data available for D_max = 3 (N_sweeps_b = None).")
+    chi_max_b_list_4 = None
+    try:
+        with open(pkl_path_4, "rb") as pkl_file_4:
+            E, chi_max_b_list_4, E_bcc_list_4, trunc_errors_Lhs_bcc_list_4 = pickle.load(pkl_file_4)
+            deltaE_bcc_list_4 = [(E_bcc_4 - E)/np.abs(E0) for E_bcc_4 in E_bcc_list_4]
+    except FileNotFoundError:
+        print(rf"No data available for D_max = 4 (N_sweeps_b = None).")
+    chi_max_b_list_5 = None
+    try:
+        with open(pkl_path_5, "rb") as pkl_file_5:
+            E, chi_max_b_list_5, E_bcc_list_5, trunc_errors_Lhs_bcc_list_5 = pickle.load(pkl_file_5)
+            deltaE_bcc_list_5 = [(E_bcc_5 - E)/np.abs(E0) for E_bcc_5 in E_bcc_list_5]
+    except FileNotFoundError:
+        print(rf"No data available for D_max = 5 (N_sweeps_b = None).")
+    chi_max_b_list_6 = None
+    try:
+        with open(pkl_path_6, "rb") as pkl_file_6:
+            E, chi_max_b_list_6, E_bcc_list_6, trunc_errors_Lhs_bcc_list_6 = pickle.load(pkl_file_6)
+            deltaE_bcc_list_6 = [(E_bcc_6 - E)/np.abs(E0) for E_bcc_6 in E_bcc_list_6]
+    except FileNotFoundError:
+        print(rf"No data available for D_max = 6 (N_sweeps_b = None).")
+    # plot energies
+    handles_bwbc = []
+    labels_bwbc = []
+    if chi_max_b_list_2 is not None:
+        chi_max_b_list_2_pos, deltE_bcc_list_2_pos, chi_max_b_list_2_neg, deltE_bcc_list_2_neg = separate_pos_neg_values(chi_max_b_list_2, deltaE_bcc_list_2)
+        axes.semilogy(chi_max_b_list_2_pos, deltE_bcc_list_2_pos, ".", color="gold")
+        axes.semilogy(chi_max_b_list_2_neg, np.abs(deltE_bcc_list_2_neg), "x", color="gold")
+        energy_2_bcc_col, = axes.semilogy(chi_max_b_list_2, np.abs(deltaE_bcc_list_2), "-", color="gold")
+        handles_bwbc.append(energy_2_bcc_col)
+        labels_bwbc.append(r"$D_{\text{max}} = 2$")
+    # plot energies
+    if chi_max_b_list_3 is not None:
+        chi_max_b_list_3_pos, deltE_bcc_list_3_pos, chi_max_b_list_3_neg, deltE_bcc_list_3_neg = separate_pos_neg_values(chi_max_b_list_3, deltaE_bcc_list_3)
+        axes.semilogy(chi_max_b_list_3_pos, deltE_bcc_list_3_pos, ".", color="yellowgreen")
+        axes.semilogy(chi_max_b_list_3_neg, np.abs(deltE_bcc_list_3_neg), "x", color="yellowgreen")
+        energy_3_bcc_col, = axes.semilogy(chi_max_b_list_3, np.abs(deltaE_bcc_list_3), "-", color="yellowgreen")
+        handles_bwbc.append(energy_3_bcc_col)
+        labels_bwbc.append(r"$D_{\text{max}} = 3$")
+    # violet indigo
+    if chi_max_b_list_4 is not None:
+        chi_max_b_list_4_pos, deltE_bcc_list_4_pos, chi_max_b_list_4_neg, deltE_bcc_list_4_neg = separate_pos_neg_values(chi_max_b_list_4, deltaE_bcc_list_4)
+        axes.semilogy(chi_max_b_list_4_pos, deltE_bcc_list_4_pos, ".", color="limegreen")
+        axes.semilogy(chi_max_b_list_4_neg, np.abs(deltE_bcc_list_4_neg), "x", color="limegreen")
+        energy_4_bcc_col, = axes.semilogy(chi_max_b_list_4, np.abs(deltaE_bcc_list_4), "-", color="limegreen")
+        handles_bwbc.append(energy_4_bcc_col)
+        labels_bwbc.append(r"$D_{\text{max}} = 4$")
+    if chi_max_b_list_5 is not None:
+        chi_max_b_list_5_pos, deltE_bcc_list_5_pos, chi_max_b_list_5_neg, deltE_bcc_list_5_neg = separate_pos_neg_values(chi_max_b_list_5, deltaE_bcc_list_5)
+        axes.semilogy(chi_max_b_list_5_pos, deltE_bcc_list_5_pos, ".", color="green")
+        axes.semilogy(chi_max_b_list_5_neg, np.abs(deltE_bcc_list_5_neg), "x", color="green")
+        energy_5_bcc_col, = axes.semilogy(chi_max_b_list_5, np.abs(deltaE_bcc_list_5), "-", color="green")
+        handles_bwbc.append(energy_5_bcc_col)
+        labels_bwbc.append(r"$D_{\text{max}} = 5$")
+    if chi_max_b_list_6 is not None:
+        chi_max_b_list_6_pos, deltE_bcc_list_6_pos, chi_max_b_list_6_neg, deltE_bcc_list_6_neg = separate_pos_neg_values(chi_max_b_list_6, deltaE_bcc_list_6)
+        axes.semilogy(chi_max_b_list_6_pos, deltE_bcc_list_6_pos, ".", color="darkslategray")
+        axes.semilogy(chi_max_b_list_6_neg, np.abs(deltE_bcc_list_6_neg), "x", color="darkslategray")
+        energy_6_bcc_col, = axes.semilogy(chi_max_b_list_6, np.abs(deltaE_bcc_list_6), "-", color="darkslategray")
+        handles_bwbc.append(energy_6_bcc_col)
+        labels_bwbc.append(r"$D_{\text{max}} = 6$")
+    # ticks and legends 
+    axes.set_xticks(chi_max_b_list_2)
+    axes.set_xticklabels(chi_max_b_list_2)
+    fig.legend(handles=handles_vbc, \
+               labels=labels_vbc, \
+               loc="center left", \
+               bbox_to_anchor=(0.9, 0.7), \
+               title=r"Variational boundary compression")
+    fig.legend(handles=handles_bwbc, \
+               labels=labels_bwbc, \
+               loc="center left", \
+               bbox_to_anchor=(0.9, 0.3), \
                title=r"New bulk-weighted boundary compression")
     # save figures
     fig.savefig(png_path, dpi=300, bbox_inches="tight")

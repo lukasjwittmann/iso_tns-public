@@ -6,7 +6,7 @@ import numpy as np
 from .c_mps import MPS, Sweep
 from .d_expectation_values import get_expectation_value_sum, \
                                   get_flipped_As, get_flipped_hs, get_flipped_Cs, get_flipped_mps
-from .e_boundary_compression import BoundaryCompression, get_compressed_boundaries
+from .e_boundary_compression import BoundaryCompression, BoundaryColumnCompression, get_compressed_boundaries
 from .f_column_dmrg import ColumnDMRG      
 
 
@@ -173,7 +173,7 @@ class DMRGSquared(Sweep):
         elif self.bc == "column":
             _, Rhs, _, _ = get_compressed_boundaries(self.psi, self.h_mpos[1:-1], self.chi_max_b, \
                                                      N_sweeps_b=None, combine_hs=True)
-            self.Rhs[0] = Rhs[-1]
+            self.Rhs[:-2] = Rhs[::-1]
         return
 
     def update_Env(self, n, sweep_dir):
@@ -228,15 +228,55 @@ class DMRGSquared(Sweep):
                 self.Rhs[n-1] = Rh_updated
             return
         elif self.bc == "column":
-            Lhs, Rhs, _, _ = get_compressed_boundaries(self.psi, self.h_mpos[1:-1], self.chi_max_b, \
-                                                       N_sweeps_b=None, combine_hs=True)
+            if n == 0 or n == self.N_centers-1:
+                return
             if sweep_dir == "forth":
-                if Lhs is not None:
-                    self.Lhs[n+1] = Lhs[-1]
-                if Rhs is not None:
-                    self.Rhs[n+1] = Rhs[-1]
-            if sweep_dir == "back":
-                if Lhs is not None:
-                    self.Lhs[n-1] = Lhs[-1]
-                if Rhs is not None:
-                    self.Rhs[n-1] = Rhs[-1]
+                ALs_updated = self.psi.get_ALs(n+1)
+                Cs_updated = self.psi.get_Cs(n+1)
+                if n%2 == 1:
+                    boundary_compression = BoundaryColumnCompression(self.psi.get_ALs(n), \
+                                                                     ALs_updated, \
+                                                                     self.h_mpos[n], \
+                                                                     self.Lhs[n], \
+                                                                     Cs_updated, \
+                                                                     "left", \
+                                                                     self.chi_max_b)
+                elif n%2 == 0:
+                    boundary_compression = BoundaryColumnCompression(get_flipped_As(self.psi.get_ALs(n)), \
+                                                                     get_flipped_As(ALs_updated), \
+                                                                     get_flipped_hs(self.h_mpos[n]), \
+                                                                     get_flipped_mps(self.Lhs[n]), \
+                                                                     get_flipped_Cs(Cs_updated), \
+                                                                     "left", \
+                                                                     self.chi_max_b)                     
+                
+                Lh_updated = boundary_compression.run()
+                if n%2 == 0:
+                    Lh_updated = get_flipped_mps(Lh_updated)
+                self.Lhs[n+1] = Lh_updated
+                return
+            elif sweep_dir == "back":
+                ARs_updated = self.psi.get_ARs(n-1)
+                Cs_updated = self.psi.get_Cs(n-1)
+                if n%2 == 1:
+                    boundary_compression = BoundaryColumnCompression(get_flipped_As(self.psi.get_ARs(n)), \
+                                                                     get_flipped_As(ARs_updated), \
+                                                                     get_flipped_hs(self.h_mpos[n]), \
+                                                                     get_flipped_mps(self.Rhs[n]), \
+                                                                     get_flipped_Cs(Cs_updated), \
+                                                                     "right", \
+                                                                     self.chi_max_b)                   
+                elif n%2 == 0:
+                    boundary_compression = BoundaryColumnCompression(self.psi.get_ARs(n), \
+                                                                     ARs_updated, \
+                                                                     self.h_mpos[n], \
+                                                                     self.Rhs[n], \
+                                                                     Cs_updated, \
+                                                                     "right", \
+                                                                     self.chi_max_b)                 
+                
+                Rh_updated = boundary_compression.run()
+                if n%2 == 1:
+                    Rh_updated = get_flipped_mps(Rh_updated)
+                self.Rhs[n-1] = Rh_updated
+            return

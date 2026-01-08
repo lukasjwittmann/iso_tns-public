@@ -21,7 +21,7 @@ Parts 1) and 2) reproduce well-established methods, while part 3) contains a new
 - Column MPO Hamiltonian `b_model.py`
 - Variational and **bulk-weighted boundary compression** `e_boundary_compression.py`
 - $\text{DMRG}^2$ [7] `g_dmrg2.py`
-- **Variational quasiparticle excitations** `h_excitations2_overlap.py` and `i_excitations2.py`
+- **Variational quasiparticle excitations** `j_excitations2_middle.py`
 
 The `experiments` folder contains benchmarks on the Transverse field Ising (TFI) model. 
 Results are stored in the `data` directory.

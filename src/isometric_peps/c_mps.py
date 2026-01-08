@@ -353,6 +353,13 @@ class Sweep:
             if n > 0:
                 self.update_Env(n, sweep_dir="back")
 
+    def quarter_sweep(self):
+        for n in range(self.N_centers//2):
+            theta_guess = self.get_theta_guess(n, sweep_dir="forth")
+            theta_updated = self.get_theta_updated(n, theta_guess)
+            self.update_psi(n, theta_updated, sweep_dir="forth")
+            self.update_Env(n, sweep_dir="forth")
+
     def get_theta_guess(self, n, sweep_dir):
         raise NotImplementedError("Method get_theta_guess() not implemented in base class Sweep.")
 

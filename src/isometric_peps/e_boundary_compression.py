@@ -443,7 +443,7 @@ class BoundaryColumnCompression(BoundaryColumnCompressionBaseClass):
         Bh2s = None
         Bh2Cs = None
         if Bh1 is not None:
-            Bh1_Ms = Bh1.Ms
+            Bh1_Ms = Bh1.copy().Ms
             Bh1_Ms[0] *= Bh1.norm
             Bh2s = get_Bhs_transfer(Bh1_Ms, A2s)
             Bh2Cs = get_BhCs_transfer(Bh1_Ms, A2s, CCdaggers)

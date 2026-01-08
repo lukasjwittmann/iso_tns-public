@@ -893,17 +893,16 @@ class ExcitedIsometricPEPS:
         return iso_peps_single_array
     
     @classmethod
-    def optimized_from_excited_wavefunction(cls, iso_peps0, psi):
+    def optimized_from_excited_wavefunction(cls, D_max, chi_max_c, ALs, ARs, CDs, CCs, CUs, psi):
         """Excite the ground state iso_peps0 by optimizing each perturbation from the overlap with 
         a full wavefunction."""
         print("Optimize excited isoPEPS from full wavefunction psi.")
         # lattice parameters
-        Lx = iso_peps0.Lx
-        Ly = iso_peps0.Ly
-        Nx = 2 * Lx
+        Nx = len(ALs)
+        Lx = Nx // 2
+        Ly = len(ALs[0])
         Ny = 2 * Ly - 1
         # ground state iso_peps -> excited iso_peps
-        ALs, ARs, CDs, CCs, CUs = extract_all_isometric_configurations(iso_peps0)
         print("excitations AL-VL-X-AR:")
         _, shape_Xs, _, shape_vecX = get_shape_Xs_vecX(ALs, CDs, CCs, CUs)
         Xs = [[None] * Ny for _ in range(Nx)]
@@ -946,26 +945,25 @@ class ExcitedIsometricPEPS:
         print(f"=> |<psi|iso_peps(X,X_column)>| = (||X||^2 + ||X_column||^2)^1/2 = {norm}.") 
         vecX /= norm
         vecX_column /= norm    
-        excited_iso_peps = cls(iso_peps0.D_max, iso_peps0.chi_max, ALs, ARs, CDs, CCs, CUs, \
+        excited_iso_peps = cls(D_max, chi_max_c, ALs, ARs, CDs, CCs, CUs, \
                                vecX, vecX_column)
         return excited_iso_peps
     
     @classmethod
-    def optimized_from_excited_mps(cls, iso_peps0, emps):
+    def optimized_from_excited_mps(cls, D_max, chi_max_c, ALs, ARs, CDs, CCs, CUs, emps):
         """Excite the ground state iso_peps0 by optimizing each perturbation from the overlap with 
         an excited mps, itself being a sum over local perturbations."""
         print("Optimize excited isoPEPS from MPS.")
         # lattice parameters
-        Lx = iso_peps0.Lx
-        Ly = iso_peps0.Ly
-        Nx = 2 * Lx
+        Nx = len(ALs)
+        Lx = Nx // 2
+        Ly = len(ALs[0])
         Ny = 2 * Ly - 1
         N = 2 * Lx * Ly
         # excited mps
         assert emps.N == N
         Ms_single_list = emps.get_all_single_canonical_configurations()
         # ground state iso_peps -> excited iso_peps
-        ALs, ARs, CDs, CCs, CUs = extract_all_isometric_configurations(iso_peps0)
         print("excitations AL-VL-X-AR:")
         _, shape_Xs, _, shape_vecX = get_shape_Xs_vecX(ALs, CDs, CCs, CUs)
         Xs = [[None] * Ny for _ in range(Nx)]
@@ -1019,7 +1017,7 @@ class ExcitedIsometricPEPS:
         print(f"=> |<mps|iso_peps(X,X_column)>| = (||X||^2 + ||X_column||^2)^1/2 = {norm}") 
         vecX /= norm
         vecX_column /= norm    
-        excited_iso_peps = cls(iso_peps0.D_max, iso_peps0.chi_max, ALs, ARs, CDs, CCs, CUs, \
+        excited_iso_peps = cls(D_max, chi_max_c, ALs, ARs, CDs, CCs, CUs, \
                                vecX, vecX_column)
         return excited_iso_peps, norm
     

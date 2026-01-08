@@ -4,6 +4,7 @@ import numpy as np
 from scipy.sparse.linalg import LinearOperator, eigsh
 from scipy.linalg import null_space
 from functools import reduce
+import opt_einsum as oe
 
 from .a_mps import MPS
 
@@ -89,6 +90,12 @@ class VariationalQuasiparticleExcitationEngine:
             return es, empss
         else:
             H_eff = Heff(self.Ws, self.ALs, self.ARs)
+            """
+            T, phis = lanczos(vecX_guess, H_eff, N, stabilize=True)
+            V = np.array(phis).transpose()
+            Es, us = np.linalg.eigh(T)
+            vecXs = np.dot(V, us)
+            """
             Es, vecXs = eigsh(H_eff, k, which="SA")
             empss = [ExcitedMPS(self.ALs, self.ARs, vecXs[:, i]) for i in range(k)]
             es = [E - self.E0 for E in Es]
@@ -236,6 +243,7 @@ class Heff(LinearOperator):
         self.shape_Xs, self.shape_vecX = get_shape_Xs_vecX(ALs)  
         self.shape = (self.shape_vecX, self.shape_vecX)
         self.dtype = reduce(np.promote_types, [Ws[0].dtype, ALs[0].dtype, ARs[0].dtype])
+        self.matvec_counter = 0
     
     def get_Ls(self):
         """Compute the left environments of Heff not containing any B tensor.
@@ -386,6 +394,8 @@ class Heff(LinearOperator):
         return RBs  # [RB[2], ..., RB[N], None]
 
     def _matvec(self, vecX):
+        self.matvec_counter += 1
+        print(f"matvec {self.matvec_counter}...")
         Ws = self.Ws  # [W[1], ..., W[N]]
         ALs = self.ALs  # [AL[1], ..., AL[N]]
         ARs = self.ARs  # [AR[1], ..., AR[N]]
@@ -750,9 +760,7 @@ class ExcitedMPS:
         self.ARs = ARs 
         self.shape_Xs, self.shape_vecX = get_shape_Xs_vecX(ALs)
         self.vecX = vecX
-        self.Xs = vec_to_tensors(vecX, self.shape_Xs)
         self.VLs = get_VLs(self.ALs)
-        self.Bs = Xs_to_Bs(self.Xs, self.VLs)
         self.N = len(self.ALs)
         self.d = np.shape(self.ALs[0])[1]
 
@@ -762,25 +770,70 @@ class ExcitedMPS:
                           self.vecX.copy())
 
     def print_all_excitation_norms(self):
+        Xs = vec_to_tensors(self.vecX, self.shape_Xs)
         for n in range(self.N):
-            X = self.Xs[n]
+            X = Xs[n]
             if X is not None:
                 print(f"> {np.shape(X)} excitation parameters at site {n} with ||X_{n}||^2 = {np.linalg.norm(X)**2}.")
         print(f"-> {self.shape_vecX} excitation parameters with ||X||^2 = {np.linalg.norm(self.vecX)**2}.")
         return
 
     def get_all_single_canonical_configurations(self):
+        Xs = vec_to_tensors(self.vecX, self.shape_Xs)
+        Bs = Xs_to_Bs(Xs, self.VLs)
         As_list = [None] * self.N
         for nc in range(self.N):
-            if self.Bs[nc] is not None:
+            if Bs[nc] is not None:
                 As = [None] * self.N
                 for n in range(nc):
                     As[n] = self.ALs[n].copy()
-                As[nc] = self.Bs[nc].copy()
+                As[nc] = Bs[nc].copy()
                 for n in range(nc+1, self.N):
                     As[n] = self.ARs[n].copy()
                 As_list[nc] = As
         return As_list
+    
+    def get_single_mps_representation(self):
+        Xs = vec_to_tensors(self.vecX, self.shape_Xs)
+        Bs = Xs_to_Bs(Xs, self.VLs)
+        Bs_sum = []
+        # site 1
+        AL = self.ALs[0].copy()
+        chi_l, d, chi_r = np.shape(AL)
+        assert chi_l == 1
+        B_sum = np.zeros(shape=(1, d, 2*chi_r), dtype=AL.dtype)
+        B_sum[:, :, :chi_r] = AL
+        if Bs[0] is not None:
+            B = Bs[0].copy()
+            assert np.shape(AL) == np.shape(B)
+            B_sum[:, :, chi_r:] = B
+        Bs_sum.append(B_sum)
+        # sites 2, ..., N-1
+        for n in range(1, self.N-1):
+            AL = self.ALs[n].copy()
+            AR = self.ARs[n].copy()
+            assert np.shape(AL) == np.shape(AR)
+            chi_l, d, chi_r = np.shape(AL)
+            B_sum = np.zeros(shape=(2*chi_l, d, 2*chi_r), dtype=AL.dtype)
+            B_sum[:chi_l, :, :chi_r] = AL
+            B_sum[chi_l:, :, chi_r:] = AR
+            if Bs[n] is not None:
+                B = Bs[n].copy()
+                assert np.shape(AL) == np.shape(B) 
+                B_sum[:chi_l, :, chi_r:] = B
+            Bs_sum.append(B_sum)
+        # site N
+        AR = self.ARs[-1].copy()
+        chi_l, d, chi_r = np.shape(AR)
+        assert chi_r == 1
+        B_sum = np.zeros(shape=(2*chi_l, d, 1), dtype=AR.dtype)
+        B_sum[chi_l:, :, :] = AR
+        if Bs[-1] is not None:
+            B = Bs[-1].copy()
+            assert np.shape(AR) == np.shape(B) 
+            B_sum[:chi_l, :, :] = B  
+        Bs_sum.append(B_sum)
+        return Bs_sum
 
     def get_mpo_expectation_value(self, Ws):
         mpo_eff = Heff(Ws, self.ALs, self.ARs)
@@ -855,7 +908,8 @@ class ExcitedMPS:
             return rh
         ALs = self.ALs  # [AL[1], ..., AL[N]]
         ARs = self.ARs  # [AR[1], ..., AR[N]]
-        Bs = self.Bs  # [B[1], ..., B[N]]
+        Xs = vec_to_tensors(self.vecX, self.shape_Xs)
+        Bs = Xs_to_Bs(Xs, self.VLs)  # [B[1], ..., B[N]]
         N = self.N
         # LBB[n]: both Bs on the left of site n
         LBBs = [None] * (N-1)  #[None, LBB[1], ..., LBB[N-2]]
@@ -966,3 +1020,121 @@ class ExcitedMPS:
                 E_bond += np.tensordot(lh, RBBs[n], axes=((0, 1), (0, 1)))
             E_bonds.append(np.real_if_close(E_bond))
         return E_bonds
+    
+
+def vecX_from_non_orthogonal_Bs(ALs, ARs, Bs):
+    assert len(ALs) == len(ARs) == len(Bs)
+    N = len(ALs)
+    VLs = get_VLs(ALs)
+    shape_Xs, shape_vecX = get_shape_Xs_vecX(ALs)
+    LBs = [None] * N
+    RBs = [None] * N
+    Xs = [None] * N
+    def add_environments(E_new, E_transfer):
+        if E_new is None:
+            return E_transfer
+        if E_transfer is None:
+            return E_new
+        return E_new + E_transfer
+    # compute LBs
+    for n in range(N):
+        LB_new = None
+        LB_transfer = None
+        if Bs[n] is not None:
+            LB_new = oe.contract("abc,abd->cd", \
+                                 Bs[n], np.conj(ALs[n]))
+        if n > 0 and LBs[n-1] is not None:
+            LB_transfer = oe.contract("ab,acd,bce->de", \
+                                      LBs[n-1], ARs[n], np.conj(ALs[n]))
+        LBs[n] = add_environments(LB_new, LB_transfer)
+    # compute RBs
+    for n in reversed(range(N)):
+        RB_new = None
+        RB_transfer = None
+        if Bs[n] is not None:
+            RB_new = oe.contract("abc,dbc->ad", \
+                                 Bs[n], np.conj(ARs[n]))
+        if n < N-1 and RBs[n+1] is not None:
+            RB_transfer = oe.contract("ab,cda,edb->ce", \
+                                      RBs[n+1], ALs[n], np.conj(ARs[n]))
+        RBs[n] = add_environments(RB_new, RB_transfer)
+    # compute Xs
+    for n in range(N):
+        if VLs[n] is not None:
+            X = np.zeros(shape_Xs[n], dtype=np.complex128)
+            if n > 0 and LBs[n-1] is not None:
+                X += oe.contract("ab,acd,bce->ed", \
+                                 LBs[n-1], ARs[n], np.conj(VLs[n]))
+            if Bs[n] is not None:
+                X += oe.contract("abc,abd->dc", \
+                                 Bs[n], np.conj(VLs[n]))
+            Xs[n] = X
+    vecX = tensors_to_vec(Xs, shape_vecX)
+    vecX /= np.linalg.norm(vecX)
+    return vecX
+
+
+def Bs_from_spin_flip(mps, k, bc="periodic", direction="x"):
+    # choose coefficients
+    if bc == "periodic":
+        cs = [np.exp(1j * 2 * np.pi * k * n / mps.N) / np.sqrt(mps.N) for n in range(1, mps.N+1)] 
+    elif bc == "open":
+        cs = [np.sin(np.pi * k * n / (mps.N+1)) * np.sqrt(2 / (mps.N+1)) for n in range(1, mps.N+1)] 
+    # choose operator
+    if direction == "x":
+        op = np.array([[0., 1.], [1., 0.]])
+    elif direction == "y":
+        op = np.array([[0., -1.j], [1.j, 0.]])
+    elif direction == "z":
+        op = np.array([[1., 0.], [0., -1.]])
+    # compute Bs
+    ALs, ARs, Cs = MPS.to_canonical_form(mps.ARs)
+    Bs = [None] * mps.N
+    for n in range(mps.N):
+        Bs[n] = cs[n] * oe.contract("ab,bcd,ec->aed", \
+                                    Cs[n], ARs[n], op)
+    return Bs
+
+
+def t_to_p(t, N):
+    """For a translation eigenvalue t = e^{i * (2pi/N) * p}, compute the integer momentum p."""
+    return N/(2 * np.pi) * np.angle(t)
+
+def lanczos(phi0, H, N=200, stabilize=False):
+    if phi0.ndim != 1:
+        raise ValueError("phi0 should be a vector")
+    if H.shape[1] != phi0.shape[0]:
+        raise ValueError("shape of H does not match length of phi0")
+    
+    phis = []
+    T = np.zeros((N, N))
+    
+    beta = 0
+    phi0 = phi0 / np.linalg.norm(phi0)
+    phis.append(phi0)
+    phi = H._matvec(phi0) - beta   #@ gives matrix product for both dense and sparse
+    alpha = np.inner(phi0.conj(),phi).real
+    T[0,0] = alpha
+    
+    phi = phi-alpha*phis[-1]
+    
+    for n in range(1,N):
+        beta = np.linalg.norm(phi)
+        if beta<1.e-13:
+            print("lanczos terminated early after n={n:d} steps".format(n=n))
+            T = T[:n,:n]
+            break
+        phi /= beta
+        if stabilize:
+            for vec in phis:
+                phi -= vec*np.inner(vec.conj(),phi)
+            phi /= np.linalg.norm(phi)
+        phis.append(phi)
+        phi = H._matvec(phi)-beta*phis[-2]
+        alpha = np.inner(phis[-1].conj(),phi).real
+        T[n,n] = alpha
+        T[n-1,n] = T[n,n-1] = beta
+        
+        phi = phi-alpha*phis[-1]
+    
+    return T,phis   #phis has krylov basis states as rows

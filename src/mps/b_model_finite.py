@@ -230,11 +230,10 @@ class TFIModelFinite:
             raise ValueError(f"The boundary conditions (bc) must be either \"open\" or \"periodic\".")
         return Ws
     
-    def get_bond_mpo(self, n, m):
+    def get_bond_mpo(self, n, m, g_n, g_m):
         """Generate the TFI Hamiltonian as a matrix product operator."""
         N = self.N
         J = self.J
-        g = self.g / 2
         Id = self.Id
         sigma_x = self.sigma_x
         sigma_z = self.sigma_z
@@ -248,7 +247,7 @@ class TFIModelFinite:
         W = np.zeros((1, 3, 2, 2))
         W[0, 0] = Id
         W[0, 1] = sigma_x
-        W[0, 2] = - g * sigma_z
+        W[0, 2] = - g_n * sigma_z
         Ws[n] = W 
         # n < l < m
         for l in range(n+1, m):
@@ -259,7 +258,7 @@ class TFIModelFinite:
             Ws[l] = W
         # l = m
         W = np.zeros((3, 1, 2, 2))
-        W[0, 0] = - g * sigma_z
+        W[0, 0] = - g_m * sigma_z
         W[1, 0] = - J * sigma_x
         W[2, 0] = Id
         Ws[m] = W
